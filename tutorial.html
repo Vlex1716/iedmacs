@@ -1,0 +1,2390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-08-23 Tue 00:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="aretaro" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org1b19865">1. C</a>
+<ul>
+<li><a href="#org6cf8575">1.1. data type</a></li>
+<li><a href="#org1e9c55f">1.2. Compilation</a></li>
+<li><a href="#org92ca586">1.3. functions</a>
+<ul>
+<li><a href="#org116a294">1.3.1. fopen()</a></li>
+<li><a href="#orgf85d689">1.3.2. atoi()</a></li>
+<li><a href="#org26e4364">1.3.3. fscanf()</a></li>
+<li><a href="#org45cd040">1.3.4. malloc()</a></li>
+<li><a href="#org6059208">1.3.5. toupper()</a></li>
+<li><a href="#orgb377f5b">1.3.6. fork()</a></li>
+<li><a href="#orgb5698b3">1.3.7. fprintf()</a></li>
+<li><a href="#org5c97f47">1.3.8. strtok()</a></li>
+<li><a href="#org0c96b11">1.3.9. strdup()</a></li>
+<li><a href="#orgafa6f61">1.3.10. rand()</a></li>
+</ul>
+</li>
+<li><a href="#org46435c6">1.4. Fichiers</a>
+<ul>
+<li><a href="#org7c87d09">1.4.1. lecture depuis un flux de texte</a></li>
+</ul>
+</li>
+<li><a href="#org1fcdba6">1.5. Programs examples</a>
+<ul>
+<li><a href="#orgdd1ffcd">1.5.1. </a></li>
+</ul>
+</li>
+<li><a href="#org9133c24">1.6. Books</a></li>
+<li><a href="#orgccee9a6">1.7. tutorial</a>
+<ul>
+<li><a href="#org9e26f4a">1.7.1. freeCodeCamp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4e67c80">2. Discord</a></li>
+<li><a href="#org6079928">3. Java</a>
+<ul>
+<li><a href="#org7fa7a83">3.1. Compilation et exécution</a></li>
+<li><a href="#org0308601">3.2. Delimiter</a></li>
+</ul>
+</li>
+<li><a href="#orgdfb5eee">4. Lisp</a>
+<ul>
+<li><a href="#org1301e73">4.1. commands</a></li>
+<li><a href="#orgfd7b3a4">4.2. exemples and exercices</a>
+<ul>
+<li><a href="#orgc1ffbe6">4.2.1. (GNU common lisp: features and function)</a></li>
+</ul>
+</li>
+<li><a href="#org0328eb5">4.3. Common lisp</a>
+<ul>
+<li><a href="#org1161e74">4.3.1. toolkit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org63dafe7">5. Python</a>
+<ul>
+<li><a href="#orgd478011">5.1. launch a program for terminal</a>
+<ul>
+<li><a href="#org1281266">5.1.1. <span class="done DONE">DONE</span> [cx19.1]​</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3a217d6">6. Shell</a>
+<ul>
+<li><a href="#org0a656c2">6.1. backup and <i>.tar</i> files</a>
+<ul>
+<li><a href="#org6389226">6.1.1. untar file</a></li>
+</ul>
+</li>
+<li><a href="#org14f05b1">6.2. commands</a>
+<ul>
+<li><a href="#org995e229">6.2.1. cat</a></li>
+<li><a href="#orgfcd99e6">6.2.2. cd</a></li>
+<li><a href="#org7e4774a">6.2.3. find</a></li>
+<li><a href="#orgfe4cf97">6.2.4. grep</a></li>
+<li><a href="#orgaf8a54e">6.2.5. kill, pkill</a></li>
+<li><a href="#org16bd177">6.2.6. sed</a></li>
+<li><a href="#org6710797">6.2.7. less &amp; more</a></li>
+<li><a href="#org137b123">6.2.8. wc (word count)</a></li>
+<li><a href="#orgf7d7432">6.2.9. rm</a></li>
+</ul>
+</li>
+<li><a href="#org33104ff">6.3. create a mutiple line file</a></li>
+<li><a href="#org1a15ba6">6.4. create a routine</a></li>
+<li><a href="#org34bff9b">6.5. environnement</a></li>
+<li><a href="#org21e1f1d">6.6. redirection (&gt;, &gt;&gt;, 2&gt;&amp;1, 2&gt;&gt;)</a></li>
+<li><a href="#org64a85e8">6.7. uninstall a program or a package</a></li>
+<li><a href="#orgcf76f3d">6.8. $PATH</a>
+<ul>
+<li><a href="#org3d28072">6.8.1. Add a new permanent path to PATH</a></li>
+<li><a href="#org26f8c92">6.8.2. Add a new path temporaly</a></li>
+</ul>
+</li>
+<li><a href="#orga46175f">6.9. Chromebook</a></li>
+<li><a href="#orgf56aa97">6.10. Search</a>
+<ul>
+<li><a href="#org09746b0">6.10.1. in history</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9bda25e">7. emacs/spacemacs</a>
+<ul>
+<li><a href="#org2a41d0f">7.1. auto-fill-mode</a></li>
+<li><a href="#org522636e">7.2. open a file</a></li>
+<li><a href="#org37e553a">7.3. Help</a></li>
+<li><a href="#org9bd6905">7.4. eww</a></li>
+<li><a href="#org044742b">7.5. multiple cursors</a>
+<ul>
+<li><a href="#orgbd1dd33">7.5.1. <span class="todo TODO">TODO</span> remove multiple cursors option <code>[0%]</code></a></li>
+</ul>
+</li>
+<li><a href="#orgc896de1">7.6. line numbers</a></li>
+<li><a href="#org1faf696">7.7. binding keys</a></li>
+<li><a href="#orgc8e0bb3">7.8. Buffer</a></li>
+<li><a href="#org6b95c78">7.9. web browser with eww</a></li>
+<li><a href="#org5d7a977">7.10. DocView</a></li>
+<li><a href="#org2e96f4e">7.11. Search</a>
+<ul>
+<li><a href="#orgfb30b45">7.11.1. search and replace</a></li>
+</ul>
+</li>
+<li><a href="#orgba07b32">7.12. Shortcuts cheatsheets</a>
+<ul>
+<li><a href="#orgffd2736">7.12.1. Useful Spacemacs commands</a></li>
+<li><a href="#orgc2d7ec1">7.12.2. Useful Vim key bindings</a></li>
+</ul>
+</li>
+<li><a href="#orgf553943">7.13. pdf-tools</a></li>
+<li><a href="#org1f82258">7.14. package</a>
+<ul>
+<li><a href="#orga454350">7.14.1. undo-tree <b><b>*</b></b></a></li>
+<li><a href="#org84b60a6">7.14.2. try <b><b>*</b></b></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org69cd3ad">8. Vim</a></li>
+<li><a href="#orgddbb5a5">9. org-mode</a>
+<ul>
+<li><a href="#org14775ac">9.1. Checkboxes</a></li>
+<li><a href="#org0bea657">9.2. Header</a>
+<ul>
+<li><a href="#orgc4ace0e">9.2.1. #+STARTUP (initial visibility)</a></li>
+<li><a href="#org7cdf6e1">9.2.2. #+TODO</a></li>
+<li><a href="#orgfc8419d">9.2.3. #+SETUPFILE</a></li>
+</ul>
+</li>
+<li><a href="#orge1b404b">9.3. Hyperlink</a></li>
+<li><a href="#org59ac51b">9.4. Latex</a>
+<ul>
+<li><a href="#org914b19a">9.4.1. en-tête du document</a></li>
+<li><a href="#org399939d">9.4.2. table of contents</a></li>
+<li><a href="#org538e83a">9.4.3. commentaires</a></li>
+<li><a href="#orgd29906d">9.4.4. les formules</a></li>
+<li><a href="#orgb848916">9.4.5. footnotes</a></li>
+<li><a href="#org606f492">9.4.6. image</a></li>
+</ul>
+</li>
+<li><a href="#org4f03103">9.5. Motion</a></li>
+<li><a href="#org6d55fef">Properties</a></li>
+<li><a href="#org67630fb">9.6. Structures</a>
+<ul>
+<li><a href="#org7fe2f52">9.6.1. Code</a></li>
+</ul>
+</li>
+<li><a href="#orgd08e2a4">9.7. Special symbols</a></li>
+<li><a href="#orged880f1">9.8. Table</a></li>
+<li><a href="#org3fc4a10">9.9. Tag</a></li>
+<li><a href="#org4b58ffb">9.10. Tasks</a></li>
+<li><a href="#orgc4a0b65">9.11. Text bold, italic, etc</a></li>
+<li><a href="#orgcd9a70b">9.12. Titles &amp; lists</a>
+<ul>
+<li><a href="#org1326afd">9.12.1. Titles</a></li>
+<li><a href="#org24072ae">9.12.2. Lists</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org24ef332">10. zathura</a></li>
+<li><a href="#org02262c7">11. Tasks</a>
+<ul>
+<li><a href="#org58b5fda">11.1. <span class="done DONE">DONE</span> Start new org file tutorial</a></li>
+<li><a href="#orgdec6f62">11.2. <span class="todo TODO">TODO</span> apprendre à s'en servir<code>[3/5]</code><code>[60%]</code></a>
+<ul>
+<li><a href="#orgbf8a3e8">11.2.1. <span class="done CANCELLED">CANCELLED</span> finir le tuto</a></li>
+<li><a href="#org5d2db45">11.2.2. <span class="todo TODO">TODO</span> lire tout le fichier</a></li>
+<li><a href="#org90a6822">11.2.3. <span class="done DONE">DONE</span> un truc a faire&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_work">@work</span></span></a></li>
+<li><a href="#orgc24ed4a">11.2.4. <span class="done DONE">DONE</span> un autre&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_work">@work</span>&#xa0;<span class="_home">@home</span>&#xa0;<span class="laptop">laptop</span></span></a></li>
+<li><a href="#org0b532dc">11.2.5. <span class="todo TODO">TODO</span> finir la partie plus complexe <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-25 Thu 14:15&gt;&#x2013;&lt;2021-11-25 Thu 18:25&gt;</span></span>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_home">@home</span>&#xa0;<span class="car">car</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org97fd716">12. Installation</a>
+<ul>
+<li><a href="#orga3666a9">12.1. shell command</a>
+<ul>
+<li><a href="#org42a3d9c">12.1.1. tree</a></li>
+</ul>
+</li>
+<li><a href="#orga6e610c">12.2. Java</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1b19865" class="outline-2">
+<h2 id="org1b19865"><span class="section-number-2">1</span> C</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org6cf8575" class="outline-3">
+<h3 id="org6cf8575"><span class="section-number-3">1.1</span> data type</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>int</li>
+<li>char
+<code>''</code> are used for character, when <code>""</code> are used for string.</li>
+<li><b>size<sub>t</sub></b>
+to calculate the size of an array: <code>size_t n = sizeof(c) / sizeof(char)</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1e9c55f" class="outline-3">
+<h3 id="org1e9c55f"><span class="section-number-3">1.2</span> Compilation</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+To compile a progamm : <code>gcc -g -Wall [PROG1.c] [PROG2.c]</code>
+The out put will be <code>a.out</code>, that will be an executable.
+</p>
+
+<p>
+To change the name of the executable:
+</p>
+
+<p>
+<code>gcc -g -Wall [PROG.c] -o [fileName]</code>
+</p>
+
+<p>
+Then an executable <code>fileName</code> will be the output.
+</p>
+
+<p>
+If a program use a function used in an other program, they have to be
+compiled together. In that case if the program containing the function do not
+contain a main function it is not a problem for the compilation. 
+</p>
+
+<p>
+With <code>#ifdef ... #endif</code> it is possible to test a fonction using <code>-DTEST</code>
+during the compilation. <code>main()</code> is included between these two markers, then
+it is possible to verify that a part of a program is working well.
+<code>gcc -g -Wall -DTEST [FILE]</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org92ca586" class="outline-3">
+<h3 id="org92ca586"><span class="section-number-3">1.3</span> functions</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org116a294" class="outline-4">
+<h4 id="org116a294"><span class="section-number-4">1.3.1</span> fopen()</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+Permet l'ouverture d'un fichier en lecture mais aussi en écriture. Usage
+courant en ouverture (avec message d'erreur, source <a href="https://www.programiz.com/c-programming/examples/read-file">programiz.com</a>):
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>fptr = fopen<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"fichier.txt"</span>, <span style="color: #2d9574;">"r"</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span> == <span style="color: #a45bad;">NULL</span><span style="color: #4f97d7;">)</span>
+  <span style="color: #4f97d7;">{</span>
+    printf<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"Error! File cannot be opened."</span><span style="color: #bc6ec5;">)</span>;
+    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Program exits if the file pointer returns NULL.</span>
+    exit<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf85d689" class="outline-4">
+<h4 id="orgf85d689"><span class="section-number-4">1.3.2</span> atoi()</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+convert string into integer.
+Include in <code>&lt;stdlib.h&gt;</code>
+<code>int atoi(const char *nptr);</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org26e4364" class="outline-4">
+<h4 id="org26e4364"><span class="section-number-4">1.3.3</span> fscanf()</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+permet de lire chaque charactère d'un fichier, et de rediriger la valeur
+vers un pointeur.
+<code>fscanf([pointeur du stream], [format], [pointeur])</code>
+exemple: <code>fscanf(fptr, "%[^\n]", c);</code> 
+</p>
+</div>
+</div>
+<div id="outline-container-org45cd040" class="outline-4">
+<h4 id="org45cd040"><span class="section-number-4">1.3.4</span> malloc()</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+<code>void *malloc(size_t size)</code>
+</p>
+<ul class="org-ul">
+<li>allocation the requested memory and returns a pointer to it.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6059208" class="outline-4">
+<h4 id="org6059208"><span class="section-number-4">1.3.5</span> toupper()</h4>
+<div class="outline-text-4" id="text-1-3-5">
+<p>
+<code>int toupper(int ch);</code>
+</p>
+<ul class="org-ul">
+<li>convert lowercase alphabets to uppercase letters</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb377f5b" class="outline-4">
+<h4 id="orgb377f5b"><span class="section-number-4">1.3.6</span> fork()</h4>
+<div class="outline-text-4" id="text-1-3-6">
+<p>
+crée un process enfant similaire au processus parent.
+<a href="https://www.geeksforgeeks.org/fork-system-call/?ref=gcse">Fork in C, geeksforgeeks</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgb5698b3" class="outline-4">
+<h4 id="orgb5698b3"><span class="section-number-4">1.3.7</span> fprintf()</h4>
+<div class="outline-text-4" id="text-1-3-7">
+<p>
+<code>int fprintf(FILE *stream, const char *format, ...);</code> formated out-put conversion
+</p>
+</div>
+</div>
+<div id="outline-container-org5c97f47" class="outline-4">
+<h4 id="org5c97f47"><span class="section-number-4">1.3.8</span> strtok()</h4>
+<div class="outline-text-4" id="text-1-3-8">
+<p>
+<code>char *strtok(char *str, const char *delim);</code> extract token from strings,
+<code>*str</code> correspond à la chaîne, <code>*delim</code> à ce qui sert de délimiteur,
+généralement indiqué entre guillemets. Dans chaque appelle ultérieur, la
+chaîne doit être NULL. (source : <a href="http://manpagesfr.free.fr/man/man3/strtok.3.html">manpagefr</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-org0c96b11" class="outline-4">
+<h4 id="org0c96b11"><span class="section-number-4">1.3.9</span> strdup()</h4>
+<div class="outline-text-4" id="text-1-3-9">
+<p>
+<code>char *strdup(const char *s);</code> duplicate a string
+</p>
+</div>
+</div>
+<div id="outline-container-orgafa6f61" class="outline-4">
+<h4 id="orgafa6f61"><span class="section-number-4">1.3.10</span> rand()</h4>
+<div class="outline-text-4" id="text-1-3-10">
+<p>
+create random number in the range [0, RAND<sub>MAX</sub>]. But each time random is
+executed the number is the same.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org46435c6" class="outline-3">
+<h3 id="org46435c6"><span class="section-number-3">1.4</span> Fichiers</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Les fichiers sont lus deux façons:
+</p>
+<ul class="org-ul">
+<li>la temporisation par blocs</li>
+<li>la temporisation par lignes</li>
+</ul>
+
+<p>
+<code>FILE *fopen(char * chemin, char *mode);</code> retourne <code>NULL</code> en cas d'échec.
+</p>
+
+<p>
+<code>int fclose(FILE *flux);</code> retourne 0 en cas de succès, et <code>EOF</code> en cas d'erreur
+</p>
+</div>
+
+<div id="outline-container-org7c87d09" class="outline-4">
+<h4 id="org7c87d09"><span class="section-number-4">1.4.1</span> lecture depuis un flux de texte</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+<code>int getc(FILE *flux);</code> retourne le caractère ou <code>EOF</code> si fin du fichier.
+</p>
+
+<p>
+<code>int fgetc(FILE *flux);</code> idem que <code>getc</code>
+</p>
+
+<p>
+<code>int getchar(void)</code> récupère un caractètre depuis le flux <code>stdin</code>.
+</p>
+
+<p>
+<code>char *fgets(char *tampon, int taille, FILE *flux);</code> retourne l'adresse du
+tampon, un pointeur nul en fin de fichier ou une erreur.
+</p>
+
+<p>
+<code>int fscanf(FILE *flux, char *format, ...);</code> retourne le nombre de
+conversions réussies ou <code>EOF</code> si erreur
+</p>
+
+<p>
+<b>En Résumé</b>
+</p>
+
+<ul class="org-ul">
+<li>Les fonctions <code>fputc()</code>, <code>fputs()</code> et <code>fprintf()</code> écrivent des données
+dans un flux de texte</li>
+<li>Les fonctions <code>fgetc()</code>, <code>fgets()</code> et <code>fscanf()</code> lisent des données depuis</li>
+</ul>
+<p>
+un flux de texte 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1fcdba6" class="outline-3">
+<h3 id="org1fcdba6"><span class="section-number-3">1.5</span> Programs examples</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+<a href="https://www.programiz.com/c-programming/examples">programiz.com</a> 
+<a href="https://beginnersbook.com/2015/02/simple-c-programs/">beginnersbook.com</a> 
+<a href="https://www.studytonight.com/c/programs/">studytonight.com</a> 
+</p>
+</div>
+
+<div id="outline-container-orgdd1ffcd" class="outline-4">
+<h4 id="orgdd1ffcd"><span class="section-number-4">1.5.1</span> </h4>
+</div>
+</div>
+
+<div id="outline-container-org9133c24" class="outline-3">
+<h3 id="org9133c24"><span class="section-number-3">1.6</span> Books</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="file:///home/aretaro/ied/librairy/le-langage-c-1_C.pdf">leLangageC(pdf)</a></li>
+<li><a href="file:///home/aretaro/ied/librairy/C/knrNotes.html">C K&amp;R (notes)</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgccee9a6" class="outline-3">
+<h3 id="orgccee9a6"><span class="section-number-3">1.7</span> tutorial</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-org9e26f4a" class="outline-4">
+<h4 id="org9e26f4a"><span class="section-number-4">1.7.1</span> freeCodeCamp</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+<a href="https://youtu.be/zuegQmMdy8M">only course</a>
+<a href="file:///home/aretaro/ied/librairy/C_fCC/C_fCCNotes.html">note</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4e67c80" class="outline-2">
+<h2 id="org4e67c80"><span class="section-number-2">2</span> Discord</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<code>ctrl + /</code> aide
+<code>ctrl + q</code> quitter et fermer
+</p>
+
+<ul class="org-ul">
+<li>version update
+<ol class="org-ol">
+<li>Download the file <code>.deb</code></li>
+<li><code>sudo dpkg -i discord-X.X.X.deb</code></li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6079928" class="outline-2">
+<h2 id="org6079928"><span class="section-number-2">3</span> Java</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org7fa7a83" class="outline-3">
+<h3 id="org7fa7a83"><span class="section-number-3">3.1</span> Compilation et exécution</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Les programmes sont enregistrés en <code>.java</code> et apparaissent en <code>.class</code> après
+compilation.
+</p>
+
+<p>
+<code>javac [FICHIER].java</code> ou <code>javac [PACKAGE]/[FICHIER]</code> pour la compilation
+</p>
+
+<p>
+<code>java [FICHIER]</code> ou <code>java [PACKAGE].[FICHIER]</code> pour l'exécution
+</p>
+
+<p>
+A noter que le nom de la <i>class</i> doit être la même que celle du fichier.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0308601" class="outline-3">
+<h3 id="org0308601"><span class="section-number-3">3.2</span> Delimiter</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+<a href="https://www.ibm.com/docs/en/z-netview/6.3.0?topic=SSZJDU_6.3.0/com.ibm.iznetview.doc_6.3.0/dpy_regex_syntax.html">Delimiter list</a>
+</p>
+
+<ul class="org-ul">
+<li>\D : escape sequence that reprensent a non digit</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdfb5eee" class="outline-2">
+<h2 id="orgdfb5eee"><span class="section-number-2">4</span> Lisp</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org1301e73" class="outline-3">
+<h3 id="org1301e73"><span class="section-number-3">4.1</span> commands</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><b>cons</b> : create one new cons cell. It is often used to add an element to
+the front of a list.</li>
+<li><b>LIST</b> makes new lists. The car of each cell points to the corresponding
+input.</li>
+<li><b>APPEND</b> appends lists together, by coping its first input and making the
+cdr to the second input. If the first input is not a list, it is an error.</li>
+<li><b>PROG1, PROG2, PROGN</b> takes an arbitrairy numbers of expressions, and
+return the results of the first, the second or the last one. With <code>prog1</code>,
+the function <code>(pop x)</code> can be written like <code>(prog1 (first x) (setf x (rest
+     of x)))</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfd7b3a4" class="outline-3">
+<h3 id="orgfd7b3a4"><span class="section-number-3">4.2</span> exemples and exercices</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-orgc1ffbe6" class="outline-4">
+<h4 id="orgc1ffbe6"><span class="section-number-4">4.2.1</span> (GNU common lisp: features and function)</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+<a href="http://csci.viu.ca/~wesselsd/courses/csci330/code/lisp/">source link</a> 
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgc75f591"></a>General coding and examples<br />
+<ol class="org-ol">
+<li><a id="org641bcb7"></a><a href="ied/l1/progFonc/csci/myappend.lisp">append two lists</a><br /></li>
+
+<li><a id="org66663b6"></a><a href="ied/l1/progFonc/csci/listmin.lisp">find the smallest number of a list</a><br /></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0328eb5" class="outline-3">
+<h3 id="org0328eb5"><span class="section-number-3">4.3</span> Common lisp</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-org1161e74" class="outline-4">
+<h4 id="org1161e74"><span class="section-number-4">4.3.1</span> toolkit</h4>
+<div class="outline-text-4" id="text-4-3-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgea8cca4"></a>PPMX<br />
+<div class="outline-text-5" id="text-4-3-1-1">
+<p>
+"Pretty Print Macro eXpansion"
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org63dafe7" class="outline-2">
+<h2 id="org63dafe7"><span class="section-number-2">5</span> Python</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgd478011" class="outline-3">
+<h3 id="orgd478011"><span class="section-number-3">5.1</span> launch a program for terminal</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Write your program in a file with the extension <code>.py</code>.
+Indicate at the beginning of the file : <code>#! /usr/bin/env python3</code>
+Launch your program with the command : <code>$ python3 [fileName] [arguments]</code>
+</p>
+</div>
+<div id="outline-container-org1281266" class="outline-4">
+<h4 id="org1281266"><span class="section-number-4">5.1.1</span> <span class="done DONE">DONE</span> <a href="cx19.1.c">[cx19.1]​</a></h4>
+<div class="outline-text-4" id="text-5-1-1">
+<ul class="org-ul">
+<li>State "DONE"       from "TODO"       <span class="timestamp-wrapper"><span class="timestamp">[2021-11-11 Thu 18:28]</span></span></li>
+</ul>
+<p>
+p.82
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3a217d6" class="outline-2">
+<h2 id="org3a217d6"><span class="section-number-2">6</span> Shell</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+<a href="https://faculty.ucr.edu/~tgirke/Documents/UNIX/linux_manual.html">linux essentials</a>
+<a href="https://www.scootersoftware.com/RegEx.html">A tao of Regular Expressions</a>
+</p>
+
+<p>
+<a href="https://ftp.gnu.org/gnu/bash/">code source</a> (bash) 
+</p>
+</div>
+
+<div id="outline-container-org0a656c2" class="outline-3">
+<h3 id="org0a656c2"><span class="section-number-3">6.1</span> backup and <i>.tar</i> files</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Used for manual backup: 
+<code>tar -cpzf 202111062320_aretaro.tar ./ied ./org</code>
+</p>
+<ul class="org-ul">
+<li><code>c</code> create a new archive</li>
+<li><code>p</code> preserve permission</li>
+<li><code>z</code> use gzip</li>
+<li><code>f</code> specify name of archive file</li>
+</ul>
+</div>
+
+<div id="outline-container-org6389226" class="outline-4">
+<h4 id="org6389226"><span class="section-number-4">6.1.1</span> untar file</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+how to untar a file, or a file in a file
+</p>
+
+<p>
+<code>tar -tvf [archive.tar]</code> list of content of a file (<code>v</code> for verbose, <code>f</code> for
+file, <code>t</code> for list)
+</p>
+
+<p>
+<code>tar -xvf [archive.tar] [fileToExtract]</code> to extract a single file. It will
+copy it in the same location on the current file if it exist, and create it
+if not (probably). To extract all files do not indicate file to extract.
+</p>
+
+<p>
+Source: <a href="https://www.tecmint.com/18-tar-command-examples-in-linux/">https://www.tecmint.com/18-tar-command-examples-in-linux/</a> (don't
+forget to buy a coffee, if you refer to it often!)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org14f05b1" class="outline-3">
+<h3 id="org14f05b1"><span class="section-number-3">6.2</span> commands</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-org995e229" class="outline-4">
+<h4 id="org995e229"><span class="section-number-4">6.2.1</span> cat</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<p>
+<code>cat &gt;file.txt</code> create a file <code>file.txt</code>, enter text and exit with <code>C-d</code>
+<code>tac [fileName]</code> see content in reverse order
+<code>cat [fileName] | more (or less)</code> break the file by pages
+</p>
+<ul class="org-ul">
+<li><b>f</b>, <b>b</b> to go foward and backward</li>
+<li><b>q</b> for quit and <b>h</b> for help</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfcd99e6" class="outline-4">
+<h4 id="orgfcd99e6"><span class="section-number-4">6.2.2</span> cd</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<p>
+change directory
+</p>
+
+<p>
+<code>cd -</code> access to the previous directory
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e4774a" class="outline-4">
+<h4 id="org7e4774a"><span class="section-number-4">6.2.3</span> find</h4>
+<div class="outline-text-4" id="text-6-2-3">
+<p>
+<code>find ~/path -name "[fileName]"</code> basic syntax
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfe4cf97" class="outline-4">
+<h4 id="orgfe4cf97"><span class="section-number-4">6.2.4</span> grep</h4>
+<div class="outline-text-4" id="text-6-2-4">
+<p>
+<code>grep [word] [fileName]</code> list all the lines containing the word in a file
+</p>
+
+<p>
+<code>grep super &lt; rapport | wc</code> compte le nombre de ligne contenant <i>super</i> dans
+le <i>rapport</i>.
+</p>
+
+<p>
+See also <a href="https://www.scootersoftware.com/RegEx.html">A tao of Regular Expressions</a> 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf8a54e" class="outline-4">
+<h4 id="orgaf8a54e"><span class="section-number-4">6.2.5</span> kill, pkill</h4>
+<div class="outline-text-4" id="text-6-2-5">
+<p>
+expression to kill a process. Generally speaking <code>kill</code> is used to kill a
+process using its PID, while <code>pkill</code> is using its name.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org16bd177" class="outline-4">
+<h4 id="org16bd177"><span class="section-number-4">6.2.6</span> sed</h4>
+<div class="outline-text-4" id="text-6-2-6">
+<p>
+stream editor for filtering and transforming text
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6710797" class="outline-4">
+<h4 id="org6710797"><span class="section-number-4">6.2.7</span> less &amp; more</h4>
+<div class="outline-text-4" id="text-6-2-7">
+<p>
+to visualize text file page by page. When it is not a text file (for exemple
+a binary file, after compilation), then an error message appears. Which is
+not the case with <code>cat</code>, that will be inreadable characters.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org137b123" class="outline-4">
+<h4 id="org137b123"><span class="section-number-4">6.2.8</span> wc (word count)</h4>
+<div class="outline-text-4" id="text-6-2-8">
+<p>
+<code>wc [fichier]</code> renvoit le nombre de lignes, de mots, de caractères
+</p>
+</div>
+</div>
+<div id="outline-container-orgf7d7432" class="outline-4">
+<h4 id="orgf7d7432"><span class="section-number-4">6.2.9</span> rm</h4>
+<div class="outline-text-4" id="text-6-2-9">
+<p>
+<code>rm -d [directory]</code> or <code>rmdir [directory]</code> remove empty directory
+</p>
+
+<p>
+<code>rm -r [directory]</code> remove directory and all its contents
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org33104ff" class="outline-3">
+<h3 id="org33104ff"><span class="section-number-3">6.3</span> create a mutiple line file</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+<code>echo -e 'line1\nline2\nline3' &gt; fichier.txt</code> \n est ajouté à la fin
+</p>
+
+<p>
+Il n'y a pas de différence entre "&#x2026;" et '&#x2026;'. <code>-e</code> is for <i>enable
+interpretation of backslash escapes</i>, like <code>\n</code> or <code>\r</code> (carriage return,
+return at the begining of the line).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a15ba6" class="outline-3">
+<h3 id="org1a15ba6"><span class="section-number-3">6.4</span> create a routine</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+in a file, write :
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">! /usr/bin/</span><span style="color: #4f97d7; font-weight: bold;">bash</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">or /usr/bin/env tcsh</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">write the command. Example</span>
+ls
+</pre>
+</div>
+
+<p>
+and make it executable with <code>chmod u+x [fileName]</code>
+</p>
+
+<p>
+Some times, it can also be solve by using a <i>symbolic link</i>
+~ln -s [fileName]~k
+</p>
+</div>
+</div>
+
+<div id="outline-container-org34bff9b" class="outline-3">
+<h3 id="org34bff9b"><span class="section-number-3">6.5</span> environnement</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+L'environnement est un ensemble de variables recopiées par le shell au lancement
+d'une commade. Pour imprimer l'environnement <code>printenv</code>.
+<code>$HOME</code> nom du répertoire login
+</p>
+
+<p>
+<code>$PATH</code> indique les répertoires dans lesquels le shell va chercher les
+commandes tapées. <code>$PATH=.:$PATH</code>, ajoute le répertoire courant à la liste. 
+</p>
+</div>
+</div>
+<div id="outline-container-org21e1f1d" class="outline-3">
+<h3 id="org21e1f1d"><span class="section-number-3">6.6</span> redirection (&gt;, &gt;&gt;, 2&gt;&amp;1, 2&gt;&gt;)</h3>
+<div class="outline-text-3" id="text-6-6">
+<ul class="org-ul">
+<li><code>[command] &gt; [file]</code> transfer results of the command to file, create it if
+it doesn't exist, errase it if it exists.</li>
+<li><code>[command] &gt;&gt; [file]</code> transfer results of the command to file, create it if
+it doesn't exist, add them at the end of the file if it exists.</li>
+<li><code>[command] 2&gt;&amp;1 [file]</code> transfer the results and the errors to the file,
+create it if it doesn't exist, errase it if it exists.</li>
+<li><code>[command] 2&gt;&gt; [file]</code> transfer the error only the file, create it if
+it doesn't exist, add them at the end of the file if it exists.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org64a85e8" class="outline-3">
+<h3 id="org64a85e8"><span class="section-number-3">6.7</span> uninstall a program or a package</h3>
+<div class="outline-text-3" id="text-6-7">
+<p>
+There are many different way to uninstall a program. One way is:
+</p>
+
+<p>
+<code>sudo apt-get autoremove --purge [packageName]</code>
+</p>
+</div>
+</div>
+<div id="outline-container-orgcf76f3d" class="outline-3">
+<h3 id="orgcf76f3d"><span class="section-number-3">6.8</span> $PATH</h3>
+<div class="outline-text-3" id="text-6-8">
+</div>
+<div id="outline-container-org3d28072" class="outline-4">
+<h4 id="org3d28072"><span class="section-number-4">6.8.1</span> Add a new permanent path to PATH</h4>
+<div class="outline-text-4" id="text-6-8-1">
+<p>
+$ echo -e '\n # set PATH so it includes current directory ' &gt;&gt; ~/.profile
+$ echo 'PATH = $PATH :.' &gt;&gt; ~/.profile
+</p>
+</div>
+</div>
+<div id="outline-container-org26f8c92" class="outline-4">
+<h4 id="org26f8c92"><span class="section-number-4">6.8.2</span> Add a new path temporaly</h4>
+<div class="outline-text-4" id="text-6-8-2">
+<p>
+<code>$ export PATH="/bin/myscripts:$PATH"</code>
+</p>
+
+<p>
+another solution from the location we want to add:
+<code>$ export PATH=$PATH:$(pwd)</code>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga46175f" class="outline-3">
+<h3 id="orga46175f"><span class="section-number-3">6.9</span> Chromebook</h3>
+<div class="outline-text-3" id="text-6-9">
+<p>
+Shell command particular to Chromebook usage.
+</p>
+
+<ul class="org-ul">
+<li>Share a file
+To share a file, click right on the file and choose "Share with Linux"
+<code>$ /mnt/chromeos/MyFiles/[FILES]/</code> to access to the share file from command
+line.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf56aa97" class="outline-3">
+<h3 id="orgf56aa97"><span class="section-number-3">6.10</span> Search</h3>
+<div class="outline-text-3" id="text-6-10">
+</div>
+<div id="outline-container-org09746b0" class="outline-4">
+<h4 id="org09746b0"><span class="section-number-4">6.10.1</span> in history</h4>
+<div class="outline-text-4" id="text-6-10-1">
+<p>
+Executing commands from you bash history (<a href="https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps">source</a>, digitalocean.com)
+<code>$ history | grep tar</code>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9bda25e" class="outline-2">
+<h2 id="org9bda25e"><span class="section-number-2">7</span> emacs/spacemacs</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+<a href="file:///home/aretaro/.spacemacs">file to modify configuration (.spacemacs)</a>
+</p>
+
+<p>
+Configuration file can also be reached using <code>SPC f e d</code>
+</p>
+
+<p>
+<code>SPC s s + [option]</code> allow to jump to the specific option
+</p>
+
+<p>
+tutorial &amp; explanations:
+</p>
+<ul class="org-ul">
+<li><a href="https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf">emacs manual(web)</a> <a href="file:///home/aretaro/ied/librairy/emacs_manual.pdf">emacs manual(pdf)</a></li>
+<li><a href="https://practical.li/spacemacs/">https://practical.li/spacemacs/</a>, by practical.li, good explanations and
+usefull tricks and tips</li>
+</ul>
+</div>
+
+<div id="outline-container-org2a41d0f" class="outline-3">
+<h3 id="org2a41d0f"><span class="section-number-3">7.1</span> auto-fill-mode</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+to make the line go back automatically
+</p>
+<ul class="org-ul">
+<li>simple: <code>M-q</code> solution for each paragraph</li>
+<li>intermediate: <code>M-x auto-fill-mode</code> activate auto-fill-mode for the buffer</li>
+<li>advanced: <code>(add-hook 'text-mode-hook 'turn-on-auto-fill)</code> in <i>.emacs</i></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org522636e" class="outline-3">
+<h3 id="org522636e"><span class="section-number-3">7.2</span> open a file</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+open a file with <code>Spc f f</code>
+</p>
+
+<p>
+<code>tab tab</code> for a preview
+</p>
+
+<p>
+<code>Ctrl + C O</code> to open in a differente window
+</p>
+</div>
+</div>
+
+<div id="outline-container-org37e553a" class="outline-3">
+<h3 id="org37e553a"><span class="section-number-3">7.3</span> Help</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li><code>Ctrl-h k [shortcut]</code> give explanation about the shortcut</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9bd6905" class="outline-3">
+<h3 id="org9bd6905"><span class="section-number-3">7.4</span> eww</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+web browser in emacs
+</p>
+
+<p>
+<code>Alt-x eww</code> to open the search mode
+</p>
+
+<p>
+<code>Alt-RET</code> open link in new buffer, or open a new buffer
+</p>
+
+<p>
+<code>Ctrl-u Alt-x eww</code> will create a new buffer
+</p>
+
+<p>
+<code>q</code> to quit (it won't shut down the buffer)
+</p>
+
+<p>
+<code>w</code> copy the URL (! in evil mode press <code>\</code> before, to indicate that's a emacs
+shortcut)
+</p>
+
+<p>
+<code>R</code> to go directly to the readable part
+</p>
+
+<p>
+<code>H</code> should show history but only go to previous page. When search for
+<code>eww-list-histories</code> error message saying "<i>No eww-histories are defined</i>"
+</p>
+
+<p>
+<code>shift + Ret</code> open page with the browser by default
+</p>
+</div>
+</div>
+
+<div id="outline-container-org044742b" class="outline-3">
+<h3 id="org044742b"><span class="section-number-3">7.5</span> multiple cursors</h3>
+<div class="outline-text-3" id="text-7-5">
+<p>
+Some times, due to wrong manipulation multiple cursors appear highlighted. To
+remove them, type <code>g r q</code>.
+</p>
+</div>
+<div id="outline-container-orgbd1dd33" class="outline-4">
+<h4 id="orgbd1dd33"><span class="section-number-4">7.5.1</span> <span class="todo TODO">TODO</span> remove multiple cursors option <code>[0%]</code></h4>
+<div class="outline-text-4" id="text-7-5-1">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> identify the program</li>
+<li class="off"><code>[&#xa0;]</code> localise it in the reference file</li>
+<li class="off"><code>[&#xa0;]</code> put it off or nil</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc896de1" class="outline-3">
+<h3 id="orgc896de1"><span class="section-number-3">7.6</span> line numbers</h3>
+<div class="outline-text-3" id="text-7-6">
+<p>
+It is possible to add line numbers using <code>SPC t n</code>, and after selecting
+between the different mode: visual, relative, layout. For a permanent
+configuration in <code>.spacemacs</code>, change the option <code>nil</code> of
+<code>dotspacemacs-line-numbers</code> by the code below:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">dotspacemacs-line-numbers '<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">:visual</span> t
+                                    <span style="color: #4f97d7;">:disabled-for-modes</span> dired-mode
+                                    doc-view-mode
+                                    pdf-view-mode
+                                    <span style="color: #4f97d7;">:size-limit-kb</span> <span style="color: #a45bad;">1000</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+
+<p>
+source: <a href="https://practical.li/spacemacs/install-spacemacs/line-numbers.html">https://practical.li/spacemacs/install-spacemacs/line-numbers.html</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1faf696" class="outline-3">
+<h3 id="org1faf696"><span class="section-number-3">7.7</span> binding keys</h3>
+<div class="outline-text-3" id="text-7-7">
+<p>
+It is possible to change binding keys in the <i>.spacemacs</i>
+file. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-14 Sun&gt; </span></span> Today, the file where all the binding keys are setup
+is still not found. Do not know where it is.
+</p>
+
+<p>
+<code>(global-set-key (kbd "C-&gt;") 'org-move-subtree-up)</code>
+</p>
+
+<p>
+<code>(global-set-key (kbd "C-&lt;") 'org-move-subtree-down)</code>
+</p>
+
+<p>
+It exist other method to define which touch to use. Good examples are
+provided <a href="https://www.emacswiki.org/emacs/setup-keys.el">here (emacswiki.org)</a> 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc8e0bb3" class="outline-3">
+<h3 id="orgc8e0bb3"><span class="section-number-3">7.8</span> Buffer</h3>
+<div class="outline-text-3" id="text-7-8">
+<p>
+They are the differents files open in emacs. To access to the list of buffer
+<code>SPC b b</code> (evil mode).
+</p>
+
+<p>
+<code>SPC b d</code> to close a buffer
+</p>
+
+<p>
+To close multiple buffer: <code>SPC b b</code>, <code>Alt SPC</code> (helm transit space), select
+the buffer you want with <code>t</code>, and the press <code>a</code> for action, and to <span class="underline">Kill
+buffer(s)</span>. (source: John Stevenson, <a href="https://youtu.be/cadXnbAEfUo">Spacemacs Helm Transient State - Kill
+multiple buffers</a>)
+</p>
+
+<p>
+better solution to close multiple buffers to close : <code>SPC b b</code> to open the
+buffer list, <code>Ctrl-SPC</code> to mark them, and <code>Shift Ctrl D</code> to close selected
+buffers, or <code>Ctrl z</code> to have the list of choice (source : <a href="https://github.com/syl20bnr/spacemacs/issues/6827">github</a>)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b95c78" class="outline-3">
+<h3 id="org6b95c78"><span class="section-number-3">7.9</span> web browser with eww</h3>
+<div class="outline-text-3" id="text-7-9">
+<p>
+Surf on internet within emacs using eww.
+</p>
+
+<p>
+<code>alt-x eww</code> to launch the programm
+</p>
+
+<p>
+<code>o</code> to launch a new research
+</p>
+
+<p>
+<code>H or L</code> to move backward or foward in the pages
+</p>
+
+<p>
+<code>Ctrl-h m</code> for manual help 
+</p>
+
+<p>
+(<a href="https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top">manual</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-org5d7a977" class="outline-3">
+<h3 id="org5d7a977"><span class="section-number-3">7.10</span> DocView</h3>
+<div class="outline-text-3" id="text-7-10">
+<p>
+Application that abble to view pdf (for the moment) inside emcas, or
+spacemacs in fact.
+</p>
+
+<p>
+<code>- or +</code> to zoom in and out
+</p>
+
+<p>
+<code>j k h l</code> to move to page or previous line or page
+</p>
+
+<p>
+<code>Ctrl-f or b</code> to move in the page by several lines
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e96f4e" class="outline-3">
+<h3 id="org2e96f4e"><span class="section-number-3">7.11</span> Search</h3>
+<div class="outline-text-3" id="text-7-11">
+<p>
+<code>? or /</code> search for a word
+</p>
+
+<p>
+<a href="https://orgmode.org/worg/org-tutorials/advanced-searching.html#introduction">advance search orgmode link tutorial</a>
+</p>
+
+<p>
+<code>C-c /</code> search in sparse tree with <b>regexp</b>, <b>to do</b>, &#x2026;
+</p>
+
+<p>
+<code>C-c a s</code> search in org agenda
+</p>
+</div>
+
+<div id="outline-container-orgfb30b45" class="outline-4">
+<h4 id="orgfb30b45"><span class="section-number-4">7.11.1</span> search and replace</h4>
+<div class="outline-text-4" id="text-7-11-1">
+<p>
+In a buffer you can use <code>SPC s e</code> to select a word, and see all the
+occurrence. It also possible to use the selection with <code>v</code>, and once the
+selection is done, press <code>SPC s e</code> to see all the occurrence.
+</p>
+
+<p>
+<code>n</code> to navigate through all the occurrence
+</p>
+
+<p>
+<code>TAB</code> to unseclect an occurrence
+</p>
+
+<p>
+After this every modification will be done on every occurrence in the buffer.
+It is possible to select only the occurrence in the function by pressing
+<code>F</code>. <code>V</code> also have something to do in the selection, but do not understand
+what yet (<span class="timestamp-wrapper"><span class="timestamp">&lt;2021-12-02 Thu&gt;</span></span>).
+</p>
+
+<p>
+It is also possible to change all the occurrence in different file of a
+project. For this look at the source video, not used yet (<span class="timestamp-wrapper"><span class="timestamp">&lt;2021-12-02 Thu&gt;</span></span>).
+</p>
+
+<p>
+source <i>Jack of some</i> : <a href="https://youtu.be/XAHVwhTsF-g">https://youtu.be/XAHVwhTsF-g</a> 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgba07b32" class="outline-3">
+<h3 id="orgba07b32"><span class="section-number-3">7.12</span> Shortcuts cheatsheets</h3>
+<div class="outline-text-3" id="text-7-12">
+<p>
+<a href="https://gist.github.com/k3yavi/da7165383a690fc7b023b3e95d7ade5a">https://gist.github.com/k3yavi/da7165383a690fc7b023b3e95d7ade5a</a>
+</p>
+
+<p>
+<i>/from <a href="http://www.saltycrane.com/blog/2015/12/switching-emacs-vim-actually-spacemacs">http://www.saltycrane.com/blog/2015/12/switching-emacs-vim-actually-spacemacs</a></i>
+</p>
+</div>
+
+<div id="outline-container-orgffd2736" class="outline-4">
+<h4 id="orgffd2736"><span class="section-number-4">7.12.1</span> Useful Spacemacs commands</h4>
+<div class="outline-text-4" id="text-7-12-1">
+<p>
+SPC q q - quit
+SPC w / - split window vertically
+SPC w - - split window horizontally
+SPC 1   - switch to window 1
+SPC 2   - switch to window 2
+SPC w c - delete current window
+SPC TAB - switch to previous buffer
+SPC b b - switch buffers
+SPC f f - find a file
+SPC f s - save a file (:w or C-x C-s also works)
+SPC p p - open project
+SPC p h - find a file in current project
+SPC b d - kill current buffer
+SPC b M - move buffer to another window
+SPC v   - enter expand-region mode
+</p>
+
+<p>
+Alt g g - goto-Line (to invoque goto-Line Alt x goto-Line)
+</p>
+
+<p>
+Alt a   - beginning of the line
+Cltr Shift SPC - activate/desactivate selection
+Alt e   - end of the line
+Ctrl w  - cut text
+Alt w   - copy text
+Ctrl y  - paste text
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc2d7ec1" class="outline-4">
+<h4 id="orgc2d7ec1"><span class="section-number-4">7.12.2</span> Useful Vim key bindings</h4>
+<div class="outline-text-4" id="text-7-12-2">
+</div>
+<ol class="org-ol">
+<li><a id="org44756c8"></a>movement<br />
+<div class="outline-text-5" id="text-7-12-2-1">
+<p>
+0 - beginning of line
+^ - beginning of non-whitespace
+$ - end of line
+9j - move down 9 lines
+w - move forward by word
+b - move backward by word
+gg - first line
+G - last line
+C-u - up half page
+C-d - down half page
+f/ - move forward to first "<i>" character
+t</i> = move forward right before the first "/" character
+; - repeat that command again
+H - head of the screen
+M - middle of the screen
+C-l - adjust the cursor in the middle of the screen
+L - last of the screen
+} - move forward by paragraph or block
+{ - move backwards by paragraph or block
+<code>*</code> - search for word under the cursor
+  n - search again forward
+  N - search again backwards
+<code>#</code> - search backwards for word under cursor
+/ - search forward
+? - search backward
+% - find matching brace, paren, etc
+ma - mark a line in a file with marker "a"
+`a - after moving around, go back to the exact position of marker "a"
+'a - after moving around, go back to line of marker "a"
+:marks - view all the marks
+'' - go to the last place you were
+[{ - jump back to the "{" at the beginning of the current code block
+</p>
+</div>
+</li>
+
+<li><a id="orgd27e9e4"></a>editing<br />
+<div class="outline-text-5" id="text-7-12-2-2">
+<p>
+x - delete char under cursor
+X - delete char before cursor
+A - add to end of line
+I - insert at the beginning of the line
+dd - delete line
+D - delete from cursor to end of line
+di' - delete text inside single quotes
+yy - copy line
+Y - copy from cursor to end of line
+cc - change line
+C - change from cursor to end of line
+cit - change text inside html tag
+ci' - change text inside single quotes
+ci{ - change text inside curly brackets.
+ci&#x2026; - etc
+p - paste after cursor
+P = paste before cursor
+o - add line below
+O - add line above
+. = repeat last comment
+r - replace character
+R - replace. (overwrite) (good for columns of text)
+J - join line (cursor can be anywhere on line)
+&lt; - indent a region backward
+&gt; - indent a region forward
+</p>
+</div>
+</li>
+
+<li><a id="orge0e75b8"></a>visual mode<br /></li>
+
+<li><a id="orgc6c61ae"></a>other<br />
+<div class="outline-text-5" id="text-7-12-2-4">
+<p>
+Crtl-[windows number] Alt-[same numbers] keep just this windows open
+</p>
+
+<p>
+v - visual char mode
+V - visual line mode
+C-v - block visual mode
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgf553943" class="outline-3">
+<h3 id="orgf553943"><span class="section-number-3">7.13</span> pdf-tools</h3>
+<div class="outline-text-3" id="text-7-13">
+<p>
+   to look at pdf into emacs.
+   <a href="https://youtu.be/LFO2UbzbZhA">video Using Emacs 44 - An Org mode andpackage
+to install a package ~M-x (Alt-x) package-install [name of the package] PDF-tools workflow</a> 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1f82258" class="outline-3">
+<h3 id="org1f82258"><span class="section-number-3">7.14</span> package</h3>
+<div class="outline-text-3" id="text-7-14">
+<p>
+to install a package <code>M-x (Alt-x) package-install [name of the package]</code>
+</p>
+
+<p>
+<a href="https://melpa.org/#/">Melpa</a> : list of the packages
+</p>
+
+<p>
+when <code>package not found</code> error try <code>M-x package-refresh-contents</code> first, and
+retry.
+</p>
+</div>
+
+<div id="outline-container-orga454350" class="outline-4">
+<h4 id="orga454350"><span class="section-number-4">7.14.1</span> undo-tree <b><b>*</b></b></h4>
+<div class="outline-text-4" id="text-7-14-1">
+<p>
+keep the undo from the beginning of the document
+<a href="https://elpa.gnu.org/packages/undo-tree.html">homepage</a>(elpa)
+</p>
+
+<p>
+used short cut :
+</p>
+
+<p>
+<code>Ctrl-/</code> undo
+</p>
+
+<p>
+<code>Ctrl-?</code> redo
+</p>
+
+<p>
+<code>C-x u</code> or <code>Alt-x undo-tree-visualize</code> to vizualize undo-tree. Pretty
+interesting function.
+</p>
+
+<p>
+<code>q</code> to quit the mode, but if you quit on the a certain part of the branch,
+the another branch starts from this point. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org84b60a6" class="outline-4">
+<h4 id="org84b60a6"><span class="section-number-4">7.14.2</span> try <b><b>*</b></b></h4>
+<div class="outline-text-4" id="text-7-14-2">
+<p>
+to try package before installing them
+<a href="https://github.com/larstvei/try">homepage</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org69cd3ad" class="outline-2">
+<h2 id="org69cd3ad"><span class="section-number-2">8</span> Vim</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Largement utilisé en spacemacs, vim est un éditeur disponible sur le
+distribution GNU/Linux, et accessible depuis le terminal.
+</p>
+
+<p>
+<code>ZZ</code> sauvegarder et quitter
+</p>
+
+<p>
+<code>ZQ</code> quitter sans sauvegarder
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgddbb5a5" class="outline-2">
+<h2 id="orgddbb5a5"><span class="section-number-2">9</span> org-mode</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Sources:
+</p>
+<ul class="org-ul">
+<li><a href="https://orgmode.org/manual/index.html#SEC_Contents">orgmode manual</a></li>
+<li><a href="https://orgmode.org/guide/index.html">compact guide</a></li>
+</ul>
+</div>
+
+<div id="outline-container-org14775ac" class="outline-3">
+<h3 id="org14775ac"><span class="section-number-3">9.1</span> Checkboxes</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+Checkbox are elements added to a plain list.
+</p>
+
+<p>
+'<code>[/]</code> or <code>[%]</code>' are called cookies and are placed on the headline of the list,
+to indicate how many remains.
+</p>
+
+<p>
+<code>Alt - Shift - Return</code> to had a check box when there is already a plaine list.
+</p>
+
+<p>
+<code>Ctrl-c Ctrl-c</code> to change the status
+</p>
+
+<p>
+<a href="https://orgmode.org/manual/Checkboxes.html">More info in the manual : checkboxes</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0bea657" class="outline-3">
+<h3 id="org0bea657"><span class="section-number-3">9.2</span> Header</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+orgmode file can be indicated in the extension <code>.org</code>, by:
+<code>#-*- mode: org -*-</code> at the beginning of the file. In that case any type of
+file will be considered as an orgmode file, but if the file is already <code>.org</code>
+it is not necessary to indicate it. It may interfer at some points, for
+example with the <i>initial visibility</i> options below.
+</p>
+</div>
+
+<div id="outline-container-orgc4ace0e" class="outline-4">
+<h4 id="orgc4ace0e"><span class="section-number-4">9.2.1</span> #+STARTUP (initial visibility)</h4>
+<div class="outline-text-4" id="text-9-2-1">
+<p>
+Indicate how file should be presented when it opens. 3 mains options are
+possible: <b>overview</b>, <b>content</b>, <b>showall</b>. Should start at the begining of
+the file with <code>#+STARTUP: overview</code>. Not necessary to specify it, if the file
+is already in <code>.org</code>, and if it as already been setup in the config file, as
+indicated below.
+</p>
+
+<p>
+But because it doesn't work everytime, it may be better to configurate it
+directly in the configuration file with :
+</p>
+
+<p>
+<code>(setq org-startup-folded t)</code>
+</p>
+
+<p>
+An example of org-mode setting can be find <a href="https://sainathadapa.github.io/emacs-spacemacs-config/org-config">here</a>.   
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7cdf6e1" class="outline-4">
+<h4 id="org7cdf6e1"><span class="section-number-4">9.2.2</span> #+TODO</h4>
+<div class="outline-text-4" id="text-9-2-2">
+<p>
+Allow to add different states for the TODO.  
+Add the following on the top of the file:
+<code>#+TODO: TODO(t) STARTED(s!) WAITING(w@/!) | DONE(d!) CANCELED(c@/!)</code>
+<code>C-c t</code> on the TODO, allow to change the state
+In bracket is the shortcut letter and addtionnal features:
+</p>
+<ul class="org-ul">
+<li><b>!</b> indicate the date and time when the state is choose</li>
+<li><b>@</b> ask for comment when the state is choose</li>
+<li><b>/</b> add more than one feature</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfc8419d" class="outline-4">
+<h4 id="orgfc8419d"><span class="section-number-4">9.2.3</span> #+SETUPFILE</h4>
+<div class="outline-text-4" id="text-9-2-3">
+<p>
+SETUPFILE allow to configure the export to html or latex for example. For
+the moment two SETUPFILE have been copied from internet:
+</p>
+<ul class="org-ul">
+<li><a href="org/alex-latex-standard.html">alex-standard-latex.org</a> used for exporting org to latex.</li>
+<li><a href="org/setup.config">setup.config</a> used for html export that look like <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.</li>
+</ul>
+
+<p>
+So at the top of your page indicate :
+</p>
+
+<p>
+<code>#+SETUPFILE: ~/org/setup.config</code> for html. In this case <i>src</i> file is also
+required.
+</p>
+
+<p>
+or
+</p>
+
+<p>
+<code>#+SETUPFILE: ~/org/alex-standard-latex.org</code> for latex.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge1b404b" class="outline-3">
+<h3 id="orge1b404b"><span class="section-number-3">9.3</span> Hyperlink</h3>
+<div class="outline-text-3" id="text-9-3">
+<p>
+<code>[[LIENS][NOM DU LIEN]]</code>
+</p>
+
+<p>
+<code>C-c C-l</code> pour modifier le lien, ou le créer 
+</p>
+
+<p>
+<code>C-c C-o</code> pour ouvrir le lien
+</p>
+</div>
+</div>
+
+<div id="outline-container-org59ac51b" class="outline-3">
+<h3 id="org59ac51b"><span class="section-number-3">9.4</span> Latex</h3>
+<div class="outline-text-3" id="text-9-4">
+</div>
+<div id="outline-container-org914b19a" class="outline-4">
+<h4 id="org914b19a"><span class="section-number-4">9.4.1</span> en-tête du document</h4>
+<div class="outline-text-4" id="text-9-4-1">
+<p>
+<code>#+OPTIONS: num:nil</code> permet d'enlever la numérotation
+<b>attention:</b> lorsqu'il n'y a pas de numérotation, la TOC n'apparaît pas
+</p>
+
+<p>
+Version récupérée sur la vidéo youtube de <a href="https://www.youtube.com/watch?v=0qHloGTT8XE&amp;t=249s">jake B</a>
+<a href="orgmode2LatexByJakeB/">fichiers Jake B</a> 
+</p>
+
+<pre class="example">
+#+TITLE: 
+#+SUBTITLE: 
+#+OPTIONS: toc:t author:nil
+#+LaTeX_HEADER: \author{Prénom Nom \\ N. ID: }
+#+SETUPFILE: ~/org/alex-latex-standard.org
+</pre>
+
+<p>
+Permet d'avoir tous les setup dans un même fichier pour l'export LaTex.
+</p>
+
+<p>
+To add a package: <code>#+LATEX_HEADER: \usepackage{xyz}</code> 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org399939d" class="outline-4">
+<h4 id="org399939d"><span class="section-number-4">9.4.2</span> table of contents</h4>
+<div class="outline-text-4" id="text-9-4-2">
+<p>
+Elle peut être activée ou désactivée en en-tête de document, avec
+<code>#+options: toc: nil (or t)</code>. Pour déplacer la place de la <i>toc</i> à une place
+précise, il faut la désactiver dans les options, et utiliser <code>#+TOC:
+    headlines N</code>.
+</p>
+
+<p>
+Plus d'info sur la toc dans le <a href="https://orgmode.org/manual/Table-of-Contents.html">manuel</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org538e83a" class="outline-4">
+<h4 id="org538e83a"><span class="section-number-4">9.4.3</span> commentaires</h4>
+<div class="outline-text-4" id="text-9-4-3">
+<p>
+Les commentaires entre les deux bornes n'apparaitront pas à l'export
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd29906d" class="outline-4">
+<h4 id="orgd29906d"><span class="section-number-4">9.4.4</span> les formules</h4>
+<div class="outline-text-4" id="text-9-4-4">
+<p>
+les formules peuvent être insérées directement, de la manière ci-dessous.
+Dans ce cas, elles n'ont ni numéro, ni titre, et sont centrées.
+</p>
+
+<p>
+\[
+    e^{i\pi} = -1
+    \]
+</p>
+
+<p>
+Dans le cas où cela serait nécessaire, il est possible d'utiliser les mêmes
+balises que pour les figures:
+</p>
+
+<p>
+<b>Attention</b>
+pour ce cas la formule est flottante, et pour le moment la solution à ce
+problème n'a pas été trouvée.<span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-06 Sat&gt; </span></span> 
+</p>
+
+<div class="figure" id="formule compliquée">
+\begin{equation}
+e^{i\pi} = -1
+\end{equation}
+
+</div>
+
+<p>
+Dans ce cas la formule sera centrée, numérotée à droite, avec un titre en
+dessous, et pourra être citée en utilisant <code>[[nom de la formule]]</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb848916" class="outline-4">
+<h4 id="orgb848916"><span class="section-number-4">9.4.5</span> footnotes</h4>
+<div class="outline-text-4" id="text-9-4-5">
+<p>
+Pour insérer des notes en fin de page utiliser <code>C-c C-x f</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org606f492" class="outline-4">
+<h4 id="org606f492"><span class="section-number-4">9.4.6</span> image</h4>
+<div class="outline-text-4" id="text-9-4-6">
+<p>
+To import an image use a latex strucutre like below:
+</p>
+
+<p>
+<code>[h]</code> is indicated to keep the image where it has been inserted. For the
+label, don't know exactly (<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-02-13 Sun&gt;</span></span>) if it will work in the rest of
+the document, but by using an another latext structure, the label should be
+keep.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4f03103" class="outline-3">
+<h3 id="org4f03103"><span class="section-number-3">9.5</span> Motion</h3>
+<div class="outline-text-3" id="text-9-5">
+<p>
+<code>C-c C-n</code> next header
+</p>
+
+<p>
+<code>C-c C-p</code> previous header
+</p>
+
+<p>
+<code>C-c C-f</code> next header same level
+</p>
+
+<p>
+<code>C-c C-b</code> previous header same level
+</p>
+
+<p>
+<code>C-c C-u</code> previous header up level
+</p>
+
+<p>
+<code>C-&lt; or &gt;</code> to move down and up tree and subtree
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d55fef" class="outline-3">
+<h3 id="org6d55fef">Properties</h3>
+<div class="outline-text-3" id="text-org6d55fef">
+<p>
+It is possible to give a particular property to one paragraph, like for
+example, you don't want it to be included in the table of contents, and you
+want it to be unnumbered.
+</p>
+
+<p>
+<code>Ctrl-c Ctrl-x + p</code>, to access to the helm for property.
+</p>
+
+<p>
+for a paragraphe named by not numbered:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-orgmode">:PROPERTIES:
+:UNNUMBERED: t
+:END:
+</pre>
+</div>
+
+<p>
+for a paragraphe not named not numbered, in <code>:UNNUMBERED:</code> indicate <code>notoc</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org67630fb" class="outline-3">
+<h3 id="org67630fb"><span class="section-number-3">9.6</span> Structures</h3>
+<div class="outline-text-3" id="text-9-6">
+<p>
+There different types of structures like <b>EXAMPLE</b>, <b>QUOTE</b>, <b>COMMENT</b>. To
+insert a structure use <code>C-c C-, [letter in choice list]</code>.
+</p>
+</div>
+
+<div id="outline-container-org7fe2f52" class="outline-4">
+<h4 id="org7fe2f52"><span class="section-number-4">9.6.1</span> Code</h4>
+<div class="outline-text-4" id="text-9-6-1">
+<p>
+To insert code the structure is as follow:
+</p>
+
+<pre class="example">
+=+NAME: &lt;name&gt;
+#+BEGIN_SRC &lt;language&gt;
+#+END_SRC
+</pre>
+
+<p>
+&lt;switches&gt; and &lt;hearder arguments&gt; can also be added, but usage remain
+unclear. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-14 Sun&gt;</span></span>
+</p>
+
+<p>
+To write code inside the structure press <code>C-c '</code>, shortcut for <code>M-x
+   org-edit-special</code>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd08e2a4" class="outline-3">
+<h3 id="orgd08e2a4"><span class="section-number-3">9.7</span> Special symbols</h3>
+<div class="outline-text-3" id="text-9-7">
+<p>
+To insert a special symbole, just write the <a href="https://orgmode.org/worg/org-symbols.html">Latex code</a> in the text:
+</p>
+
+<p>
+<code>Given a circle \Gamma of diameter d</code>
+</p>
+
+<p>
+(source : <a href="https://orgmode.org/manual/Special-Symbols.html">Org manual special symbols</a>)
+<a href="https://mathvault.ca/wp-content/uploads/Comprehensive-List-of-Mathematical-Symbols.pdf">comprehensive list of mathematical symbol</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged880f1" class="outline-3">
+<h3 id="orged880f1"><span class="section-number-3">9.8</span> Table</h3>
+<div class="outline-text-3" id="text-9-8">
+<p>
+Table can be built directly inside the orgmode file. To start a table use <b>|</b>
+at the begining of the line, and to seperate each column. To start a new line
+use <b>TAB</b>. To make a seperation, start the line with <b>|-</b> and press <b>TAB</b>.
+</p>
+
+<p>
+<b>C-c C-c</b> to reajust the table, without inserting new lines
+</p>
+
+<p>
+<b>TAB</b> to go to the next column (how to go to the previous?)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3fc4a10" class="outline-3">
+<h3 id="org3fc4a10"><span class="section-number-3">9.9</span> Tag</h3>
+<div class="outline-text-3" id="text-9-9">
+<p>
+Assign tag to tree branch
+<a href="https://orgmode.org/manual/Setting-Tags.html">manual : setting tags</a>
+</p>
+
+<p>
+For flag on one file use <code>#+TAGS: tagName(shortcut) ...</code> at the beginning of
+the file. Refresh the line with <code>Ctrl-c Ctrl-c</code> to activate it.
+</p>
+
+<p>
+<code>Ctrl-c Ctrl-q</code> to access to the list of tags. Use the shortcut if assainged
+and press <code>RET</code>.
+</p>
+
+<p>
+<code>Ctlr-g</code> abort
+</p>
+
+<p>
+<code>Ctrl-q \</code> make a search in the file by tag
+</p>
+</div>
+</div>
+<div id="outline-container-org4b58ffb" class="outline-3">
+<h3 id="org4b58ffb"><span class="section-number-3">9.10</span> Tasks</h3>
+<div class="outline-text-3" id="text-9-10">
+<ul class="org-ul">
+<li>add a date <code>C-c .</code> and <code>Crtl-c &lt;</code> to add today's date</li>
+<li><code>C-c C-t + [letter]</code> to change the state</li>
+<li><code>C~c ,</code> or <code>Shift-up or down</code> to add priority on tasks</li>
+<li><code>TAB</code> or <code>S-LEFT [or RIGHT]</code> also available to change the state</li>
+<li><code>C-c C-x C-a</code> archive the current entry under a file derived by appending
+'<sub>archive</sub>'</li>
+<li><code>C-c , (org-priority)</code> to set up priority (no need to be task [really?])
+(source: <a href="https://orgmode.org/manual/Priorities.html">orgmode manual/Priorites</a>)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc4a0b65" class="outline-3">
+<h3 id="orgc4a0b65"><span class="section-number-3">9.11</span> Text bold, italic, etc</h3>
+<div class="outline-text-3" id="text-9-11">
+<p>
+You can make words ‘*bold*’, ‘/italic/’, ‘<sub>underlined</sub>_’, ‘=verbatim=’ and
+‘~code~’, and, if you must, ‘+strike-through+’.
+(source : <a href="https://orgmode.org/manual/Emphasis-and-Monospace.html">orgmanual</a> emphasis and monospace)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcd9a70b" class="outline-3">
+<h3 id="orgcd9a70b"><span class="section-number-3">9.12</span> Titles &amp; lists</h3>
+<div class="outline-text-3" id="text-9-12">
+<p>
+Everything that concerns titles and lists
+</p>
+</div>
+
+<div id="outline-container-org1326afd" class="outline-4">
+<h4 id="org1326afd"><span class="section-number-4">9.12.1</span> Titles</h4>
+<div class="outline-text-4" id="text-9-12-1">
+<p>
+<code>Ctrl-Ret</code> create a tree of the same level below
+</p>
+
+<p>
+<code>Alt-Ret</code> create a tree of the same level above
+</p>
+
+<p>
+<code>Alt-Shift [left or right]</code> change "evaluation" for tree and subtrees 
+</p>
+
+<p>
+<code>Alt- [left or right]</code> change only for the line
+</p>
+</div>
+</div>
+
+<div id="outline-container-org24072ae" class="outline-4">
+<h4 id="org24072ae"><span class="section-number-4">9.12.2</span> Lists</h4>
+<div class="outline-text-4" id="text-9-12-2">
+<p>
+Lists are create using '+,-,1' and aspect can be changed after.
+</p>
+
+<p>
+<code>+</code> at the beginning a line make a pointer
+</p>
+
+<p>
+<code>Shift+[left or right]</code> change the aspect of the pointer
+</p>
+
+<p>
+<code>Alt-Shift-Ret</code> create a list with check bock
+</p>
+<ul class="org-ul">
+<li>above if it is on the pointer</li>
+<li>below if it is on the line</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org24ef332" class="outline-2">
+<h2 id="org24ef332"><span class="section-number-2">10</span> zathura</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+pdf viewer. Here main shortcuts are presented.
+</p>
+
+<p>
+<code>[N] + G</code> bring you to page N
+</p>
+
+<p>
+<code>TAB</code> to see the table of contents
+</p>
+
+<p>
+<code>Ctrl-+ or -</code> to zoom out or in
+</p>
+
+<p>
+<code>d</code> to the double page, d again to return on single page
+</p>
+
+<p>
+<code>j,k,J,K</code> to move down or up, next page, previous pages
+</p>
+</div>
+</div>
+<div id="outline-container-org02262c7" class="outline-2">
+<h2 id="org02262c7"><span class="section-number-2">11</span> Tasks</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org58b5fda" class="outline-3">
+<h3 id="org58b5fda"><span class="section-number-3">11.1</span> <span class="done DONE">DONE</span> Start new org file tutorial</h3>
+</div>
+<div id="outline-container-orgdec6f62" class="outline-3">
+<h3 id="orgdec6f62"><span class="section-number-3">11.2</span> <span class="todo TODO">TODO</span> apprendre à s'en servir<code>[3/5]</code><code>[60%]</code></h3>
+<div class="outline-text-3" id="text-11-2">
+</div>
+<div id="outline-container-orgbf8a3e8" class="outline-4">
+<h4 id="orgbf8a3e8"><span class="section-number-4">11.2.1</span> <span class="done CANCELLED">CANCELLED</span> finir le tuto</h4>
+<div class="outline-text-4" id="text-11-2-1">
+<ul class="org-ul">
+<li>State "CANCELLED"  from "DONE"       <span class="timestamp-wrapper"><span class="timestamp">[2021-11-03 Wed 15:47] </span></span> <br />
+oups</li>
+<li>State "DONE"       from "WAITING"    <span class="timestamp-wrapper"><span class="timestamp">[2021-11-03 Wed 15:47]</span></span></li>
+<li>State "WAITING"    from "STARTED"    <span class="timestamp-wrapper"><span class="timestamp">[2021-11-03 Wed 15:46] </span></span> <br />
+trop bien</li>
+<li>State "STARTED"    from "TODO"       <span class="timestamp-wrapper"><span class="timestamp">[2021-11-03 Wed 15:46]</span></span></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5d2db45" class="outline-4">
+<h4 id="org5d2db45"><span class="section-number-4">11.2.2</span> <span class="todo TODO">TODO</span> lire tout le fichier</h4>
+<div class="outline-text-4" id="text-11-2-2">
+<ul class="org-ul">
+<li class="trans"><code>[-]</code> intor<code>[1/3]</code><code>[33%]</code>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> un</li>
+<li class="off"><code>[&#xa0;]</code> deux</li>
+<li class="on"><code>[X]</code> </li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org90a6822" class="outline-4">
+<h4 id="org90a6822"><span class="section-number-4">11.2.3</span> <span class="done DONE">DONE</span> un truc a faire&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_work">@work</span></span></h4>
+</div>
+<div id="outline-container-orgc24ed4a" class="outline-4">
+<h4 id="orgc24ed4a"><span class="section-number-4">11.2.4</span> <span class="done DONE">DONE</span> un autre&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_work">@work</span>&#xa0;<span class="_home">@home</span>&#xa0;<span class="laptop">laptop</span></span></h4>
+</div>
+<div id="outline-container-org0b532dc" class="outline-4">
+<h4 id="org0b532dc"><span class="section-number-4">11.2.5</span> <span class="todo TODO">TODO</span> finir la partie plus complexe <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-25 Thu 14:15&gt;&#x2013;&lt;2021-11-25 Thu 18:25&gt;</span></span>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_home">@home</span>&#xa0;<span class="car">car</span></span></h4>
+<div class="outline-text-4" id="text-11-2-5">
+</div>
+<ol class="org-ol">
+<li><a id="orgd414d2d"></a><span class="todo TODO">TODO</span> <br />
+<div class="outline-text-5" id="text-11-2-5-1">
+<p>
+<a href="https://orgmode.org/worg/org-tutorials/orgtutorial_dto-fr.html">tuto in french</a> que se passe t il si jecris en Kanji cela ne semble pas
+possible trop beaucoup trop long
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org97fd716" class="outline-2">
+<h2 id="org97fd716"><span class="section-number-2">12</span> Installation</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-orga3666a9" class="outline-3">
+<h3 id="orga3666a9"><span class="section-number-3">12.1</span> shell command</h3>
+<div class="outline-text-3" id="text-12-1">
+</div>
+<div id="outline-container-org42a3d9c" class="outline-4">
+<h4 id="org42a3d9c"><span class="section-number-4">12.1.1</span> tree</h4>
+<div class="outline-text-4" id="text-12-1-1">
+<p>
+<code>sudo apt install tree</code>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga6e610c" class="outline-3">
+<h3 id="orga6e610c"><span class="section-number-3">12.2</span> Java</h3>
+<div class="outline-text-3" id="text-12-2">
+<p>
+installer le Java Development Kit (JDK) seulement car l'environnement (JDE)
+est inclus dedans.
+<a href="https://wiki.debian.org/fr/Java">java sur debian</a> wiki debian
+</p>
+
+<p>
+<code>sudo apt-get update</code> et <code>sudo apt-get install default-jdk</code>
+</p>
+
+<p>
+Pour vérifier l'installation : <code>java --version</code>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: aretaro</p>
+<p class="date">Created: 2022-08-23 Tue 00:49</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
