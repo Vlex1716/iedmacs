@@ -21,14 +21,9 @@ Pour utiliser emacs,
 Il est conseillé d'aller au travers du tutoorial pour apprendre les
 commandes de base. Dans le cas contraire, voici quelques commande de base:
 
-- `Ctrl-g` pour quitter. Il y a tellement de possibilité qui est
-- souvent possible de lancer des commandes sans savoir comment en
-- sortir, cette commande permet de quitter les différents menu pour
-- revenir à l'état initial.  `Ctrl-f` `Ctrl-b` `Ctrl-p` `Ctrl-n` pour
-- respectivement avancer, reculer, monter, descendre le curseur.
-- `Ctrl-x Ctrl-f` pour ouvrir un fichier. Une autre solution est de
-- l'ouvrir au démarrage `$ emacs [FICHIER] &` `Ctrl-x Ctrl-s` pour
-- sauvegarder `Ctrl-x Ctrl-c` pour quitter
+- `Ctrl-g` pour quitter. Il y a tellement de possibilité qui est souvent possible de lancer des commandes sans savoir comment en sortir, cette commande permet de quitter les différents menu pour revenir à l'état initial.
+- `Ctrl-f` `Ctrl-b` `Ctrl-p` `Ctrl-n` pour respectivement avancer, reculer, monter, descendre le curseur.
+- `Ctrl-x Ctrl-f` pour ouvrir un fichier. Une autre solution est de l'ouvrir au démarrage `$ emacs [FICHIER] &` `Ctrl-x Ctrl-s` pour sauvegarder `Ctrl-x Ctrl-c` pour quitter
 
 # Les devoirs
 
