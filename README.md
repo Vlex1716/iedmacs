@@ -35,15 +35,15 @@ Il est conseillé de parcourir le tutoriel pour apprendre les commandes de base.
 
 ## Devoirs
 
-Pour soumettre un devoir en utilisant Org-mode, copiez le fichier =ied-latex-standard.org= sur votre machine et notez le chemin d'accès pour une utilisation ultérieure.
+Pour soumettre un devoir en utilisant Org-mode, copiez le fichier `ied-latex-standard.org` sur votre machine et notez le chemin d'accès pour une utilisation ultérieure.
 
 Suivez ces étapes pour rédiger un devoir :
 
 1. Ouvrez une copie du fichier "devoir". Deux options possibles :
-   - Si vous êtes déjà dans Emacs, utilisez la commande =Ctrl-x Ctrl-f= et saisissez le nom de votre fichier dans le dossier choisi,
-   - Sinon, à partir de la ligne de commande, exécutez =emacs [COPIE FICHIER] &= pour ouvrir une fenêtre avec un fichier portant le même nom.
+   - Si vous êtes déjà dans Emacs, utilisez la commande `Ctrl-x Ctrl-f` et saisissez le nom de votre fichier dans le dossier choisi,
+   - Sinon, à partir de la ligne de commande, exécutez `emacs [COPIE FICHIER] &` pour ouvrir une fenêtre avec un fichier portant le même nom.
 
-2. Modifiez l'en-tête du document .org avec les informations du cours et les vôtres, ainsi que le chemin d'accès au fichier =ied-latex-standard.org= copié précédemment :
+2. Modifiez l'en-tête du document .org avec les informations du cours et les vôtres, ainsi que le chemin d'accès au fichier `ied-latex-standard.org` copié précédemment :
 
 ```org-mode
 #+TITLE: [NOM DU CHAPITRE]
@@ -55,6 +55,6 @@ Suivez ces étapes pour rédiger un devoir :
 
 3. Rédigez votre devoir en dessous de la marque "New page" en utilisant la notation Org-mode.
 
-4. Exportez votre devoir en PDF en utilisant la commande =Ctrl-c Ctrl-e l p=. Votre devoir est prêt.
+4. Exportez votre devoir en PDF en utilisant la commande `Ctrl-c Ctrl-e l p`. Votre devoir est prêt.
 
 Le format n'est pas standard et peut être modifié en fonction de vos besoins et préférences.
