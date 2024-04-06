@@ -1,8 +1,8 @@
-#+TITLE: X
-#+SUBTITLE: Programmation Fonctionnelle 
+#+TITLE: [NOM DU CHAPITRE]
+#+SUBTITLE: [NOM DU COURS]
 #+OPTIONS: toc:t author:nil
-#+LaTeX_HEADER: \author{Alexandre Waechter \\ N. Etudiant : 19011325}
-#+SETUPFILE: ~/org/alex-latex-standard.org
+#+LaTeX_HEADER: \author{[PRENOM NOM] \\ N. Etudiant : [NUMERO]}
+#+SETUPFILE: ~/[CHEMIN]/ied-latex-standard.org
 
 \newpage
 
