@@ -15,34 +15,46 @@ Pour utiliser Emacs :
     $ sudo apt-get install emacs
     ``` 
 2. Installer LaTeX
-    #+end_src
+    ```bash
     $ sudo apt-get install texlive-full
-    #+begin_src 
+    ```
 3. Lancer Emacs
-    #+end_src
+    ```bash
     $ emacs &
-    #+begin_src 
+    ```
 
 ## Les Commandes
 
 Il est conseillé de parcourir le tutoriel pour apprendre les commandes de base. Sinon, voici quelques commandes de base :
 
-- `Ctrl-g` : pour quitter
+- `Ctrl-g` : pour sortir d'un combo de commandes (souvent utile)
 - `Ctrl-f`, `Ctrl-b`, `Ctrl-p`, `Ctrl-n` : pour avancer, reculer, monter, descendre le curseur respectivement.
 - `Ctrl-x Ctrl-f` : pour ouvrir un fichier
 - `Ctrl-x Ctrl-s` : pour sauvegarder
 - `Ctrl-x Ctrl-c` : pour quitter
 
-## Les Devoirs
+## Devoirs
 
-Pour rendre un devoir en utilisant Org-mode, vous devez copier le fichier `ied-latex-standard.org` sur votre machine, en notant le chemin d'accès qui sera utilisé plus tard.
+Pour soumettre un devoir en utilisant Org-mode, copiez le fichier =ied-latex-standard.org= sur votre machine et notez le chemin d'accès pour une utilisation ultérieure.
 
-Pour rédiger un devoir, suivez ces étapes :
+Suivez ces étapes pour rédiger un devoir :
 
-1. Ouvrez une copie du fichier "devoir". Deux solutions possibles :
-    - Si vous êtes déjà dans Emacs, utilisez la commande `Ctrl-x Ctrl-f` et entrez le nom de votre fichier dans le dossier choisi,
-    - Ou bien, à partir de la ligne de commande, exécutez `emacs [COPIE FICHIER] &` pour ouvrir une fenêtre avec un fichier du même nom.
+1. Ouvrez une copie du fichier "devoir". Deux options possibles :
+   - Si vous êtes déjà dans Emacs, utilisez la commande =Ctrl-x Ctrl-f= et saisissez le nom de votre fichier dans le dossier choisi,
+   - Sinon, à partir de la ligne de commande, exécutez =emacs [COPIE FICHIER] &= pour ouvrir une fenêtre avec un fichier portant le même nom.
 
-2. Rédigez votre devoir sous la marque "New page", en utilisant la notation avec Org-mode.
+2. Modifiez l'en-tête du document .org avec les informations du cours et les vôtres, ainsi que le chemin d'accès au fichier =ied-latex-standard.org= copié précédemment :
 
-3. Imprimez votre devoir en PDF avec la commande `Ctrl-c Ctrl-e l p`, et votre devoir est prêt.
+```org-mode
+#+TITLE: [NOM DU CHAPITRE]
+#+SUBTITLE: [NOM DU COURS]
+#+OPTIONS: toc:t author:nil
+#+LaTeX_HEADER: \author{[PRENOM NOM] \\ N. Etudiant : [NUMERO]}
+#+SETUPFILE: ~/[CHEMIN]/ied-latex-standard.org
+```
+
+3. Rédigez votre devoir en dessous de la marque "New page" en utilisant la notation Org-mode.
+
+4. Exportez votre devoir en PDF en utilisant la commande =Ctrl-c Ctrl-e l p=. Votre devoir est prêt.
+
+Le format n'est pas standard et peut être modifié en fonction de vos besoins et préférences.
