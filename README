@@ -1,48 +1,48 @@
-Pour une aide à la prise en main d'emacs et pour rendre les devoirs de
-l'ied, voici deux fichiers qui pourront être utile:
+# Aide pour Utiliser Emacs et Rendre les Devoirs de l'IED
 
-- init.el, fichier de configuration pour emacs (optionnel)
-- ied-latex-standard.org
-- [fichier devoir a ajouter]
+Pour une assistance à la prise en main d'Emacs et pour rendre les devoirs de l'IED, voici deux fichiers qui pourront être utiles :
 
-# Installation
+- `init.el` : fichier de configuration pour Emacs (optionnel)
+- `ied-latex-standard.org`
+- `[fichier devoir à ajouter]`
 
-Pour utiliser emacs,
+## Installation
 
-1. Installer emacs
-`$ sudo apt-get install emacs`
-2. Installer latex
-`$ sudo apt-get install texlive-full` to install latex
-3. Lancer emacs
-`$ emacs &` pour lancer emacs
+Pour utiliser Emacs :
 
-# Les commandes
+1. Installer Emacs
+    #+end_src
+    $ sudo apt-get install emacs
+    #+begin_src 
+2. Installer LaTeX
+    #+end_src
+    $ sudo apt-get install texlive-full
+    #+begin_src 
+3. Lancer Emacs
+    #+end_src
+    $ emacs &
+    #+begin_src 
 
-Il est conseillé d'aller au travers du tutoorial pour apprendre les
-commandes de base. Dans le cas contraire, voici quelques commande de base:
+## Les Commandes
 
-- `Ctrl-g` pour quitter. Il y a tellement de possibilité qui est souvent possible de lancer des commandes sans savoir comment en sortir, cette commande permet de quitter les différents menu pour revenir à l'état initial.
-- `Ctrl-f` `Ctrl-b` `Ctrl-p` `Ctrl-n` pour respectivement avancer, reculer, monter, descendre le curseur.
-- `Ctrl-x Ctrl-f` pour ouvrir un fichier. Une autre solution est de l'ouvrir au démarrage `$ emacs [FICHIER] &` `Ctrl-x Ctrl-s` pour sauvegarder `Ctrl-x Ctrl-c` pour quitter
+Il est conseillé de parcourir le tutoriel pour apprendre les commandes de base. Sinon, voici quelques commandes de base :
 
-# Les devoirs
+- `Ctrl-g` : pour quitter
+- `Ctrl-f`, `Ctrl-b`, `Ctrl-p`, `Ctrl-n` : pour avancer, reculer, monter, descendre le curseur respectivement.
+- `Ctrl-x Ctrl-f` : pour ouvrir un fichier
+- `Ctrl-x Ctrl-s` : pour sauvegarder
+- `Ctrl-x Ctrl-c` : pour quitter
 
-Pour rendre un devoir en utilisant Org-mode, il y faut copier le
-fichier "ied-latex-standard.org" sur votre machine, en notant le
-chemin d'accès qui sera utilisé plus tard.
+## Les Devoirs
 
-Pour rédiger un devoir suivez les étapes suivantes:
+Pour rendre un devoir en utilisant Org-mode, vous devez copier le fichier `ied-latex-standard.org` sur votre machine, en notant le chemin d'accès qui sera utilisé plus tard.
 
-1. Ouvrir une copie du fichier "devoir". Pour cela il y a au moins
-deux solutions: - soit vous êtes déjà dans emacs, et vous pouvez
-utiliser la commande `Ctrl-x Ctrl-f` est entrer le nom de votre
-fichier dans le dossier choisi, - soit à partir de la ligne de
-commande `emacs [COPIE FICHIER] &`. Cela ouvrira directement une
-fenêtre avec un fichier du même nom.
+Pour rédiger un devoir, suivez ces étapes :
 
+1. Ouvrez une copie du fichier "devoir". Deux solutions possibles :
+    - Si vous êtes déjà dans Emacs, utilisez la commande `Ctrl-x Ctrl-f` et entrez le nom de votre fichier dans le dossier choisi,
+    - Ou bien, à partir de la ligne de commande, exécutez `emacs [COPIE FICHIER] &` pour ouvrir une fenêtre avec un fichier du même nom.
 
-2. Rédiger votre devoir en dessous la marque "New page". Noter que la
-notation se fait avec Org~mode
+2. Rédigez votre devoir sous la marque "New page", en utilisant la notation avec Org-mode.
 
-3. Imprimer votre devoir en PDF avec la commande ~Ctrl-c Ctrl-e l p~,
-et votre devoir est prêt.
+3. Imprimez votre devoir en PDF avec la commande `Ctrl-c Ctrl-e l p`, et votre devoir est prêt.
