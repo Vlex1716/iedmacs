@@ -4,16 +4,16 @@ Pour une assistance à la prise en main d'Emacs et pour rendre les devoirs de l'
 
 - `init.el` : fichier de configuration pour Emacs (optionnel)
 - `ied-latex-standard.org`
-- `[fichier devoir à ajouter]`
+- `IED-L[NIVEAU]-[COURS]-[CHAPITRE]-[PRENOM]-[NOM]-ID[NUMERO].org`
 
 ## Installation
 
 Pour utiliser Emacs :
 
 1. Installer Emacs
-    #+end_src
+    ```bash
     $ sudo apt-get install emacs
-    #+begin_src 
+    ``` 
 2. Installer LaTeX
     #+end_src
     $ sudo apt-get install texlive-full
