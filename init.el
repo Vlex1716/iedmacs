@@ -117,7 +117,8 @@ manual."
 (evil-define-key 'normal 'global (kbd "<leader>fc") 'counsel-find-file)
 (evil-define-key 'normal 'global (kbd "<leader>bl") 'list-buffers)
 (evil-define-key 'normal 'global (kbd "<leader>tl") 'load-themes)
-(evil-define-key 'normal 'global (kbd "<leader>sa") 'swiper)
+(evil-define-key 'normal 'global (kbd "<leader>ss") 'swiper)
+(evil-define-key 'normal 'global (kbd "<leader>l") 'org-insert-link)
 
 ;; ====== EVIL MODE SETTINGS END ========
 
