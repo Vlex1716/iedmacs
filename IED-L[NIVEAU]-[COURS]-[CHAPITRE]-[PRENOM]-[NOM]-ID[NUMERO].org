@@ -1,0 +1,19 @@
+#+TITLE: X
+#+SUBTITLE: Programmation Fonctionnelle 
+#+OPTIONS: toc:t author:nil
+#+LaTeX_HEADER: \author{Alexandre Waechter \\ N. Etudiant : 19011325}
+#+SETUPFILE: ~/org/alex-latex-standard.org
+
+\newpage
+
+* Exercice X
+** Enoncé
+   :PROPERTIES:
+   :UNNUMBERED: t
+   :END:
+
+** Réponse
+   :PROPERTIES:
+   :UNNUMBERED: t
+   :END:
+
