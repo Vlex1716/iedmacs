@@ -1,4 +1,4 @@
-;; GENERAL SETTINGS
+;; GENERAL SETTINGS FOR IED
 ;; Remove startup message
 (setq inhibit-startup-message t)
 
