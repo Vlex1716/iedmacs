@@ -89,6 +89,7 @@ manual."
 
 ;; ====== EVIL MODE SETTINGS ========
 ;; PACKAGE: evil
+;; PURPOSE: using Vim shortcuts in emacs 
 (use-package evil
   :ensure t
   :init(setq evil-want-C-i-jump nil))
