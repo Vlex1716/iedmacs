@@ -57,4 +57,4 @@ Suivez ces étapes pour rédiger un devoir :
 
 4. Exportez votre devoir en PDF en utilisant la commande `Ctrl-c Ctrl-e l p`. Votre devoir est prêt.
 
-Le format n'est pas standard et peut être modifié en fonction de vos besoins et préférences.
+Le format n'est pas standard et peut être modifié en fonction des besoins et préférences.
