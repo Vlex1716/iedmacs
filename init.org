@@ -37,7 +37,7 @@ Ce fichier est composé de plusieurs parties comme suit:
 - Documentation Système: Description et explication du fichier
   "init.el"
 - Recommandations: Informations et bonnes pratiques pour la rédaction
-  et le maitient de ce dépôt.
+  et le maintient de ce dépôt.
   
 * Definitions
 ** Integrate Development Environment (IDE)
