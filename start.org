@@ -1,4 +1,4 @@
-#+begin_src txt
+#+begin_src emacs lisp
  __   _______  _______  .___  ___.      ___       ______     _______.
 |  | |   ____||       \ |   \/   |     /   \     /      |   /       |
 |  | |  |__   |  .--.  ||  \  /  |    /  ^  \   |  ,----'  |   (----`
@@ -9,7 +9,7 @@
 #+end_src
                                                                      
 #+begin_center
-                      L'IDE pour l'IED
+L'IDE pour l'IED
 #+end_center
 
 Les commandes de bases:
