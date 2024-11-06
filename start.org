@@ -1,4 +1,4 @@
-#+begin_src emacs txt
+#+begin_src txt
  __   _______  _______  .___  ___.      ___       ______     _______.
 |  | |   ____||       \ |   \/   |     /   \     /      |   /       |
 |  | |  |__   |  .--.  ||  \  /  |    /  ^  \   |  ,----'  |   (----`
@@ -8,20 +8,14 @@
                                                                      
 #+end_src
                                                                      
+#+begin_center
                       L'IDE pour l'IED
+#+end_center
 
- Les commandes de bases:
+Les commandes de bases:
  - ~Ctrl-f~: avancer le curseur
  - ~Ctrl-b~: reculer le curseur
  - ~Ctrl-p~: monter le curseur
  - ~Ctrl-n~: descendre le curseur
  - ~Ctrl-g~: sors moi cette m****!
-
-
-
-
-
-
-
-
 
