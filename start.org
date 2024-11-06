@@ -1,0 +1,24 @@
+
+      ___
+       |   _  _       _  _ _
+       |  |_  |\ |\/||_|| |_
+      _|_ |_  |/ |  || ||_ _|
+
+          L'IDE de l'IED
+
+
+ Les commandes de bases:
+ - ~Ctrl-f~: avancer le curseur
+ - ~Ctrl-b~: reculer le curseur
+ - ~Ctrl-p~: monter le curseur
+ - ~Ctrl-n~: descendre le curseur
+ - ~Ctrl-g~: sors moi cette m****!
+
+
+
+
+
+
+
+
+
