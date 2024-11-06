@@ -1,6 +1,8 @@
-;; GENERAL SETTINGS FOR IED
-;; Remove startup message
+;; Configuration de base pour l'IEDmac
+;; Supprimer le message de démarrage
 (setq inhibit-startup-message t)
+
+(setq initial-buffer-choice "~/.emacs.d/iedmacstart.org")
 
 ;; Install MELPA package
 (require 'package)
@@ -44,9 +46,9 @@ manual."
   (interactive)
   (pcase (modus-themes--current-theme)
     ('modus-operandi-deuteranopia (progn (enable-theme 'modus-vivendi-tinted)
-                            (disable-theme 'modus-operandi-deuteranopia)))
+			    (disable-theme 'modus-operandi-deuteranopia)))
     ('modus-vivendi-tinted (progn (enable-theme 'modus-operandi-deuteranopia)
-                            (disable-theme 'modus-vivendi-tinted)))
+			    (disable-theme 'modus-vivendi-tinted)))
     (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
 
 ;; PACKAGE NAME: ace-window
@@ -149,16 +151,16 @@ manual."
 ;; defined org-plain-latex used in latex-standard.org
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
-               '("org-plain-latex"
-                 "\\documentclass{article}
-           [NO-DEFAULT-PACKAGES]
-           [PACKAGES]
-           [EXTRA]"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+	       '("org-plain-latex"
+		 "\\documentclass{article}
+	   [NO-DEFAULT-PACKAGES]
+	   [PACKAGES]
+	   [EXTRA]"
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 ;;==== AUTOMATICALLY ADD BY EMACS ======
 
