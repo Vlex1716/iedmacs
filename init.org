@@ -58,11 +58,11 @@ Installation et configuration d'IEDmacs.
    #+end_src
 
    Il y a trois fichiers:
-   - **init.el:** c'est le fichier lu à l'ouverture par emacs avec
+   - *init.el:* c'est le fichier lu à l'ouverture par emacs avec
      quelques packages utiles préinstallé.
-   - **start.org:** c'est la page d'accueil d'IEDmacs avec quelques
+   - *start.org:* c'est la page d'accueil d'IEDmacs avec quelques
      instructions et raccourcis utiles.
-   - **ied-latex-standard.org:** c'est le fichier qui permet la
+   - *ied-latex-standard.org:* c'est le fichier qui permet la
      configuration pour convertir votre fichier en LaTex.
      
    Ceci est juste une version simplifiée d'Emacs avec quelques
@@ -111,7 +111,8 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 
    - Copier le code ci-dessous, en remplaçant les informations par
      les vôtres.
-    ```
+     
+ #+BEGIN_SRC  
     #+TITLE: [NOM DU CHAPITRE]
     #+SUBTITLE: [NOM DU COURS]
     #+OPTIONS: toc:t author:nil
@@ -130,8 +131,9 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
      :PROPERTIES:
      :UNNUMBERED: t
      :END:
-     ```
-   **Méthode 2**
+#+END_SRC
+
+   *Méthode 2*
 
    Utiliser la commande suivante pour télécharger un fichier
    échantillon du dépôt github.
