@@ -6,7 +6,7 @@
 #+macro: latest-export-date (eval (format-time-string "%F %T %z"))
 #+macro: word-count (eval (count-words (point-min) (point-max)))
 
-Ceci est une Version aménagée d'Emacs pour les étudiants de l'IÉD8 Paris
+Ceci est une Version aménagée d'Emacs pour les étudiants de l'IED8 Paris
 qui le souhaitent, nommée pour l'occasion IEDmacs.
 
 Emacs n'est peut-être pas toujours facile à prendre
@@ -21,7 +21,7 @@ Ce document est une tentative d'explication du code du fichier
 version d'Emacs plus facile à prendre en main afin de rendre avec un
 peu moins de difficultés les premiers devoirs (mais ça marchera aussi
 pour les suivants). Ce document reprend le concept de "[[https://fr.wikipedia.org/wiki/Programmation_lettr%C3%A9e][Progammation
-lettrée]]" qui consiste à intégrer les explications directement au sein
+lettrée]]" ("Literate Programming" en anglais) qui consiste à intégrer les explications directement au sein
 du code.
 
 Emacs et Orgmode permettent de générer un fichier de code à partir
@@ -47,33 +47,101 @@ Ce fichier est composé de plusieurs parties comme suit:
 
 * Documentation Utilisateur
 ** Guide d'installation
-   Installation et configuration d'IEDmacs.
-   1. Installer Emacs
-      ~sudo apt-get install emacs~
-   2. Installer LaTex
-      ~sudo apt-get install texlive-full~
-   3. Télécharger le fichier init de IEDmacs
-      #+begin_src
-	curl -o ~/.emacs.d/init.el https://github.com/AreTaro/iedmacs/init.el
-      #+end_src
-** Guide du débutant / Tutoriel
-   Explications simples pour commencer à utiliser IDEmacs et exemples
-   concrets d'utilisation.
-*** Lancer IEDmacs
-   Pour lancer IEDmacs avec la commande ~emacs &~, ou faites le
-   directement en cliquant sur l'icône emacs qui se sera créé après
-   l'installation. 
-*** Les Commandes
-   Il est généralement recommandé de commencer par le tutoriel
-   d'utilisation d'Emacs pour apprendre les nombreux raccourcis. Mais
-   certaines commandes seront peut-être nécessaire pour tester et
-   essayer rapidement IDEmacs, d'autant plus que vous serez peut-être
-   déjà en retard dans le rendu de vos devoirs et qu'il est possible
-   que vous remettiez le tutoriel à plus tard. Dans ce cas voici
-   quelques commandes essentiels:
-   - ~Ctrl-f~, ~Ctrl-b~, ~Ctrl~p~, ~Ctrl~n~: pour avancer, reculer,
-     monter, descendre le curseur respectivement.
+Installation et configuration d'IEDmacs.
+1. Installer Emacs
+    ~sudo apt-get install emacs~
+2. Installer LaTex
+    ~sudo apt-get install texlive-full~
+3. Télécharger les fichiers de l'IEDmacs
+   #+begin_src shell
+   wget https://github.com/AreTaro/iedmacs/init.el https://github.com/AreTaro/iedmacs/ied-latex-standard.org https://github.com/AreTaro/iedmacs/start.org -P ~/.emacs.d/
+   #+end_src
 
+   Il y a trois fichiers:
+   - **init.el:** c'est le fichier lu à l'ouverture par emacs avec
+     quelques packages utiles préinstallé.
+   - **start.org:** c'est la page d'accueil d'IEDmacs avec quelques
+     instructions et raccourcis utiles.
+   - **ied-latex-standard.org:** c'est le fichier qui permet la
+     configuration pour convertir votre fichier en LaTex.
+     
+   Ceci est juste une version simplifiée d'Emacs avec quelques
+   packages utiles préinstallés. Pour plus de détails, voir le
+   chapitre "Documentation Système". Libre à vous de choisir un autre
+   répertoire pour les fichiers mais il faudra modifier leur chemin
+   d'accès dans le fichier "init".
+** Guide du débutant / Tutoriel
+Explications simples pour commencer à utiliser IDEmacs et exemples
+concrets d'utilisation.
+*** Lancer IEDmacs
+Pour lancer IEDmacs utiliser la commande ~emacs &~, ou faites le
+directement en cliquant sur l'icône emacs qui se sera créé après
+l'installation.
+*** Les Commandes de base
+Il est généralement recommandé de commencer par le tutoriel
+d'utilisation d'Emacs pour apprendre les nombreux raccourcis. Mais
+certaines commandes seront peut-être nécessaire pour tester et
+essayer rapidement IDEmacs, d'autant plus que vous serez peut-être
+déjà en retard dans le rendu de vos devoirs et qu'il est possible
+que vous remettiez le tutoriel à plus tard. Dans ce cas voici
+quelques commandes essentiels:
+- ~Ctrl-f~, ~Ctrl-b~, ~Ctrl~p~, ~Ctrl~n~: pour avancer, reculer,
+    monter, descendre le curseur respectivement.
+- ~Ctrl-g~ pour sortir d'un menu ou d'une commande. Souvent utile car
+  dans emacs, la touche "Esc" ne permet pas toujours de s'échapper
+  d'un menu.
+- ~Ctrl-x Ctrl-c~ pour quitter
+- ~Ctrl-x f~ pour ouvrir un fichier
+- ~Ctrl-x b~ pour basculer d'une fichier ouvert (buffer) à l'autre.
+Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][carte de référence]].
+*** Rédiger un devoir
+1. Ouvrir un fichier pour le devoir
+   Il y a au moins deux méthodes. La première consiste à ouvrir un
+   fichier vierge et à y insérer le code nécessaire pour l'export
+   LaTex en PDF. La seconde consiste à télécharger un fichier
+   échantillon à le code déjà ajouté.
+
+   **Méthode 1**
+
+   - Utiliser la commande ~Ctrl-x f~ comme pour ouvrir un fichier,
+
+   - Sélectionner le dossier où enregistrer le fichier,
+
+   - Nommer le fichier et presser entrer. Cela ouvrira un nouveau buffer ou fichier vierge,
+
+   - Copier le code ci-dessous, en remplaçant les informations par
+     les vôtres.
+    ```
+    #+TITLE: [NOM DU CHAPITRE]
+    #+SUBTITLE: [NOM DU COURS]
+    #+OPTIONS: toc:t author:nil
+    #+LaTeX_HEADER: \author{[PRENOM NOM] \\ N. Etudiant : [NUMERO]}
+    #+SETUPFILE: ~/.emacs.d/ied-latex-standard.org
+
+    \newpage
+
+     * Exercice X
+     ** Enoncé
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :END:
+
+     ** Réponse
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :END:
+     ```
+   **Méthode 2**
+
+   Utiliser la commande suivante pour télécharger un fichier
+   échantillon du dépôt github.
+   
+   #+begin_src shell
+     wget https://github.com/AreTaro/iedmacs/ied-latex-standard.org -P .
+   #+end_src
+
+   Ouvrir le fichier téléchargé avec la commande ~Ctrl-x f~.
+  
 ** Guide de référence
    Description détaillée de chaque fonctionnalité du système,
    utilisation avancée et cas d'usage spécifiques.
