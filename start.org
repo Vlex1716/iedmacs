@@ -1,4 +1,4 @@
-#+begin_src emacs lisp
+#+begin_src emacs-lisp
  __   _______  _______  .___  ___.      ___       ______     _______.
 |  | |   ____||       \ |   \/   |     /   \     /      |   /       |
 |  | |  |__   |  .--.  ||  \  /  |    /  ^  \   |  ,----'  |   (----`
@@ -9,7 +9,7 @@
 #+end_src
                                                                      
 #+begin_center
-L'IDE pour l'IED
+Un IDE pour l'IED
 #+end_center
 
 Les commandes de bases:
@@ -17,5 +17,9 @@ Les commandes de bases:
  - ~Ctrl-b~: reculer le curseur
  - ~Ctrl-p~: monter le curseur
  - ~Ctrl-n~: descendre le curseur
- - ~Ctrl-g~: sors moi cette m****!
+ - ~Ctrl-g~: sors moi de cette m****!
+ - ~Ctrl-x Ctrl-c~ pour quitter
+ - ~Ctrl-x f~ pour ouvrir un fichier
+ - ~Ctrl-x b~ pour basculer d'une fichier ouvert (buffer) à l'autre.
 
+Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][carte de référence]].

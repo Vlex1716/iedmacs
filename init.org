@@ -6,6 +6,17 @@
 #+macro: latest-export-date (eval (format-time-string "%F %T %z"))
 #+macro: word-count (eval (count-words (point-min) (point-max)))
 
+
+#+begin_src emacs-lisp
+ __   _______  _______  .___  ___.      ___       ______     _______.
+|  | |   ____||       \ |   \/   |     /   \     /      |   /       |
+|  | |  |__   |  .--.  ||  \  /  |    /  ^  \   |  ,----'  |   (----`
+|  | |   __|  |  |  |  ||  |\/|  |   /  /_\  \  |  |        \   \    
+|  | |  |____ |  '--'  ||  |  |  |  /  _____  \ |  `----.----)   |   
+|__| |_______||_______/ |__|  |__| /__/     \__\ \______|_______/    
+                                                                     
+#+end_src
+
 Ceci est une Version aménagée d'Emacs pour les étudiants de l'IED8 Paris
 qui le souhaitent, nommée pour l'occasion IEDmacs.
 
@@ -101,7 +112,7 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
    LaTex en PDF. La seconde consiste à télécharger un fichier
    échantillon à le code déjà ajouté.
 
-   **Méthode 1**
+   *Méthode 1*
 
    - Utiliser la commande ~Ctrl-x f~ comme pour ouvrir un fichier,
 
@@ -111,38 +122,47 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 
    - Copier le code ci-dessous, en remplaçant les informations par
      les vôtres.
-     
- #+BEGIN_SRC  
-    #+TITLE: [NOM DU CHAPITRE]
-    #+SUBTITLE: [NOM DU COURS]
-    #+OPTIONS: toc:t author:nil
-    #+LaTeX_HEADER: \author{[PRENOM NOM] \\ N. Etudiant : [NUMERO]}
-    #+SETUPFILE: ~/.emacs.d/ied-latex-standard.org
 
-    \newpage
+    #+BEGIN_SRC  
+       #+TITLE: [NOM DU CHAPITRE]
+       #+SUBTITLE: [NOM DU COURS]
+       #+OPTIONS: toc:t author:nil
+       #+LaTeX_HEADER: \author{[PRENOM NOM] \\ N. Etudiant : [NUMERO]}
+       #+SETUPFILE: ~/.emacs.d/ied-latex-standard.org
 
-     * Exercice X
-     ** Enoncé
-     :PROPERTIES:
-     :UNNUMBERED: t
-     :END:
+       \newpage
 
-     ** Réponse
-     :PROPERTIES:
-     :UNNUMBERED: t
-     :END:
-#+END_SRC
+        * Exercice X
+        ** Enoncé
+        :PROPERTIES:
+        :UNNUMBERED: t
+        :END:
 
-   *Méthode 2*
+        ** Réponse
+        :PROPERTIES:
+        :UNNUMBERED: t
+        :END:
+   #+END_SRC
 
-   Utiliser la commande suivante pour télécharger un fichier
-   échantillon du dépôt github.
+      *Méthode 2*
+
+      Utiliser la commande suivante pour télécharger un fichier
+      échantillon du dépôt github.
    
-   #+begin_src shell
-     wget https://github.com/AreTaro/iedmacs/ied-latex-standard.org -P .
-   #+end_src
+      #+begin_src shell
+        wget https://github.com/AreTaro/iedmacs/ied-latex-standard.org -P .
+      #+end_src
 
-   Ouvrir le fichier téléchargé avec la commande ~Ctrl-x f~.
+      Ouvrir le fichier téléchargé avec la commande ~Ctrl-x f~.
+
+2. Rédiger votre dévoir
+   Utiliser la synthaxe orgmode pour écrire votre texte. Pour plus de
+   détails sur la syntax voir le dépôt en anglais [[https://github.com/fniessen/refcard-org-mode][refcard-org-mode]].
+
+   Vous pouvez également utiliser la synthaxe LaTex au sein de votre
+   fichier ".org" en utilisant le raccourci ~Ctrl-c Ctrl-, l~ (Clavier
+   azerty). Pour plus d'information sur la synthaxe LaTex voir le
+   dépôt de [[https://github.com/amartos/TexIEDP8][amartos]]. 
   
 ** Guide de référence
    Description détaillée de chaque fonctionnalité du système,

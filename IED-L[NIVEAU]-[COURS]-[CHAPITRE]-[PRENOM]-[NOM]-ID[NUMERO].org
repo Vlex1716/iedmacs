@@ -2,7 +2,7 @@
 #+SUBTITLE: [NOM DU COURS]
 #+OPTIONS: toc:t author:nil
 #+LaTeX_HEADER: \author{[PRENOM NOM] \\ N. Etudiant : [NUMERO]}
-#+SETUPFILE: ~/[CHEMIN]/ied-latex-standard.org
+#+SETUPFILE: ~/.emacs.d/ied-latex-standard.org
 
 \newpage
 
