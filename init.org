@@ -90,11 +90,11 @@ directement en cliquant sur l'icône emacs qui se sera créé après
 l'installation.
 *** Les Commandes de base
 Il est généralement recommandé de commencer par le tutoriel
-d'utilisation d'Emacs pour apprendre les nombreux raccourcis. Mais
-certaines commandes seront peut-être nécessaire pour tester et
-essayer rapidement IDEmacs, d'autant plus que vous serez peut-être
-déjà en retard dans le rendu de vos devoirs et qu'il est possible
-que vous remettiez le tutoriel à plus tard. Dans ce cas voici
+d'utilisation d'Emacs (~Ctrl-h t~) pour apprendre les nombreux
+raccourcis. Mais certaines commandes seront peut-être nécessaire pour
+tester et essayer rapidement IDEmacs, d'autant plus que vous serez
+peut-être déjà en retard dans le rendu de vos devoirs et qu'il est
+possible que vous remettiez le tutoriel à plus tard. Dans ce cas voici
 quelques commandes essentiels:
 - ~Ctrl-f~, ~Ctrl-b~, ~Ctrl~p~, ~Ctrl~n~: pour avancer, reculer,
     monter, descendre le curseur respectivement.
