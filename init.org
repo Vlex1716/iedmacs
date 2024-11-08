@@ -114,7 +114,7 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 
    *Méthode 1*
 
-   - Utiliser la commande ~Ctrl-x f~ comme pour ouvrir un fichier,
+   - Utiliser la commande ~Ctrl-x Ctrl-f~ comme pour ouvrir un fichier,
 
    - Sélectionner le dossier où enregistrer le fichier,
 
@@ -150,10 +150,10 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
       échantillon du dépôt github.
    
       #+begin_src shell
-      curl -o ~/IED-L[NIVEAU]-[COURS]-[CHAPITRE]-[PRENOM]-[NOM]-ID[NUMERO].org https://raw.githubusercontent.com/AreTaro/iedmacs/main/IED-L[NIVEAU]-[COURS]-[CHAPITRE]-[PRENOM]-[NOM]-ID[NUMERO].org 
+      curl -o ~/modele_devoir.org https://raw.githubusercontent.com/AreTaro/iedmacs/main/modele_devoir.org 
       #+end_src
 
-      Ouvrir le fichier téléchargé avec la commande ~Ctrl-x f~.
+      Ouvrir le fichier téléchargé avec la commande ~Ctrl-x Ctrl-f~.
 
 2. Rédiger votre dévoir
    Utiliser la synthaxe orgmode pour écrire votre texte. Pour plus de
@@ -162,7 +162,12 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
    Vous pouvez également utiliser la synthaxe LaTex au sein de votre
    fichier ".org" en utilisant le raccourci ~Ctrl-c Ctrl-, l~ (Clavier
    azerty). Pour plus d'information sur la synthaxe LaTex voir le
-   dépôt de [[https://github.com/amartos/TexIEDP8][amartos]]. 
+   dépôt de [[https://github.com/amartos/TexIEDP8][amartos]].
+
+3. Editer votre devoir au format PDF
+   Une fois votre devoir ou document rédiger, il suffit d'utiliser le
+   raccourci ~Ctrl-c Ctrl-e l p~, et votre fichier LaTex ainsi que le
+   document PDF seront crée automatiquement.
   
 ** Guide de référence
    Description détaillée de chaque fonctionnalité du système,
