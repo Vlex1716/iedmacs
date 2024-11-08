@@ -98,7 +98,7 @@ manual."
 
 (setq evil-default-state 'normal)
 (require 'evil)
-(evil-mode 1)
+(evil-mode 0)
 
 ;; Biding keys
 ;; to change evil to emacs C-z

@@ -1,4 +1,3 @@
-#+begin_src emacs-lisp
  __   _______  _______  .___  ___.      ___       ______     _______.
 |  | |   ____||       \ |   \/   |     /   \     /      |   /       |
 |  | |  |__   |  .--.  ||  \  /  |    /  ^  \   |  ,----'  |   (----`
@@ -6,11 +5,8 @@
 |  | |  |____ |  '--'  ||  |  |  |  /  _____  \ |  `----.----)   |   
 |__| |_______||_______/ |__|  |__| /__/     \__\ \______|_______/    
                                                                      
-#+end_src
                                                                      
-#+begin_center
-Un IDE pour l'IED
-#+end_center
+                        Un IDE pour l'IED
 
 Les commandes de bases:
  - ~Ctrl-f~: avancer le curseur
@@ -22,4 +18,5 @@ Les commandes de bases:
  - ~Ctrl-x f~ pour ouvrir un fichier
  - ~Ctrl-x b~ pour basculer d'une fichier ouvert (buffer) à l'autre.
 
-Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][carte de référence]].
+Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][carte de référence]] (~Ctrl-c
+Ctrl-o~ pour ouvrir le lien).
