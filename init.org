@@ -65,7 +65,7 @@ Installation et configuration d'IEDmacs.
     ~sudo apt-get install texlive-full~
 3. Télécharger les fichiers de l'IEDmacs
    #+begin_src shell
-   wget https://github.com/AreTaro/iedmacs/init.el https://github.com/AreTaro/iedmacs/ied-latex-standard.org https://github.com/AreTaro/iedmacs/start.org -P ~/.emacs.d/
+   for file in init.el start.org ied-latex-standard.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
    #+end_src
 
    Il y a trois fichiers:
@@ -150,7 +150,7 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
       échantillon du dépôt github.
    
       #+begin_src shell
-        wget https://github.com/AreTaro/iedmacs/ied-latex-standard.org -P .
+      curl -o ~/IED-L[NIVEAU]-[COURS]-[CHAPITRE]-[PRENOM]-[NOM]-ID[NUMERO].org https://raw.githubusercontent.com/AreTaro/iedmacs/main/IED-L[NIVEAU]-[COURS]-[CHAPITRE]-[PRENOM]-[NOM]-ID[NUMERO].org 
       #+end_src
 
       Ouvrir le fichier téléchargé avec la commande ~Ctrl-x f~.
@@ -179,7 +179,7 @@ Objectifs et philosophie de conceptions d'IDEmacs.
    Fonction de chaque unité du fichier init
    
    #+begin_src emacs-lisp :tangle "init.el"
-     ;; Configuration de base pour l'IEDmac
+     ;; Configuration de base pour l'IEDmac V0.0.0
      ;; Supprimer le message de démarrage
      (setq inhibit-startup-message t)
 

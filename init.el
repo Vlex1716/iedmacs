@@ -1,8 +1,8 @@
-;; Configuration de base pour l'IEDmac
+;; Configuration de base pour l'IEDmac V0.0.0
 ;; Supprimer le message de démarrage
 (setq inhibit-startup-message t)
 
-(setq initial-buffer-choice "~/.emacs.d/iedmacstart.org")
+(setq initial-buffer-choice "~/.emacs.d/start.org")
 
 ;; Install MELPA package
 (require 'package)
