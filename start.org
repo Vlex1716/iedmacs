@@ -1,3 +1,5 @@
+
+
  __   _______  _______  .___  ___.      ___       ______     _______.
 |  | |   ____||       \ |   \/   |     /   \     /      |   /       |
 |  | |  |__   |  .--.  ||  \  /  |    /  ^  \   |  ,----'  |   (----`
@@ -20,3 +22,6 @@ Les commandes de bases:
 
 Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][carte de référence]] (~Ctrl-c
 Ctrl-o~ pour ouvrir le lien).
+
+Pour utiliser les commandes VIM: ~Ctrl-x evil-mode~. Pour revenir aux
+commandes emacs ~Ctrl-z~
