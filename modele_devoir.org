@@ -1,0 +1,19 @@
+#+TITLE: [NOM DU CHAPITRE]
+#+SUBTITLE: [NOM DU COURS]
+#+OPTIONS: toc:t author:nil
+#+LaTeX_HEADER: \author{[PRENOM NOM] \\ N. Etudiant : [NUMERO]}
+#+SETUPFILE: ~/.emacs.d/ied-latex-standard.org
+
+\newpage
+
+* Exercice X
+** Enoncé
+   :PROPERTIES:
+   :UNNUMBERED: t
+   :END:
+
+** Réponse
+   :PROPERTIES:
+   :UNNUMBERED: t
+   :END:
+
