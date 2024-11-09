@@ -2,7 +2,7 @@
 ;; Supprimer le message de démarrage
 (setq inhibit-startup-message t)
 
-(setq initial-buffer-choice "~/.emacs.d/start.org")
+(setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
 
 ;; Install MELPA package
 (require 'package)
