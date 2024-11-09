@@ -23,5 +23,6 @@ Les commandes de bases:
 Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][carte de référence]] (~Ctrl-c
 Ctrl-o~ pour ouvrir le lien).
 
-Pour utiliser les commandes VIM: ~Ctrl-x evil-mode~. Pour revenir aux
-commandes emacs ~Ctrl-z~
+Pour utiliser les commandes VIM: ~Alt-x evil-mode~. Ensuite pour
+passer d'un mode de saisi à l'autre utiliser la commande
+~Ctrl-z~.

@@ -174,6 +174,29 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
    utilisation avancée et cas d'usage spécifiques.
 ** Notes de version
    Informations sur les changements importants.
+*** nom des versions
+
+1. Apollon Funky
+2. Héra Cyber
+3. Izanagi Groovy
+4. Sarasvati Electro
+5. Kuan Yin Techno
+6. Dionysos Chic
+7. Amaterasu Hyper
+8. Vishnu Digital
+9. Héphaïstos Psy
+10. Benten Electro
+11. Ares Techno
+12. Inari Gigabyte
+13. Parvati Turbo
+14. Tsukuyomi Synthwave
+15. Krishna Pixel
+16. Athena Futuriste
+17. Izanami Electro
+18. Shiva Néon
+19. Hestia Techno
+20. Benzaiten Globo
+   
 ** Carte de référence rapide
    Aide-mémoire des commandes et raccourcis clavier les plus utilisés.
 ** Gestion des paquets et extensions
@@ -184,17 +207,56 @@ Objectifs et philosophie de conceptions d'IDEmacs.
    Fonction de chaque unité du fichier init
    
    #+begin_src emacs-lisp :tangle "init.el"
-     ;; Configuration de base pour l'IEDmac V0.0.0
+     ;; Configuration de l'IEDmacs
+     ;; Version: Apollon Funky 0.0.0
      ;; Supprimer le message de démarrage
      (setq inhibit-startup-message t)
+     (menu-bar-mode -1)
+     (tool-bar-mode -1)
 
      (setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
 
+
+      (setq display-time-day-and-date t) ;; Display the day and date
+      (display-time-mode 1) ;; Enable time display in mode line
+
+  (setq-default mode-line-format
+                (list
+                 '(:eval
+                     (propertize
+                      (format-time-string
+                       "  %-d/%-m(%a) %H:%M " (current-time))
+                      'face 'shadow)) 
+                 'default-directory
+                 '(:eval (propertize (format-mode-line
+                                      mode-line-buffer-identification)
+                                     'face 'success))
+                 '(:eval (if current-input-method
+                            (propertize "⌨ " 'face 'warning)
+                          ""))
+                 ))
+  
+      ;; Define a function to only active setting when buffer is active
+      (defun mode-line-window-selected-p ()
+        "Return non-nil if we're updating the mode line for the selected window.
+      This function is meant to be called in `:eval' mode line
+      constructs to allow altering the look of the mode line depending
+      on whether the mode line belongs to the currently selected window
+      or not."
+        (let ((window (selected-window)))
+          (or (eq window (old-selected-window))
+              (and (minibuffer-window-active-p (minibuffer-window))
+                   (with-selected-window (minibuffer-window)
+                     (eq window (minibuffer-selected-window)))))))
+     
+#+end_src
+
+#+begin_src emacs-lisp :tangle "init.el"
      ;; Install MELPA package
      (require 'package)
      (setq package-enable-at-startup nil)
      (add-to-list 'package-archives
-		  '("melpa" . "https://melpa.org/packages/"))
+                  '("melpa" . "https://melpa.org/packages/"))
      (package-initialize)
      (package-refresh-contents)
 
@@ -215,7 +277,11 @@ Objectifs et philosophie de conceptions d'IDEmacs.
      (use-package which-key
        :ensure t
        :config (which-key-mode))
+#+end_src
 
+** Theme
+
+#+begin_src emacs-lisp :tangle "init.el"
      ;; PACKAGE NAME: modus-themes
      ;; PURPOSE: theme by Protesilaos Stavrou
      (use-package modus-themes
@@ -231,11 +297,11 @@ Objectifs et philosophie de conceptions d'IDEmacs.
      manual."
        (interactive)
        (pcase (modus-themes--current-theme)
-	 ('modus-operandi-deuteranopia (progn (enable-theme 'modus-vivendi-tinted)
-				 (disable-theme 'modus-operandi-deuteranopia)))
-	 ('modus-vivendi-tinted (progn (enable-theme 'modus-operandi-deuteranopia)
-				 (disable-theme 'modus-vivendi-tinted)))
-	 (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
+         ('modus-operandi-deuteranopia (progn (enable-theme 'modus-vivendi-tinted)
+                                 (disable-theme 'modus-operandi-deuteranopia)))
+         ('modus-vivendi-tinted (progn (enable-theme 'modus-operandi-deuteranopia)
+                                 (disable-theme 'modus-vivendi-tinted)))
+         (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
 
      ;; PACKAGE NAME: ace-window
      ;; PURPOSE: select a window more easily
@@ -251,29 +317,29 @@ Objectifs et philosophie de conceptions d'IDEmacs.
        :ensure t
        :config
        (progn
-	 (ivy-mode)
-	 (setq ivy-use-virtual-buffers t)
-	 (setq enable-recursive-minibuffers t)
-	 ;; enable this if you want `swiper' to use it
-	 ;; (setq search-default-mode #'char-fold-to-regexp)
-	 (global-set-key "\C-s" 'swiper)
-	 (global-set-key (kbd "C-c C-r") 'ivy-resume)
-	 (global-set-key (kbd "<f6>") 'ivy-resume)
-	 (global-set-key (kbd "M-x") 'counsel-M-x)
-	 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-	 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-	 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-	 (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
-	 (global-set-key (kbd "<f1> l") 'counsel-find-library)
-	 (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-	 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-	 (global-set-key (kbd "C-c g") 'counsel-git)
-	 (global-set-key (kbd "C-c j") 'counsel-git-grep)
-	 (global-set-key (kbd "C-c k") 'counsel-ag)
-	 (global-set-key (kbd "C-x l") 'counsel-locate)
-	 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-	 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-	 ))
+         (ivy-mode)
+         (setq ivy-use-virtual-buffers t)
+         (setq enable-recursive-minibuffers t)
+         ;; enable this if you want `swiper' to use it
+         ;; (setq search-default-mode #'char-fold-to-regexp)
+         (global-set-key "\C-s" 'swiper)
+         (global-set-key (kbd "C-c C-r") 'ivy-resume)
+         (global-set-key (kbd "<f6>") 'ivy-resume)
+         (global-set-key (kbd "M-x") 'counsel-M-x)
+         (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+         (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+         (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+         (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
+         (global-set-key (kbd "<f1> l") 'counsel-find-library)
+         (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+         (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+         (global-set-key (kbd "C-c g") 'counsel-git)
+         (global-set-key (kbd "C-c j") 'counsel-git-grep)
+         (global-set-key (kbd "C-c k") 'counsel-ag)
+         (global-set-key (kbd "C-x l") 'counsel-locate)
+         (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+         (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+         ))
 
      ;; ====== EVIL MODE SETTINGS ========
      ;; PACKAGE: evil
@@ -337,16 +403,16 @@ Objectifs et philosophie de conceptions d'IDEmacs.
      ;; defined org-plain-latex used in latex-standard.org
      (with-eval-after-load 'ox-latex
        (add-to-list 'org-latex-classes
-		    '("org-plain-latex"
-		      "\\documentclass{article}
-		[NO-DEFAULT-PACKAGES]
-		[PACKAGES]
-		[EXTRA]"
-		      ("\\section{%s}" . "\\section*{%s}")
-		      ("\\subsection{%s}" . "\\subsection*{%s}")
-		      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		      ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+                    '("org-plain-latex"
+                      "\\documentclass{article}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRA]"
+                      ("\\section{%s}" . "\\section*{%s}")
+                      ("\\subsection{%s}" . "\\subsection*{%s}")
+                      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                      ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
      ;;==== AUTOMATICALLY ADD BY EMACS ======
 
@@ -356,7 +422,7 @@ Objectifs et philosophie de conceptions d'IDEmacs.
       ;; Your init file should contain only one such instance.
       ;; If there is more than one, they won't work right.
       '(custom-safe-themes
-	'("c7a926ad0e1ca4272c90fce2e1ffa7760494083356f6bb6d72481b879afce1f2" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
+        '("c7a926ad0e1ca4272c90fce2e1ffa7760494083356f6bb6d72481b879afce1f2" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
       '(package-selected-packages '(which-key try use-package)))
      (custom-set-faces
       ;; custom-set-faces was added by Custom.

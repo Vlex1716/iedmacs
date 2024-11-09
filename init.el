@@ -1,14 +1,50 @@
-;; Configuration de base pour l'IEDmac V0.0.0
-;; Supprimer le message de démarrage
-(setq inhibit-startup-message t)
+;; Configuration de l'IEDmacs
+   ;; Version: Apollon Funky 0.0.0
+   ;; Supprimer le message de démarrage
+   (setq inhibit-startup-message t)
+   (menu-bar-mode -1)
+   (tool-bar-mode -1)
 
-(setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
+   (setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
+
+
+    (setq display-time-day-and-date t) ;; Display the day and date
+    (display-time-mode 1) ;; Enable time display in mode line
+
+(setq-default mode-line-format
+              (list
+               '(:eval
+                   (propertize
+                    (format-time-string
+                     "  %-d/%-m(%a) %H:%M " (current-time))
+                    'face 'shadow)) 
+               'default-directory
+               '(:eval (propertize (format-mode-line
+                                    mode-line-buffer-identification)
+                                   'face 'success))
+               '(:eval (if current-input-method
+                          (propertize "⌨ " 'face 'warning)
+                        ""))
+               ))
+
+    ;; Define a function to only active setting when buffer is active
+    (defun mode-line-window-selected-p ()
+      "Return non-nil if we're updating the mode line for the selected window.
+    This function is meant to be called in `:eval' mode line
+    constructs to allow altering the look of the mode line depending
+    on whether the mode line belongs to the currently selected window
+    or not."
+      (let ((window (selected-window)))
+        (or (eq window (old-selected-window))
+            (and (minibuffer-window-active-p (minibuffer-window))
+                 (with-selected-window (minibuffer-window)
+                   (eq window (minibuffer-selected-window)))))))
 
 ;; Install MELPA package
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 (package-refresh-contents)
 
@@ -46,9 +82,9 @@ manual."
   (interactive)
   (pcase (modus-themes--current-theme)
     ('modus-operandi-deuteranopia (progn (enable-theme 'modus-vivendi-tinted)
-			    (disable-theme 'modus-operandi-deuteranopia)))
+                            (disable-theme 'modus-operandi-deuteranopia)))
     ('modus-vivendi-tinted (progn (enable-theme 'modus-operandi-deuteranopia)
-			    (disable-theme 'modus-vivendi-tinted)))
+                            (disable-theme 'modus-vivendi-tinted)))
     (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
 
 ;; PACKAGE NAME: ace-window
@@ -151,16 +187,16 @@ manual."
 ;; defined org-plain-latex used in latex-standard.org
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
-	       '("org-plain-latex"
-		 "\\documentclass{article}
-	   [NO-DEFAULT-PACKAGES]
-	   [PACKAGES]
-	   [EXTRA]"
-		 ("\\section{%s}" . "\\section*{%s}")
-		 ("\\subsection{%s}" . "\\subsection*{%s}")
-		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+               '("org-plain-latex"
+                 "\\documentclass{article}
+           [NO-DEFAULT-PACKAGES]
+           [PACKAGES]
+           [EXTRA]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 ;;==== AUTOMATICALLY ADD BY EMACS ======
 

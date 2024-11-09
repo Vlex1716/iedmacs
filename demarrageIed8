@@ -17,12 +17,13 @@ Les commandes de bases:
  - ~Ctrl-n~: descendre le curseur
  - ~Ctrl-g~: sors moi de cette m****!
  - ~Ctrl-x Ctrl-c~ pour quitter
- - ~Ctrl-x f~ pour ouvrir un fichier
+ - ~Ctrl-x Ctrl-f~ pour ouvrir un fichier
  - ~Ctrl-x b~ pour basculer d'une fichier ouvert (buffer) à l'autre.
 
-Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][carte de référence]] (~Ctrl-c
-Ctrl-o~ pour ouvrir le lien).
+Pour la liste complète des raccourcis, aller voir la carte de
+référence: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 
-Pour utiliser les commandes VIM: ~Alt-x evil-mode~. Ensuite pour
-passer d'un mode de saisi à l'autre utiliser la commande
-~Ctrl-z~.
+Pour utiliser les commandes VIM, ~Alt-x evil-mode~. Ensuite pour
+passer d'un mode de saisi à l'autre utiliser la commande ~Ctrl-z~.
+
+Pour plus de détails et d'information, télécharger le fichier "init.org" avec la commande ~curl -o ~/init.org https://raw.githubusercontent.com/AreTaro/iedmacs/main/init.org~
