@@ -17,7 +17,7 @@ Les commandes de bases:
  - ~Ctrl-n~: descendre le curseur
  - ~Ctrl-g~: sors moi de cette m****!
  - ~Ctrl-x Ctrl-c~ pour quitter
- - ~Ctrl-x Ctrl-f~ pour ouvrir un fichier
+ - ~Ctrl-x Ctrl-f~ pour ouvrir ou créer un fichier
  - ~Ctrl-x b~ pour basculer d'une fichier ouvert (buffer) à l'autre.
 
 Pour la liste complète des raccourcis, aller voir la carte de
