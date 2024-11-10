@@ -65,7 +65,7 @@ Installation et configuration d'IEDmacs.
     ~sudo apt-get install texlive-full~
 3. Télécharger les fichiers de l'IEDmacs
    #+begin_src shell
-   for file in init.el start.org ied-latex-standard.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
+   for file in init.el demarrageIed8.org ied-latex-standard.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
    #+end_src
 
    Il y a trois fichiers:
