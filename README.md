@@ -1,10 +1,12 @@
+_(Ceci sont des informations sommaires. Pour plus d'information et de détails voir le fichier `init.org`)_
+
 # Aide pour Utiliser Emacs et Rendre les Devoirs de l'IED
 
 Pour une assistance à la prise en main d'Emacs et pour rendre les devoirs de l'IED, voici trois fichiers qui pourront être utiles :
 
 - `init.el` : fichier de configuration pour Emacs (optionnel)
 - `ied-latex-standard.org`
-- `IED-L[NIVEAU]-[COURS]-[CHAPITRE]-[PRENOM]-[NOM]-ID[NUMERO].org`
+- `modele_devoir.org`
 
 ## Installation
 
@@ -39,11 +41,11 @@ Pour soumettre un devoir en utilisant Org-mode, copiez le fichier `ied-latex-sta
 
 Suivez ces étapes pour rédiger un devoir :
 
-1. Ouvrez une copie du fichier "devoir". Deux options possibles :
+1. Ouvrez une copie du fichier "modele_devoir". Deux options possibles :
    - Si vous êtes déjà dans Emacs, utilisez la commande `Ctrl-x Ctrl-f` et saisissez le nom de votre fichier dans le dossier choisi,
-   - Sinon, à partir de la ligne de commande, exécutez `emacs [COPIE FICHIER] &` pour ouvrir une fenêtre avec un fichier portant le même nom.
+   - Sinon, à partir de la ligne de commande, exécutez `emacs [CHEMIN VERS LE FICHIER] &` pour ouvrir une fenêtre avec un fichier portant le même nom.
 
-2. Modifiez l'en-tête du document .org avec les informations du cours et les vôtres, ainsi que le chemin d'accès au fichier `ied-latex-standard.org` copié précédemment :
+2. Modifiez l'en-tête du document `modele_devoir.org` avec les informations du cours et les vôtres, ainsi que le chemin d'accès au fichier `ied-latex-standard.org` copié précédemment :
 
 ```org-mode
 #+TITLE: [NOM DU CHAPITRE]
