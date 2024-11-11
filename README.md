@@ -4,9 +4,9 @@ _(Ce sont des informations sommaires. Pour plus d'information et de détails voi
 
 Pour une assistance à la prise en main d'Emacs et pour rendre les devoirs de l'IED, voici trois fichiers qui pourront être utiles :
 
-- `init.el` : fichier de configuration pour Emacs (optionnel)
-- `ied-latex-standard.org`
-- `modele_devoir.org`
+- `init.el` : Fichier de configuration pour IEDmacs
+- `ied-latex-standard.org` : Fichier de configuration pour l'export en latex et PDF.
+- `modele_devoir.org` : Exemple de fichier pour les devoirs
 
 ## Installation
 
