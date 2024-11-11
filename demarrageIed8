@@ -26,6 +26,5 @@ référence: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 Pour utiliser les commandes VIM, ~Alt-x evil-mode~. Ensuite pour
 passer d'un mode de saisi à l'autre utiliser la commande ~Ctrl-z~.
 
-Pour plus de détails et d'information, télécharger le fichier
-"iedmacs.org" avec la commande ~curl -o ~/iedmacs.org
-https://raw.githubusercontent.com/AreTaro/iedmacs/main/iedmacs.org~
+Pour plus de détails et d'information, consulter le fichier
+"iedmacs.org". 
