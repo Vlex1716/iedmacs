@@ -10,7 +10,7 @@ Pour une assistance à la prise en main d'Emacs et pour rendre les devoirs de l'
 
 ## Installation
 
-Pour utiliser Emacs :
+Pour utiliser Emacs et LaTex :
 
 1. Installer Emacs
     ```bash
@@ -27,7 +27,8 @@ Pour utiliser Emacs :
 
 ## Les Commandes
 
-Il est conseillé de parcourir le tutoriel pour apprendre les commandes de base. Sinon, voici quelques commandes de base :
+Il est conseillé de parcourir le tutoriel pour apprendre les commandes
+de base. Sinon, voici quelques commandes de base :
 
 - `Ctrl-g` : pour sortir d'un combo de commandes (souvent utile)
 - `Ctrl-f`, `Ctrl-b`, `Ctrl-p`, `Ctrl-n` : pour avancer, reculer, monter, descendre le curseur respectivement.
@@ -37,15 +38,24 @@ Il est conseillé de parcourir le tutoriel pour apprendre les commandes de base.
 
 ## Devoirs
 
-Pour soumettre un devoir en utilisant Org-mode, copiez le fichier `ied-latex-standard.org` sur votre machine et notez le chemin d'accès pour une utilisation ultérieure.
+Pour soumettre un devoir en utilisant Org-mode, copiez le fichier
+`ied-latex-standard.org` sur votre machine et notez le chemin d'accès
+pour une utilisation ultérieure.
 
 Suivez ces étapes pour rédiger un devoir :
 
-1. Ouvrez une copie du fichier "modele_devoir". Deux options possibles :
-   - Si vous êtes déjà dans Emacs, utilisez la commande `Ctrl-x Ctrl-f` et saisissez le nom de votre fichier dans le dossier choisi,
-   - Sinon, à partir de la ligne de commande, exécutez `emacs [CHEMIN VERS LE FICHIER] &` pour ouvrir une fenêtre avec un fichier portant le même nom.
+1. Ouvrez une copie du fichier "modele_devoir". Deux options possibles
+:
+- Si vous êtes déjà dans Emacs, utilisez la commande `Ctrl-x Ctrl-f`
+et saisissez le nom de votre fichier dans le dossier choisi,
+- Sinon,
+à partir de la ligne de commande, exécutez `emacs [CHEMIN VERS LE
+FICHIER] &` pour ouvrir une fenêtre avec un fichier portant le même
+nom.
 
-2. Modifiez l'en-tête du document `modele_devoir.org` avec les informations du cours et les vôtres, ainsi que le chemin d'accès au fichier `ied-latex-standard.org` copié précédemment :
+2. Modifiez l'en-tête du document `modele_devoir.org` avec les
+informations du cours et les vôtres, ainsi que le chemin d'accès au
+fichier `ied-latex-standard.org` copié précédemment :
 
 ```org-mode
 #+TITLE: [NOM DU CHAPITRE]
@@ -55,8 +65,11 @@ Suivez ces étapes pour rédiger un devoir :
 #+SETUPFILE: ~/[CHEMIN]/ied-latex-standard.org
 ```
 
-3. Rédigez votre devoir en dessous de la marque "New page" en utilisant la notation Org-mode.
+3. Rédigez votre devoir en dessous de la marque "New page" en
+utilisant la notation Org-mode.
 
-4. Exportez votre devoir en PDF en utilisant la commande `Ctrl-c Ctrl-e l p`. Votre devoir est prêt.
+4. Exportez votre devoir en PDF en utilisant la commande `Ctrl-c
+Ctrl-e l p`. Votre devoir est prêt.
 
-Le format n'est pas standard et peut être modifié en fonction des besoins et préférences.
+Le format n'est pas standard et peut être modifié en fonction des
+besoins et préférences.

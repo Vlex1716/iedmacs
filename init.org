@@ -71,7 +71,7 @@ Installation et configuration d'IEDmacs.
    Il y a trois fichiers:
    - *init.el:* c'est le fichier lu à l'ouverture par emacs avec
      quelques packages utiles préinstallé.
-   - *start.org:* c'est la page d'accueil d'IEDmacs avec quelques
+   - *demarrageIed8:* c'est la page d'accueil d'IEDmacs avec quelques
      instructions et raccourcis utiles.
    - *ied-latex-standard.org:* c'est le fichier qui permet la
      configuration pour convertir votre fichier en LaTex.
@@ -220,21 +220,21 @@ Objectifs et philosophie de conceptions d'IDEmacs.
       (setq display-time-day-and-date t) ;; Display the day and date
       (display-time-mode 1) ;; Enable time display in mode line
 
-  (setq-default mode-line-format
-                (list
-                 '(:eval
-                     (propertize
-                      (format-time-string
-                       "  %-d/%-m(%a) %H:%M " (current-time))
-                      'face 'shadow)) 
-                 'default-directory
-                 '(:eval (propertize (format-mode-line
-                                      mode-line-buffer-identification)
-                                     'face 'success))
-                 '(:eval (if current-input-method
-                            (propertize "⌨ " 'face 'warning)
-                          ""))
-                 ))
+      (setq-default mode-line-format
+                  (list
+                  '(:eval
+                      (propertize
+                          (format-time-string
+                          "  %-d/%-m(%a) %H:%M " (current-time))
+                          'face 'shadow)) 
+                  'default-directory
+                  '(:eval (propertize (format-mode-line
+                                          mode-line-buffer-identification)
+                                      'face 'success))
+                  '(:eval (if current-input-method
+                              (propertize "⌨ " 'face 'warning)
+                              ""))
+                  ))
   
       ;; Define a function to only active setting when buffer is active
       (defun mode-line-window-selected-p ()
