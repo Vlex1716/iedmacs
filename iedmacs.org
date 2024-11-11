@@ -65,16 +65,18 @@ Installation et configuration d'IEDmacs.
     ~sudo apt-get install texlive-full~
 3. Télécharger les fichiers de l'IEDmacs
    #+begin_src shell
-   for file in init.el demarrageIed8 ied-latex-standard.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
+   for file in init.el demarrageIed8 ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
    #+end_src
 
-   Il y a trois fichiers:
+   Il y a quatres fichiers:
    - *init.el:* c'est le fichier lu à l'ouverture par emacs avec
      quelques packages utiles préinstallé.
    - *demarrageIed8:* c'est la page d'accueil d'IEDmacs avec quelques
      instructions et raccourcis utiles.
    - *ied-latex-standard.org:* c'est le fichier qui permet la
      configuration pour convertir votre fichier en LaTex.
+   - *iedmacs.org:* c'est le fichier qui fait office de manuel et qui
+     permet de générer le fichier "init.el" de l'IEDmacs.
      
    Ceci est juste une version simplifiée d'Emacs avec quelques
    packages utiles préinstallés. Pour plus de détails, voir le
@@ -204,7 +206,15 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 ** Principes du Système
 Objectifs et philosophie de conceptions d'IDEmacs.
 ** Spécification / Conception
-   Fonction de chaque unité du fichier init
+Lors de son démarrage, Emacs recherche d'abord un fichier nommé
+"init.el" contenant du code Lisp qu'il exécute. Le fichier "init.el"
+de l'IEDmacs est automatiquement généré par des blocs de code
+spécifiques. Tout bloc de code commençant par une directive ~:tangle
+"init.el"~ sera inclus dans le fichier "init.el" généré en utilisant la
+commande ~Ctrl-c Ctrl-v Ctrl-t~.
+
+Pour personnaliser votre configuration dans l'IEDmacs, vous pouvez
+ajouter ou supprimer des blocs de code selon vos besoins.
    
    #+begin_src emacs-lisp :tangle "init.el"
      ;; Configuration de l'IEDmacs

@@ -1,4 +1,5 @@
-_(Ce sont des informations sommaires. Pour plus d'information et de détails voir le fichier `init.org`)_
+_(Ce sont des informations sommaires. Pour plus d'information et de
+détails voir le fichier `iedmacs.org`)_
 
 # Aide pour Utiliser Emacs et Rendre les Devoirs de l'IED
 

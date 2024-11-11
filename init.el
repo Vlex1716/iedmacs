@@ -1,44 +1,44 @@
 ;; Configuration de l'IEDmacs
-   ;; Version: Apollon Funky 0.0.0
-   ;; Supprimer le message de démarrage
-   (setq inhibit-startup-message t)
-   (menu-bar-mode -1)
-   (tool-bar-mode -1)
+;; Version: Apollon Funky 0.0.0
+;; Supprimer le message de démarrage
+(setq inhibit-startup-message t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
-   (setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
+(setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
 
 
-    (setq display-time-day-and-date t) ;; Display the day and date
-    (display-time-mode 1) ;; Enable time display in mode line
+ (setq display-time-day-and-date t) ;; Display the day and date
+ (display-time-mode 1) ;; Enable time display in mode line
 
-(setq-default mode-line-format
-              (list
-               '(:eval
-                   (propertize
-                    (format-time-string
-                     "  %-d/%-m(%a) %H:%M " (current-time))
-                    'face 'shadow)) 
-               'default-directory
-               '(:eval (propertize (format-mode-line
-                                    mode-line-buffer-identification)
-                                   'face 'success))
-               '(:eval (if current-input-method
-                          (propertize "⌨ " 'face 'warning)
-                        ""))
-               ))
+ (setq-default mode-line-format
+             (list
+             '(:eval
+                 (propertize
+                     (format-time-string
+                     "  %-d/%-m %H:%M " (current-time))
+                     'face 'shadow)) 
+             'default-directory
+             '(:eval (propertize (format-mode-line
+                                     mode-line-buffer-identification)
+                                 'face 'success))
+             '(:eval (if current-input-method
+                         (propertize "⌨ " 'face 'warning)
+                         ""))
+             ))
 
-    ;; Define a function to only active setting when buffer is active
-    (defun mode-line-window-selected-p ()
-      "Return non-nil if we're updating the mode line for the selected window.
-    This function is meant to be called in `:eval' mode line
-    constructs to allow altering the look of the mode line depending
-    on whether the mode line belongs to the currently selected window
-    or not."
-      (let ((window (selected-window)))
-        (or (eq window (old-selected-window))
-            (and (minibuffer-window-active-p (minibuffer-window))
-                 (with-selected-window (minibuffer-window)
-                   (eq window (minibuffer-selected-window)))))))
+ ;; Define a function to only active setting when buffer is active
+ (defun mode-line-window-selected-p ()
+   "Return non-nil if we're updating the mode line for the selected window.
+ This function is meant to be called in `:eval' mode line
+ constructs to allow altering the look of the mode line depending
+ on whether the mode line belongs to the currently selected window
+ or not."
+   (let ((window (selected-window)))
+     (or (eq window (old-selected-window))
+         (and (minibuffer-window-active-p (minibuffer-window))
+              (with-selected-window (minibuffer-window)
+                (eq window (minibuffer-selected-window)))))))
 
 ;; Install MELPA package
 (require 'package)
