@@ -1,6 +1,8 @@
 _(Ce sont des informations sommaires. Pour plus d'information et de
 détails voir le fichier `iedmacs.org`)_
 
+![IEDmacs Page d'Accueil](images/iedmacs_apollon_funcky.png)
+
 # Aide pour Utiliser Emacs et Rendre les Devoirs de l'IED
 
 Pour une assistance à la prise en main d'Emacs et pour rendre les devoirs de l'IED, voici trois fichiers qui pourront être utiles :

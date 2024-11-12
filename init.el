@@ -5,40 +5,125 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
+;;(setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
 
+;; Ensure your custom startup buffer is displayed on launch
+(add-hook 'emacs-startup-hook 'my-iedmacs-startup-buffer)
 
- (setq display-time-day-and-date t) ;; Display the day and date
- (display-time-mode 1) ;; Enable time display in mode line
+(defun my-startup-buffer ()
+  "Create a buffer with a 'Hello World' message and a link to the FSF."
+  (let ((buffer (get-buffer-create "*hello-world*")))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (insert "Hello World\n\n")
+      (insert-text-button "Visit FSF"
+                          'action (lambda (_) (eww "https://www.fsf.org"))
+                          'follow-link t))
+    (switch-to-buffer buffer)))
 
- (setq-default mode-line-format
-             (list
-             '(:eval
+(defun my-iedmacs-startup-buffer ()
+  "Create a startup buffer for IEDmacs with a logo, explanation, and useful links."
+  (let ((buffer (get-buffer-create "*IEDmacs*")))
+    (with-current-buffer buffer
+      (erase-buffer)
+
+      ;; Set up the buffer with a title and content
+      ;; Title
+      ;; ASCII Title (centered)
+      (let* ((ascii-title '(
+                            "  __   _______  _______  .___  ___.      ___       ______     _______. "
+                            " |  | |   ____||       \\ |   \\/   |     /   \\     /      |   /       | "
+                            " |  | |  |__   |  .--.  ||  \\  /  |    /  ^  \\   |  ,----'  |   (----` "
+                            " |  | |   __|  |  |  |  ||  |\\/|  |   /  /_\\  \\  |  |        \\   \\     "
+                            " |  | |  |____ |  '--'  ||  |  |  |  /  _____  \\ |  `----.----)   |    "
+                            " |__| |_______||_______/ |__|  |__| /__/     \\__\\ \\______|_______/     "
+                            ))
+             (subtitle "Un IDE pour l'IED")
+             (width (window-body-width))
+             (padding-title (max 0 (/ (- width (length (car ascii-title))) 2)))
+             (padding-subtitle (max 0 (/ (- width (length subtitle)) 2))))
+
+        ;; Insert ASCII title with padding
+        (dolist (line ascii-title)
+          (insert (make-string padding-title ?\s)) ; add padding spaces
+          (insert line "\n"))
+
+        ;; insert subtitle with padding
+        (insert "\n" (make-string padding-subtitle ?\s) subtitle "\n\n"))
+
+      ;; paragraph 1
+      (insert "Pour utiliser les commandes VIM, ~Alt-x evil-mode~. Ensuite pour
+passer d'un mode de saisi à l'autre utiliser la commande ~Ctrl-z~.\n\n")
+
+      ;; Paragraph 2 - Shortcuts Introduction
+      (insert "Les commandes de bases:\n\n")
+
+      ;; List of Shortcuts
+      (insert (propertize "Ctrl-f" 'face 'bold) ": avancer le curseur\n")
+      (insert (propertize "Ctrl-b" 'face 'bold) ": reculer le curseur\n")
+      (insert (propertize "Ctrl-p" 'face 'bold) ": monter le curseur\n")
+      (insert (propertize "Ctrl-n" 'face 'bold) ": descendre le curseur\n")
+      (insert (propertize "Ctrl-g" 'face 'bold) ": sors moi de cette m****!\n")
+      (insert (propertize "Ctrl-x Ctrl-c" 'face 'bold) ": pour quitter\n")
+      (insert (propertize "Ctrl-x Ctrl-f" 'face 'bold) ": pour ouvrir ou créer un fichier\n")
+      (insert (propertize "Ctrl-x b" 'face 'bold) ": pour basculer d'une fichier ouvert (buffer) à l'autre.\n\n")
+
+      ;; Useful Links
+      (insert "Liens utiles:\n\n")
+      (insert-text-button "Tutorial Emacs en français (ENS)"
+                          'action (lambda (_) (eww "https://tuteurs.ens.fr/unix/editeurs/emacs.html"))
+                          'follow-link t)
+      (insert "\n")
+      (insert-text-button "Carte de références des raccourcis en français"
+                          'action (lambda (_) (browse-url "https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf"))
+                          'follow-link t)
+      (insert "\n")
+      (insert-text-button "Moodel IED Paris 8"
+                          'action (lambda (_) (browse-url "https://moodle.iedparis8.net/login/index.php"))
+                          'follow-link t)
+      (insert "\n\n")
+
+      ;; Mot de la fin
+      (insert "Pour plus d'information sur la configuration de l'IEDmacs, vous pouvez vous référer au fichier idemacs.org\n")
+
+      ;; Set buffer as read-only and enable a simple mode
+      (setq buffer-read-only t))
+    ;; Display the buffer
+    (switch-to-buffer buffer)))
+
+;; restart from here
+
+(setq display-time-day-and-date t) ;; Display the day and date
+(display-time-mode 1) ;; Enable time display in mode line
+
+(setq-default mode-line-format
+              (list
+               '(:eval
                  (propertize
-                     (format-time-string
-                     "  %-d/%-m %H:%M " (current-time))
-                     'face 'shadow)) 
-             'default-directory
-             '(:eval (propertize (format-mode-line
-                                     mode-line-buffer-identification)
-                                 'face 'success))
-             '(:eval (if current-input-method
-                         (propertize "⌨ " 'face 'warning)
+                  (format-time-string
+                   "  %-d/%-m %H:%M " (current-time))
+                  'face 'shadow)) 
+               'default-directory
+               '(:eval (propertize (format-mode-line
+                                    mode-line-buffer-identification)
+                                   'face 'success))
+               '(:eval (if current-input-method
+                           (propertize "⌨ " 'face 'warning)
                          ""))
-             ))
+               ))
 
- ;; Define a function to only active setting when buffer is active
- (defun mode-line-window-selected-p ()
-   "Return non-nil if we're updating the mode line for the selected window.
- This function is meant to be called in `:eval' mode line
- constructs to allow altering the look of the mode line depending
- on whether the mode line belongs to the currently selected window
- or not."
-   (let ((window (selected-window)))
-     (or (eq window (old-selected-window))
-         (and (minibuffer-window-active-p (minibuffer-window))
-              (with-selected-window (minibuffer-window)
-                (eq window (minibuffer-selected-window)))))))
+;; Define a function to only active setting when buffer is active
+(defun mode-line-window-selected-p ()
+  "Return non-nil if we're updating the mode line for the selected window.
+                This function is meant to be called in `:eval' mode line
+                constructs to allow altering the look of the mode line depending
+                on whether the mode line belongs to the currently selected window
+                or not."
+  (let ((window (selected-window)))
+    (or (eq window (old-selected-window))
+        (and (minibuffer-window-active-p (minibuffer-window))
+             (with-selected-window (minibuffer-window)
+               (eq window (minibuffer-selected-window)))))))
 
 ;; Install MELPA package
 (require 'package)
@@ -57,18 +142,21 @@
 ;; PACKAGE NAME: try
 ;; PURPOSE: to try package without install them
 (use-package try
+  :defer t
   :ensure t)
 
 ;; PACKAGE NAME: whick-key
 ;; PURPOSE: to help to find next key, using a
 ;; menu at the bottom of the window
 (use-package which-key
+  :defer t
   :ensure t
   :config (which-key-mode))
 
 ;; PACKAGE NAME: modus-themes
 ;; PURPOSE: theme by Protesilaos Stavrou
 (use-package modus-themes
+  :defer t
   :ensure t)
 
 ;; ligth theme
@@ -94,10 +182,12 @@ manual."
 ;; PACKAGE NAME: swiper
 ;; PURPOSE: facilitate search in a document
 (use-package counsel
+  :defer t
   :ensure t
   )
 
 (use-package swiper
+  :defer t
   :ensure t
   :config
   (progn
@@ -129,6 +219,7 @@ manual."
 ;; PACKAGE: evil
 ;; PURPOSE: using Vim shortcuts in emacs 
 (use-package evil
+  :defer t
   :ensure t
   :init(setq evil-want-C-i-jump nil))
 
@@ -179,6 +270,7 @@ manual."
 
 ;; Org mode stuff
 (use-package org-bullets
+  :defer t
   :ensure t
   :config
   (add-hook 'org-mode-hook 'org-bullets-mode))
