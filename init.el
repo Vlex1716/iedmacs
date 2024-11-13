@@ -1,35 +1,25 @@
-;; Configuration de l'IEDmacs
-;; Version: Apollon Funky 0.0.0
+;; IDEmacs by Emacs, un IDE pour l'IED.
+;; VERSION : Apollon Funky 0.1.0
+;; LICENCE : GPLV3
+
 ;; Supprimer le message de démarrage
 (setq inhibit-startup-message t)
+
+;; Supprimer le bar de menu
 (menu-bar-mode -1)
+
+;; Supprimer la bar d'icon
 (tool-bar-mode -1)
 
-;;(setq initial-buffer-choice "~/.emacs.d/demarrageIed8")
+;; Lancer le buffer de démarrage
+(add-hook 'emacs-startup-hook 'iedmacs-startup-buffer)
 
-;; Ensure your custom startup buffer is displayed on launch
-(add-hook 'emacs-startup-hook 'my-iedmacs-startup-buffer)
-
-(defun my-startup-buffer ()
-  "Create a buffer with a 'Hello World' message and a link to the FSF."
-  (let ((buffer (get-buffer-create "*hello-world*")))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (insert "Hello World\n\n")
-      (insert-text-button "Visit FSF"
-                          'action (lambda (_) (eww "https://www.fsf.org"))
-                          'follow-link t))
-    (switch-to-buffer buffer)))
-
-(defun my-iedmacs-startup-buffer ()
-  "Create a startup buffer for IEDmacs with a logo, explanation, and useful links."
+(defun iedmacs-startup-buffer ()
+  "Créez un buffer de démarrage pour IEDmacs avec un logo, une explication et des liens utiles."
   (let ((buffer (get-buffer-create "*IEDmacs*")))
     (with-current-buffer buffer
       (erase-buffer)
 
-      ;; Set up the buffer with a title and content
-      ;; Title
-      ;; ASCII Title (centered)
       (let* ((ascii-title '(
                             "  __   _______  _______  .___  ___.      ___       ______     _______. "
                             " |  | |   ____||       \\ |   \\/   |     /   \\     /      |   /       | "
@@ -43,55 +33,91 @@
              (padding-title (max 0 (/ (- width (length (car ascii-title))) 2)))
              (padding-subtitle (max 0 (/ (- width (length subtitle)) 2))))
 
-        ;; Insert ASCII title with padding
+        ;; Insérez un titre ASCII avec des marges.
         (dolist (line ascii-title)
           (insert (make-string padding-title ?\s)) ; add padding spaces
           (insert line "\n"))
 
-        ;; insert subtitle with padding
+        ;; Insérer un sous-titre avec des marges
         (insert "\n" (make-string padding-subtitle ?\s) subtitle "\n\n"))
 
-      ;; paragraph 1
-      (insert "Pour utiliser les commandes VIM, ~Alt-x evil-mode~. Ensuite pour
-passer d'un mode de saisi à l'autre utiliser la commande ~Ctrl-z~.\n\n")
-
-      ;; Paragraph 2 - Shortcuts Introduction
+      ;; Paragraphe - Raccourcis utiles
       (insert "Les commandes de bases:\n\n")
 
-      ;; List of Shortcuts
+      ;; List des raccourcis
       (insert (propertize "Ctrl-f" 'face 'bold) ": avancer le curseur\n")
       (insert (propertize "Ctrl-b" 'face 'bold) ": reculer le curseur\n")
       (insert (propertize "Ctrl-p" 'face 'bold) ": monter le curseur\n")
       (insert (propertize "Ctrl-n" 'face 'bold) ": descendre le curseur\n")
       (insert (propertize "Ctrl-g" 'face 'bold) ": sors moi de cette m****!\n")
-      (insert (propertize "Ctrl-x Ctrl-c" 'face 'bold) ": pour quitter\n")
       (insert (propertize "Ctrl-x Ctrl-f" 'face 'bold) ": pour ouvrir ou créer un fichier\n")
-      (insert (propertize "Ctrl-x b" 'face 'bold) ": pour basculer d'une fichier ouvert (buffer) à l'autre.\n\n")
+      (insert (propertize "Ctrl-x b" 'face 'bold) ": pour basculer d'une fichier ouvert (buffer) à l'autre.\n")
+      (insert (propertize "Ctrl-x Ctrl-c" 'face 'bold) ": pour quitter\n\n")
 
-      ;; Useful Links
-      (insert "Liens utiles:\n\n")
-      (insert-text-button "Tutorial Emacs en français (ENS)"
-                          'action (lambda (_) (eww "https://tuteurs.ens.fr/unix/editeurs/emacs.html"))
+      ;; paragraphe
+      (insert "Pour celles et ceux qui sont familiers avec les commandes VIM, activer les avec la commande : ")
+      (insert (propertize "\"Alt-x evil-mode\"" 'face 'bold) ". Ensuite pour passer d'un mode de saisi à l'autre utiliser la commande ")
+      (insert (propertize "Ctrl-z" 'face 'bold) ".\n\n")
+
+      ;; Liens
+      (insert "Liens utiles:\n")
+      (insert-text-button "Rédiger un devoir dans l'IEDmacs"
+                        'action (lambda (_) (modele-devoir-ied-buffer))
+                        'follow-link t)
+      (insert "\n")
+      (insert-text-button "Le Wiki Paris 8 IED"
+                          'action (lambda (_) (browse-url "https://wiki.paris8-ied.net/"))
                           'follow-link t)
       (insert "\n")
       (insert-text-button "Carte de références des raccourcis en français"
                           'action (lambda (_) (browse-url "https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf"))
                           'follow-link t)
       (insert "\n")
-      (insert-text-button "Moodel IED Paris 8"
-                          'action (lambda (_) (browse-url "https://moodle.iedparis8.net/login/index.php"))
+      (insert-text-button "Tutorial Emacs en français (ENS)"
+                          'action (lambda (_) (eww "https://tuteurs.ens.fr/unix/editeurs/emacs.html"))
                           'follow-link t)
       (insert "\n\n")
 
       ;; Mot de la fin
-      (insert "Pour plus d'information sur la configuration de l'IEDmacs, vous pouvez vous référer au fichier idemacs.org\n")
+      (insert "Pour plus d'information sur la configuration de l'IEDmacs, vous pouvez vous référer au fichier: ")
+      (insert-text-button "iedmacs.org\n"
+                  'action (lambda (_) (find-file "~/.emacs.d/iedmacs.org"))
+                  'follow-link t) 
 
-      ;; Set buffer as read-only and enable a simple mode
+      ;; Configurer le buffer en mode read-only
       (setq buffer-read-only t))
-    ;; Display the buffer
+    ;; Afficher le buffer 
     (switch-to-buffer buffer)))
 
-;; restart from here
+(defun modele-devoir-ied-buffer ()
+"Create d'un nouveau buffer avec un modèle pour les devoirs."
+(let ((buffer (get-buffer-create "*Devoir*")))
+  (with-current-buffer buffer
+    (erase-buffer)
+    (org-mode)  ;; Basculer en Orgmode
+    ;; Insérer le contenu du modèle
+    (insert "#+TITLE: [NOM DU CHAPITRE]\n")
+    (insert "#+SUBTITLE: [NOM DU COURS]\n")
+    (insert "#+OPTIONS: toc:t author:nil\n")
+    (insert "#+LaTeX_HEADER: \\author{[PRENOM NOM] \\\\ N. Etudiant : [NUMERO]}\n")
+    (insert "#+SETUPFILE: ~/.emacs.d/ied-latex-standard.org\n\n")
+    (insert "\\newpage\n\n")
+    (insert "* Exercice X\n")
+    (insert "** Enoncé\n")
+    (insert " :PROPERTIES:\n")
+    (insert " :UNNUMBERED: t\n")
+    (insert " :END:\n\n")
+    (insert "** Réponse\n")
+    (insert " :PROPERTIES:\n")
+    (insert " :UNNUMBERED: t\n")
+    (insert " :END:\n\n")
+    (insert " Instructions:\n")
+    (insert " 1. Remplacer les blocks indiqués par [] par vos informations\n")
+    (insert " 2. Rédiger votre devoir en utilisant la synthaxe Orgmode\n")
+    (insert " 3. Enregister votre devoir avec la commande " (propertize "Ctrl-x Ctrl-s" 'face 'bold)".\n")
+    (insert " 3. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir votre fichier en LaTex puis pour créer le pdf correspondant.\n")
+    ;; Basculer vers le nouveau modèle
+    (switch-to-buffer buffer))))
 
 (setq display-time-day-and-date t) ;; Display the day and date
 (display-time-mode 1) ;; Enable time display in mode line
