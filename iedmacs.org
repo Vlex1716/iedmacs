@@ -225,8 +225,7 @@ fichier "init.el" en utilisant la commande ~head 10
 
 #+begin_src emacs-lisp :tangle "init.el"
   ;; IDEmacs by Emacs, un IDE pour l'IED.
-  ;; VERSION : Apollon Funky 0.1.0
-  ;; BRANCH : DEVELOPPEMENT
+  ;; VERSION : Apollon Funky 0.2.0
   ;; LICENCE : GPLV3
 #+end_src
 
@@ -305,8 +304,10 @@ l'ouverture mais aussi tout au long de son utilisation.
                           'follow-link t)
         (insert "\n")
         (insert-text-button "Le Wiki Paris 8 IED"
-                            'action (lambda (_) (browse-url "https://wiki.paris8-ied.net/"))
+                            'action (lambda (_) (wiki-ied-buffer))
                             'follow-link t)
+                            ;;'action (lambda (_) (browse-url "https://wiki.paris8-ied.net/"))
+                            ;;'follow-link t)
         (insert "\n")
         (insert-text-button "Carte de références des raccourcis en français"
                             'action (lambda (_) (browse-url "https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf"))
@@ -376,30 +377,56 @@ chapitres.
   (let ((buffer (get-buffer-create "*WikiIED8*")))
     (with-current-buffer buffer
       (erase-buffer)
-      (org-mode)  ;; Basculer en Orgmode
       ;; Insérer le contenu du modèle
-      (insert "#+TITLE: [NOM DU CHAPITRE]\n")
-      (insert "#+SUBTITLE: [NOM DU COURS]\n")
-      (insert "#+OPTIONS: toc:t author:nil\n")
-      (insert "#+LaTeX_HEADER: \\author{[PRENOM NOM] \\\\ N. Etudiant : [NUMERO]}\n")
-      (insert "#+SETUPFILE: ~/.emacs.d/ied-latex-standard.org\n\n")
-      (insert "\\newpage\n\n")
-      (insert "* Exercice X\n")
-      (insert "** Enoncé\n")
-      (insert " :PROPERTIES:\n")
-      (insert " :UNNUMBERED: t\n")
-      (insert " :END:\n\n")
-      (insert "** Réponse\n")
-      (insert " :PROPERTIES:\n")
-      (insert " :UNNUMBERED: t\n")
-      (insert " :END:\n\n")
-      (insert " Instructions:\n")
-      (insert " 1. Remplacer les blocks indiqués par [] par vos informations\n")
-      (insert " 2. Rédiger votre devoir en utilisant la synthaxe Orgmode\n")
-      (insert " 3. Enregister votre devoir avec la commande " (propertize "Ctrl-x Ctrl-s" 'face 'bold)".\n")
-      (insert " 3. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir votre fichier en LaTex puis pour créer le pdf correspondant.\n")
+      (insert (propertize "Sommaire du Wiki\n\n" 'face 'bold))
+      (insert "Cliquer sur le lien pour ouvrir la page dans eww (Emacs Web Browser)\n\n")
+
+      ;; Paragraphe - Raccourcis utiles eww
+      (insert "Les commandes utiles pour naviguer avec eww:\n\n")
+
+      ;; List des raccourcis
+      (insert (propertize "r" 'face 'bold) ": page eww précédente\n")
+      (insert (propertize "l" 'face 'bold) ": page eww suivante \n")
+      (insert (propertize "H" 'face 'bold) ": historique des pages eww\n\n")
+
+      ;; Paragraphe - Raccourcis utiles emacs
+      (insert "Petit rappel des commandes Emacs:\n\n")
+      (insert (propertize "Ctrl-f" 'face 'bold) ": avancer le curseur\n")
+      (insert (propertize "Ctrl-b" 'face 'bold) ": reculer le curseur\n")
+      (insert (propertize "Ctrl-p" 'face 'bold) ": monter le curseur\n")
+      (insert (propertize "Ctrl-n" 'face 'bold) ": descendre le curseur\n")
+      (insert (propertize "Ctrl-g" 'face 'bold) ": sors moi de cette m****!\n")
+      (insert (propertize "Ctrl-x b" 'face 'bold) ": pour basculer d'une fichier ouvert (buffer) à l'autre.\n\n")
+
+      ;; Sommaire
+      (insert (propertize "Général" 'face 'bold) "\n\n")
+      (insert-text-button "Trucs cools"
+                          'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/general/cool"))
+                          'follow-link t)
+      (insert "\n")
+      (insert-text-button "Installation sur ce serveur Wiki"
+                          'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/general/installation"))
+                          'follow-link t)
+      (insert "\n\n")
+      (insert (propertize "Informations" 'face 'bold) "\n\n")
+      (insert-text-button "Licence 1"
+                          'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/L1"))
+                          'follow-link t)
+      (insert "\n")
+      (insert-text-button "Licence 2"
+                          'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/L2"))
+                          'follow-link t)
+      (insert "\n")
+      (insert-text-button "Licence 3"
+                          'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/L3"))
+                          'follow-link t)
+
+
+        ;; Configurer le buffer en mode read-only
+        (setq buffer-read-only t))
+    
       ;; Basculer vers le nouveau modèle
-      (switch-to-buffer buffer))))
+      (switch-to-buffer buffer)))
 #+end_src
 
 *** Command bar

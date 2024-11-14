@@ -1,5 +1,6 @@
 ;; IDEmacs by Emacs, un IDE pour l'IED.
 ;; VERSION : Apollon Funky 0.1.0
+;; BRANCH : DEVELOPPEMENT
 ;; LICENCE : GPLV3
 
 ;; Supprimer le message de démarrage
@@ -61,13 +62,15 @@
 
       ;; Liens
       (insert "Liens utiles:\n")
-      (insert-text-button "Rédiger un devoir dans l'IEDmacs"
+      (insert-text-button "Rédiger un devoir avec l'IEDmacs"
                         'action (lambda (_) (modele-devoir-ied-buffer))
                         'follow-link t)
       (insert "\n")
       (insert-text-button "Le Wiki Paris 8 IED"
-                          'action (lambda (_) (browse-url "https://wiki.paris8-ied.net/"))
+                          'action (lambda (_) (wiki-ied-buffer))
                           'follow-link t)
+                          ;;'action (lambda (_) (browse-url "https://wiki.paris8-ied.net/"))
+                          ;;'follow-link t)
       (insert "\n")
       (insert-text-button "Carte de références des raccourcis en français"
                           'action (lambda (_) (browse-url "https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf"))
@@ -90,7 +93,7 @@
     (switch-to-buffer buffer)))
 
 (defun modele-devoir-ied-buffer ()
-"Create d'un nouveau buffer avec un modèle pour les devoirs."
+"Creation d'un nouveau buffer avec un modèle pour les devoirs."
 (let ((buffer (get-buffer-create "*Devoir*")))
   (with-current-buffer buffer
     (erase-buffer)
@@ -118,6 +121,62 @@
     (insert " 3. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir votre fichier en LaTex puis pour créer le pdf correspondant.\n")
     ;; Basculer vers le nouveau modèle
     (switch-to-buffer buffer))))
+
+(defun wiki-ied-buffer ()
+"Creation d'un nouveau buffer qui affiche les liens vers les chapitres du Wiki"
+(let ((buffer (get-buffer-create "*WikiIED8*")))
+  (with-current-buffer buffer
+    (erase-buffer)
+    ;; Insérer le contenu du modèle
+    (insert (propertize "Sommaire du Wiki\n\n" 'face 'bold))
+    (insert "Cliquer sur le lien pour ouvrir la page dans eww (Emacs Web Browser)\n\n")
+
+    ;; Paragraphe - Raccourcis utiles eww
+    (insert "Les commandes utiles pour naviguer avec eww:\n\n")
+
+    ;; List des raccourcis
+    (insert (propertize "r" 'face 'bold) ": page eww précédente\n")
+    (insert (propertize "l" 'face 'bold) ": page eww suivante \n")
+    (insert (propertize "H" 'face 'bold) ": historique des pages eww\n\n")
+
+    ;; Paragraphe - Raccourcis utiles emacs
+    (insert "Petit rappel des commandes Emacs:\n\n")
+    (insert (propertize "Ctrl-f" 'face 'bold) ": avancer le curseur\n")
+    (insert (propertize "Ctrl-b" 'face 'bold) ": reculer le curseur\n")
+    (insert (propertize "Ctrl-p" 'face 'bold) ": monter le curseur\n")
+    (insert (propertize "Ctrl-n" 'face 'bold) ": descendre le curseur\n")
+    (insert (propertize "Ctrl-g" 'face 'bold) ": sors moi de cette m****!\n")
+    (insert (propertize "Ctrl-x b" 'face 'bold) ": pour basculer d'une fichier ouvert (buffer) à l'autre.\n\n")
+
+    ;; Sommaire
+    (insert (propertize "Général" 'face 'bold) "\n\n")
+    (insert-text-button "Trucs cools"
+                        'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/general/cool"))
+                        'follow-link t)
+    (insert "\n")
+    (insert-text-button "Installation sur ce serveur Wiki"
+                        'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/general/installation"))
+                        'follow-link t)
+    (insert "\n\n")
+    (insert (propertize "Informations" 'face 'bold) "\n\n")
+    (insert-text-button "Licence 1"
+                        'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/L1"))
+                        'follow-link t)
+    (insert "\n")
+    (insert-text-button "Licence 2"
+                        'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/L2"))
+                        'follow-link t)
+    (insert "\n")
+    (insert-text-button "Licence 3"
+                        'action (lambda (_) (eww "https://wiki.paris8-ied.net/fr/L3"))
+                        'follow-link t)
+
+
+      ;; Configurer le buffer en mode read-only
+      (setq buffer-read-only t))
+
+    ;; Basculer vers le nouveau modèle
+    (switch-to-buffer buffer)))
 
 (setq display-time-day-and-date t) ;; Display the day and date
 (display-time-mode 1) ;; Enable time display in mode line
