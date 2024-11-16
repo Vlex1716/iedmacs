@@ -145,15 +145,11 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
    #+END_SRC
 
       *Méthode 2*
-
-      Utiliser la commande suivante pour télécharger un fichier
-      échantillon du dépôt github.
-   
-      #+begin_src shell
-      curl -o ~/modele_devoir.org https://raw.githubusercontent.com/AreTaro/iedmacs/main/modele_devoir.org 
-      #+end_src
-
-      Ouvrir le fichier téléchargé avec la commande ~Ctrl-x Ctrl-f~.
+      Sur la page d'accueil de l'IEDmacs, sélectionner le lien
+     "Rédiger un devoir dans l'IEDmacs". Cela ouvrira un nouveau
+     buffer avec le code ci-dessus et quelques
+     instructions. Enregistrer le fichier dans le répertoire et sous
+     le nom de votre choix en utilisant la commande ~Ctrl-x Ctrl-s~.
 
 2. Rédiger votre dévoir
    Utiliser la synthaxe orgmode pour écrire votre texte. Pour plus de
