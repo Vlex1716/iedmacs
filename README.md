@@ -23,7 +23,11 @@ Pour utiliser Emacs et LaTex :
     ```bash
     $ sudo apt-get install texlive-full
     ```
-3. Lancer Emacs
+3. Télécharger les fichiers de ce dépôt
+   ```bash
+   for file in init.el ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
+   ```
+4. Lancer Emacs
     ```shell
     $ emacs &
     ```
@@ -39,24 +43,15 @@ de base. Sinon, voici quelques commandes de base :
 - `Ctrl-x Ctrl-s` : pour sauvegarder
 - `Ctrl-x Ctrl-c` : pour quitter
 
-## Devoirs
+## Rédiger un Devoir
 
-Pour soumettre un devoir en utilisant Org-mode, copiez le fichier
-`ied-latex-standard.org` sur votre machine et notez le chemin d'accès
-pour une utilisation ultérieure.
+Pour soumettre un devoir en utilisant Org-mode, suivez ces étapes :
 
-Suivez ces étapes pour rédiger un devoir :
+1. Cliquer sur le lien "Rédiger un devoir avec l'IEDmacs", et
+enregistrer le document sous le répertoire et le nom de votre choix
+avec la commande `Ctrl-x Ctrl-s`.
 
-1. Ouvrez une copie du fichier "modele_devoir". Deux options possibles
-:
-- Si vous êtes déjà dans Emacs, utilisez la commande `Ctrl-x Ctrl-f`
-et saisissez le nom de votre fichier dans le dossier choisi,
-- Sinon,
-à partir de la ligne de commande, exécutez `emacs [CHEMIN VERS LE
-FICHIER] &` pour ouvrir une fenêtre avec un fichier portant le même
-nom.
-
-2. Modifiez l'en-tête du document `modele_devoir.org` avec les
+2. Modifiez l'en-tête du document avec les
 informations du cours et les vôtres, ainsi que le chemin d'accès au
 fichier `ied-latex-standard.org` copié précédemment :
 
@@ -76,3 +71,12 @@ Ctrl-e l p`. Votre devoir est prêt.
 
 Le format n'est pas standard et peut être modifié en fonction des
 besoins et préférences.
+
+## Coopérer à l'IEDmacs
+
+Créer un fork du dépôt et modifier sur la branche développement avec
+la fonction que vous souhaitez ajouter ou modifier.
+
+Prochains ajouts prévus:
+- pdf-tools pour lire et annoter les documents pdf
+- gptel pour utiliser Chat-GPT directement dans l'IDEmacs
