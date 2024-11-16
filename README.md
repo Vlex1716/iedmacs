@@ -23,7 +23,11 @@ Pour utiliser Emacs et LaTex :
     ```bash
     $ sudo apt-get install texlive-full
     ```
-3. Lancer Emacs
+3. Télécharger les fichiers de ce dépôt
+   ```bash
+   for file in init.el ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
+   ```
+4. Lancer Emacs
     ```shell
     $ emacs &
     ```
@@ -39,13 +43,9 @@ de base. Sinon, voici quelques commandes de base :
 - `Ctrl-x Ctrl-s` : pour sauvegarder
 - `Ctrl-x Ctrl-c` : pour quitter
 
-## Devoirs
+## Rédiger un Devoir
 
-Pour soumettre un devoir en utilisant Org-mode, copiez le fichier
-`ied-latex-standard.org` sur votre machine et notez le chemin d'accès
-pour une utilisation ultérieure.
-
-Suivez ces étapes pour rédiger un devoir :
+Pour soumettre un devoir en utilisant Org-mode, suivez ces étapes :
 
 1. Cliquer sur le lien "Rédiger un devoir avec l'IEDmacs", et
 enregistrer le document sous le répertoire et le nom de votre choix
@@ -71,3 +71,12 @@ Ctrl-e l p`. Votre devoir est prêt.
 
 Le format n'est pas standard et peut être modifié en fonction des
 besoins et préférences.
+
+## Coopérer à l'IEDmacs
+
+Créer un fork du dépôt et modifier sur la branche développement avec
+la fonction que vous souhaitez ajouter ou modifier.
+
+Prochains ajouts prévus:
+- pdf-tools pour lire et annoter les documents pdf
+- gptel pour utiliser Chat-GPT directement dans l'IDEmacs
