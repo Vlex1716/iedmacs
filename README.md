@@ -80,3 +80,4 @@ la fonction que vous souhaitez ajouter ou modifier.
 Prochains ajouts prévus:
 - pdf-tools pour lire et annoter les documents pdf
 - gptel pour utiliser Chat-GPT directement dans l'IDEmacs
+- mu4 pour lire les mails de l'ied dans l'IEDmacs
