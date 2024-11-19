@@ -1,6 +1,5 @@
 ;; IDEmacs by Emacs, un IDE pour l'IED.
-;; VERSION : Apollon Funky 0.1.0
-;; BRANCH : DEVELOPPEMENT
+;; VERSION : Apollon Funky 0.2.0
 ;; LICENCE : GPLV3
 
 ;; Supprimer le message de démarrage
@@ -234,7 +233,6 @@
 ;; PURPOSE: to help to find next key, using a
 ;; menu at the bottom of the window
 (use-package which-key
-  :defer t
   :ensure t
   :config (which-key-mode))
 
@@ -244,7 +242,7 @@
   :defer t
   :ensure t)
 
-;; ligth theme
+;; Ligth theme
 (load-theme 'modus-operandi-deuteranopia :no-confirm)
 
 (defun my-modus-themes-toggle ()
@@ -267,12 +265,10 @@ manual."
 ;; PACKAGE NAME: swiper
 ;; PURPOSE: facilitate search in a document
 (use-package counsel
-  :defer t
   :ensure t
   )
 
 (use-package swiper
-  :defer t
   :ensure t
   :config
   (progn
@@ -304,7 +300,6 @@ manual."
 ;; PACKAGE: evil
 ;; PURPOSE: using Vim shortcuts in emacs 
 (use-package evil
-  :defer t
   :ensure t
   :init(setq evil-want-C-i-jump nil))
 
@@ -334,8 +329,6 @@ manual."
 (evil-define-key 'normal 'global (kbd "<leader>tl") 'load-themes)
 (evil-define-key 'normal 'global (kbd "<leader>ss") 'swiper)
 (evil-define-key 'normal 'global (kbd "<leader>l") 'org-insert-link)
-
-;; ====== EVIL MODE SETTINGS END ========
 
 ;; ido to easy find the names of files, docs, when searching
 (setq indo-enable-flex-matching t)

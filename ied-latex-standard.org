@@ -51,7 +51,6 @@
 #+LATEX_HEADER: \predate{\begin{center}\fontsize{12pt}{12pt}\selectfont}
 #+LATEX_HEADER: \postdate{\par\end{center}\vspace{0em}}
 
-
 % Section/subsection headings:
 
 %Section
