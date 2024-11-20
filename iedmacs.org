@@ -50,7 +50,7 @@ Ce fichier est composé de plusieurs parties comme suit:
 - Recommandations: Informations et bonnes pratiques pour la rédaction
   et le maintient de ce dépôt.
   
-* Definitions
+* Définitions
 ** Integrate Development Environment (IDE)
 C'est un environnement de développement logiciel qui regroupe divers
 outils pour faciliter l'écriture, la compilation, le débogage et le
@@ -171,6 +171,8 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 ** Notes de version
    Informations sur les changements importants.
 *** nom des versions
+Voici les noms suggérés pour les prochaines versions. Il y a de quoi
+voir venir, et encore de longues années devant pour l'IEDmacs.
 
 1. Apollon Funky
 2. Héra Cyber
@@ -192,6 +194,11 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 18. Shiva Néon
 19. Hestia Techno
 20. Benzaiten Globo
+
+**Apollon Funky**
+Première version, Novembre 2024
+*0.3.0*: which-key menu rendu visible
+*0.4.0*: 
    
 ** Carte de référence rapide
    Aide-mémoire des commandes et raccourcis clavier les plus utilisés.
@@ -597,6 +604,8 @@ chapitres.
   (evil-define-key 'normal 'global (kbd "<leader>l") 'org-insert-link)
 #+end_src
 
+*** Autres
+
 #+begin_src emacs-lisp :tangle "init.el"
   ;; ido to easy find the names of files, docs, when searching
   (setq indo-enable-flex-matching t)
@@ -637,7 +646,7 @@ chapitres.
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 #+end_src
 
-#+begin_src emacs-lisp :tangle "init.el"
+#+begin_src emacs-lisp 
      ;;==== AUTOMATICALLY ADD BY EMACS ======
 
      (custom-set-variables
