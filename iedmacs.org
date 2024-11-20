@@ -168,6 +168,27 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 ** Guide de référence
    Description détaillée de chaque fonctionnalité du système,
    utilisation avancée et cas d'usage spécifiques.
+*** pdf-tools
+Ce paquet permet de visualiser et annoter un document PDF directement
+dans l'IEDmacs. Il est aussi très utile lors de l'export de devoir,
+car la commande ~C-v C-e l o~ permet d'ouvrir le document directement
+dans l'IEDmacs après son export, et ainsi de vérifier ou non sa
+conformité avec ses attentes.
+
+- ~+~ ou ~-~ pour le zoom avant et arrière
+- ~H~ pour ajuster en hauteur
+- ~W~ pour ajuster en largeur
+- ~P~ pour ajuter à la page
+- ~n~ page suivante
+- ~p~ page précédente
+- ~Ctrl-n~ pour descendre dans la page
+- ~Ctrl-p~ pour monter dans la page
+- ~o~ pour afficher la table de matière
+- ~Alt-g g~ pour sauter à une page indiquée
+
+Pour plus d'informations pour l'instant consulté le dépôt Github du
+paquet en anglais : [[https://github.com/vedang/pdf-tools/tree/30b50544e55b8dbf683c2d932d5c33ac73323a16?tab=readme-ov-file#view-and-navigate-pdfs][git repository]].
+  
 ** Notes de version
    Informations sur les changements importants.
 *** nom des versions
@@ -198,7 +219,7 @@ voir venir, et encore de longues années devant pour l'IEDmacs.
 **Apollon Funky**
 Première version, Novembre 2024
 *0.3.0*: which-key menu rendu visible
-*0.4.0*: 
+*0.4.0*: pdf-tools
    
 ** Carte de référence rapide
    Aide-mémoire des commandes et raccourcis clavier les plus utilisés.
@@ -602,6 +623,20 @@ chapitres.
   (evil-define-key 'normal 'global (kbd "<leader>tl") 'load-themes)
   (evil-define-key 'normal 'global (kbd "<leader>ss") 'swiper)
   (evil-define-key 'normal 'global (kbd "<leader>l") 'org-insert-link)
+#+end_src
+
+*** pdf-tools
+Paquet permettant de visualiser et modifier les fichiers PDF. Utiliser
+également lors de l'export avec la commande ~C-v C-e l o~ dont le "o"
+final signifie "open", et qui ouvre le PDF fraîchement créé. Pour plus
+d'information sur son utilisation voir le manuel utilisateur.
+
+#+begin_src emacs-lisp :tangle "init.el"
+  (use-package pdf-tools
+    :ensure t
+    :defer t
+    :config
+    (pdf-tools-install) )
 #+end_src
 
 *** Autres

@@ -330,6 +330,12 @@ manual."
 (evil-define-key 'normal 'global (kbd "<leader>ss") 'swiper)
 (evil-define-key 'normal 'global (kbd "<leader>l") 'org-insert-link)
 
+(use-package pdf-tools
+  :ensure t
+  :defer t
+  :config
+  (pdf-tools-install) )
+
 ;; ido to easy find the names of files, docs, when searching
 (setq indo-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -367,20 +373,3 @@ manual."
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
-;;==== AUTOMATICALLY ADD BY EMACS ======
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("c7a926ad0e1ca4272c90fce2e1ffa7760494083356f6bb6d72481b879afce1f2" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
- '(package-selected-packages '(which-key try use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
