@@ -225,7 +225,7 @@ fichier "init.el" en utilisant la commande ~head 10
   ;; LICENCE : GPLV3
 #+end_src
 
-*** Ouverture et aspect général
+*** Fenêtre d'accueil
 Cette section concerne tout ce qui touche à l'aspect d'IEDmacs à
 l'ouverture mais aussi tout au long de son utilisation.
 
