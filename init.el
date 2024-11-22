@@ -177,37 +177,44 @@
     ;; Basculer vers le nouveau modèle
     (switch-to-buffer buffer)))
 
-(setq display-time-day-and-date t) ;; Display the day and date
-(display-time-mode 1) ;; Enable time display in mode line
+(display-time-mode 1)
+(setq display-time-day-and-date t)
+(setq column-number-mode t)
+(setq column-line-mode t)
 
 (setq-default mode-line-format
               (list
-               '(:eval
-                 (propertize
-                  (format-time-string
-                   "  %-d/%-m %H:%M " (current-time))
-                  'face 'shadow)) 
-               'default-directory
-               '(:eval (propertize (format-mode-line
-                                    mode-line-buffer-identification)
-                                   'face 'success))
+               '(:eval (propertize
+                        (if (and (boundp 'evil-state)
+                              (eq evil-state 'normal) )
+                          " V " ;; VIM
+                          (if (and (boundp 'evil-state)
+                                  (eq evil-state 'insert) )
+                          " I " ;; Insert
+                          " E ") ) ;; Emacs
+                      'face 'cursor) )
                '(:eval (if current-input-method
-                           (propertize "⌨ " 'face 'warning)
-                         ""))
-               ))
+                          (propertize "FR" 'face 'italic)
+                        (propertize "EN" 'face 'italic) ) )
+               '(:eval
+                   (propertize
+                   (format-time-string
+                   "  %-d/%-m %H:%M " (current-time) )
+                   'face 'shadow) ) 
+               ;;'default-directory
+               '(:eval (propertize (format-mode-line
+                                   mode-line-buffer-identification)
+                                   'face 'success) )
+               '(:eval (propertize " %l:%c " 'face 'shadow))
+               ) )
 
 ;; Define a function to only active setting when buffer is active
 (defun mode-line-window-selected-p ()
-  "Return non-nil if we're updating the mode line for the selected window.
-                This function is meant to be called in `:eval' mode line
-                constructs to allow altering the look of the mode line depending
-                on whether the mode line belongs to the currently selected window
-                or not."
-  (let ((window (selected-window)))
+    (let ((window (selected-window)))
     (or (eq window (old-selected-window))
         (and (minibuffer-window-active-p (minibuffer-window))
-             (with-selected-window (minibuffer-window)
-               (eq window (minibuffer-selected-window)))))))
+                (with-selected-window (minibuffer-window)
+                (eq window (minibuffer-selected-window)))))))
 
 ;; Install MELPA package
 (require 'package)
