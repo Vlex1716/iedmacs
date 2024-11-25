@@ -118,7 +118,7 @@
     (insert " 2. Rédiger votre devoir en utilisant la synthaxe Orgmode\n")
     (insert " 3. Enregister votre devoir avec la commande " (propertize "Ctrl-x Ctrl-s" 'face 'bold)".\n")
     (insert " 4. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir\n")
-    (insert "    votre fichier en LaTex puis pour créer le pdf correspondant.\n")for file in init.el ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; donefor file in init.el ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; donefor file in init.el ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
+    (insert "    votre fichier en LaTex puis pour créer le pdf correspondant.\n")
     ;; Basculer vers le nouveau modèle
     (switch-to-buffer buffer))))
 
