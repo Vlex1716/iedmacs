@@ -50,7 +50,7 @@ Ce fichier est composé de plusieurs parties comme suit:
 - Recommandations: Informations et bonnes pratiques pour la rédaction
   et le maintient de ce dépôt.
   
-* Definitions
+* Définitions
 ** Integrate Development Environment (IDE)
 C'est un environnement de développement logiciel qui regroupe divers
 outils pour faciliter l'écriture, la compilation, le débogage et le
@@ -166,11 +166,86 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
    document PDF seront crée automatiquement.
   
 ** Guide de référence
-   Description détaillée de chaque fonctionnalité du système,
-   utilisation avancée et cas d'usage spécifiques.
+Description détaillée de chaque fonctionnalité du système,
+utilisation avancée et cas d'usage spécifiques.
+*** La barre de commande
+La bar de commande est décrite dans le fichier /init.el/ avec
+~mode-line~. Pour plus de détail voir la section correspondante dans
+la documentation système.
+
+La signification de chacune des
+indications est décrite ci-dessous en partant de la gauche :
+- La première lettre indique le mode d'édition "E" pour /emacs/, "V"
+  pour /vim/ et "I" pour le mode d'insertion de Vim.
+- Les deux lettres suivantes correspondent au mode d'écriture
+  (~input-mode~) avec "FR" pour le clavier français et "EN" pour le
+  clavier anglais. C'est le clavier anglais qui est ouvert par
+  défaut. Le clavier français est nécessaire pour écrire avec les
+  accents mais vraiment tout pourri lorsqu'il faut écrire des chiffres
+  ou des symboles. Désolé pour cela.
+- Ensuite la date et l'heure sont affichés. Il est possible d'ajouter
+  une seconde horloge en recopiant la partie de code correspondante et
+  en ajoutant la zone comme suit ~"%H:%M " (current-time)
+  "Europe/Berlin"~
+- Le nom du buffer ouvert qui correspond aussi au nom du
+  fichier ouvert est indiqué en caractère gras coloré.
+- Et enfin les deux derniers chiffres séparer par ":" représente à
+  gauche le numéro de ligne et à droite la colonne ou position du
+  curseur sur la ligne.
+
+Il est possible de rajouter bien d'autre option, dont l'indiquation de
+la branche du dépôt git. Pour cela ajouter le code suivant à l'endroit
+voulu :
+
+#+begin_src emacs-lisp
+'(:eval (propertize (replace-regexp-in-string
+                    "^ Git:" "" vc-mode )
+                    'face 'warning) )
+#+end_src
+   
+*** Lire les PDF
+C'est le paquet ~pdf-tool~ qui est utilisé. Ce paquet permet de
+visualiser et annoter un document PDF directement dans l'IEDmacs. Il
+est aussi très utile lors de l'export de devoir, car la commande ~C-v
+C-e l o~ permet d'ouvrir le document directement dans l'IEDmacs après
+son export, et ainsi de vérifier ou non sa conformité avec ses
+attentes.
+
+- ~+~ ou ~-~ pour le zoom avant et arrière
+- ~H~ pour ajuster en hauteur
+- ~W~ pour ajuster en largeur
+- ~P~ pour ajuter à la page
+- ~n~ page suivante
+- ~p~ page précédente
+- ~Ctrl-n~ pour descendre dans la page
+- ~Ctrl-p~ pour monter dans la page
+- ~o~ pour afficher la table de matière
+- ~Alt-g g~ pour sauter à une page indiquée
+
+Pour plus d'informations pour l'instant consulté le dépôt Github du
+paquet en anglais : [[https://github.com/vedang/pdf-tools/tree/30b50544e55b8dbf683c2d932d5c33ac73323a16?tab=readme-ov-file#view-and-navigate-pdfs][git repository]].
+  
+*** Le thème
+Il existe beaucoup de thèmes et chacun choisit ou modifie généralement
+le sien selon ses préférences. Pour l'IEDmacs c'est le thème crée par
+"Prot" (voir "Les Oracles"). Il a été choisi pour son confort de
+lecture, aussi bien en mode sombre et clair.
+
+Voici quelques commandes utile pour le thème:
+- ~Alt-x load-theme~ pour choisir un autre thème
+- ~Alt-x modus-theme-select~ pour choisir un autre thème parmis le
+  thème "modus" de Prot.
+- ~Alt-x my-modus-themes-select~ pour passer du mode sombre au mode
+  clair.
+
+Pour plus de faciliter vous pouver créer des raccourcis vers ces
+fonctions.
+
 ** Notes de version
    Informations sur les changements importants.
 *** nom des versions
+Voici les noms suggérés pour les prochaines versions. Il y a de quoi
+voir venir, et encore de longues années devant pour l'IEDmacs.
 
 1. Apollon Funky
 2. Héra Cyber
@@ -192,6 +267,11 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 18. Shiva Néon
 19. Hestia Techno
 20. Benzaiten Globo
+
+**Apollon Funky**
+- *0.0.0* Première version, Novembre 2024
+- *0.3.0*: which-key menu rendu visible
+- *0.4.0*: pdf-tools, barre de commande modifiée
    
 ** Carte de référence rapide
    Aide-mémoire des commandes et raccourcis clavier les plus utilisés.
@@ -426,42 +506,61 @@ chapitres.
       (switch-to-buffer buffer)))
 #+end_src
 
-*** Command bar
+*** Barre de commande
+Le bloc ci-dessous permet de controler l'apparance de la barre de
+commande en bas de la fenêtre.
 
 #+begin_src emacs-lisp :tangle "init.el"
-     (setq display-time-day-and-date t) ;; Display the day and date
-     (display-time-mode 1) ;; Enable time display in mode line
+  (display-time-mode 1)
+  (setq display-time-day-and-date t)
+  (setq column-number-mode t)
+  (setq column-line-mode t)
 
-     (setq-default mode-line-format
-                   (list
-                    '(:eval
-                      (propertize
-                       (format-time-string
-                        "  %-d/%-m %H:%M " (current-time))
-                       'face 'shadow)) 
-                    'default-directory
-                    '(:eval (propertize (format-mode-line
-                                         mode-line-buffer-identification)
-                                        'face 'success))
-                    '(:eval (if current-input-method
-                                (propertize "⌨ " 'face 'warning)
-                              ""))
-                    ))
-
-     ;; Define a function to only active setting when buffer is active
-     (defun mode-line-window-selected-p ()
-       "Return non-nil if we're updating the mode line for the selected window.
-                     This function is meant to be called in `:eval' mode line
-                     constructs to allow altering the look of the mode line depending
-                     on whether the mode line belongs to the currently selected window
-                     or not."
-       (let ((window (selected-window)))
-         (or (eq window (old-selected-window))
-             (and (minibuffer-window-active-p (minibuffer-window))
-                  (with-selected-window (minibuffer-window)
-                    (eq window (minibuffer-selected-window)))))))
-
+  (setq-default mode-line-format
+                (list
+                 '(:eval (propertize
+                          (if (and (boundp 'evil-state)
+                                (eq evil-state 'normal) )
+                            " V " ;; VIM
+                            (if (and (boundp 'evil-state)
+                                    (eq evil-state 'insert) )
+                            " I " ;; Insert
+                            " E ") ) ;; Emacs
+                        'face 'cursor) )
+                 '(:eval (if current-input-method
+                            (propertize "FR" 'face 'italic)
+                          (propertize "EN" 'face 'italic) ) )
+                 '(:eval
+                     (propertize
+                     (format-time-string
+                     "  %-d/%-m %H:%M " (current-time) )
+                     'face 'shadow) ) 
+                 ;;'default-directory
+                 '(:eval (propertize (format-mode-line
+                                     mode-line-buffer-identification)
+                                     'face 'success) )
+                 '(:eval (propertize " %l:%c " 'face 'shadow))
+                 ) ) 
 #+end_src
+
+La fonction `mode-line-window-selected-p` permet d'indiquer quel
+buffer est active lorsqu'il y a plusieurs fenêtres ouverte. "Return
+non-nil if we're updating the mode line for the selected window. This
+function is meant to be called in `:eval' mode line constructs to
+allow altering the look of the mode line depending on whether the mode
+line belongs to the currently selected window or not."
+
+#+begin_src emacs-lisp :tangle "init.el"
+  ;; Define a function to only active setting when buffer is active
+  (defun mode-line-window-selected-p ()
+      (let ((window (selected-window)))
+      (or (eq window (old-selected-window))
+          (and (minibuffer-window-active-p (minibuffer-window))
+                  (with-selected-window (minibuffer-window)
+                  (eq window (minibuffer-selected-window)))))))
+#+end_src
+
+*** Les packages
 
 #+begin_src emacs-lisp :tangle "init.el"
   ;; Install MELPA package
@@ -492,7 +591,10 @@ chapitres.
     :config (which-key-mode))
 #+end_src
 
-*** Theme
+*** Le thème
+Il existe beaucoup de thèmes et chacun choisit ou modifie le sien
+selon ses préférences. Pour l'IEDmacs c'est le thème crée par "Prot"
+(voir "Les Oracles"). Il a été choisi pour son confort.
 
 #+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: modus-themes
@@ -598,6 +700,22 @@ chapitres.
   (evil-define-key 'normal 'global (kbd "<leader>l") 'org-insert-link)
 #+end_src
 
+*** pdf-tools
+Paquet permettant de visualiser et modifier les fichiers PDF. Utiliser
+également lors de l'export avec la commande ~C-v C-e l o~ dont le "o"
+final signifie "open", et qui ouvre le PDF fraîchement créé. Pour plus
+d'information sur son utilisation voir le manuel utilisateur.
+
+#+begin_src emacs-lisp :tangle "init.el"
+  (use-package pdf-tools
+    :ensure t
+    :defer t
+    :config
+    (pdf-tools-install) )
+#+end_src
+
+*** Autres
+
 #+begin_src emacs-lisp :tangle "init.el"
   ;; ido to easy find the names of files, docs, when searching
   (setq indo-enable-flex-matching t)
@@ -612,8 +730,7 @@ chapitres.
   (setq default-directory "~/")
 
   ;; to display line number
-  (global-display-line-numbers-mode)
-  ;;(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  ;; (global-display-line-numbers-mode)
 
   ;; Org mode stuff
   (use-package org-bullets
@@ -638,7 +755,7 @@ chapitres.
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 #+end_src
 
-#+begin_src emacs-lisp :tangle "init.el"
+#+begin_src emacs-lisp 
      ;;==== AUTOMATICALLY ADD BY EMACS ======
 
      (custom-set-variables

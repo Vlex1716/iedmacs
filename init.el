@@ -1,5 +1,5 @@
 ;; IDEmacs by Emacs, un IDE pour l'IED.
-;; VERSION : Apollon Funky 0.3.0
+;; VERSION : Apollon Funky 0.4.0
 ;; LICENCE : GPLV3
 
 ;; Supprimer le message de démarrage
@@ -117,7 +117,8 @@
     (insert " 1. Remplacer les blocks indiqués par [] par vos informations\n")
     (insert " 2. Rédiger votre devoir en utilisant la synthaxe Orgmode\n")
     (insert " 3. Enregister votre devoir avec la commande " (propertize "Ctrl-x Ctrl-s" 'face 'bold)".\n")
-    (insert " 4. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir votre fichier en LaTex puis pour créer le pdf correspondant.\n")
+    (insert " 4. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir\n")
+    (insert "    votre fichier en LaTex puis pour créer le pdf correspondant.\n")
     ;; Basculer vers le nouveau modèle
     (switch-to-buffer buffer))))
 
@@ -177,37 +178,44 @@
     ;; Basculer vers le nouveau modèle
     (switch-to-buffer buffer)))
 
-(setq display-time-day-and-date t) ;; Display the day and date
-(display-time-mode 1) ;; Enable time display in mode line
+(display-time-mode 1)
+(setq display-time-day-and-date t)
+(setq column-number-mode t)
+(setq column-line-mode t)
 
 (setq-default mode-line-format
               (list
-               '(:eval
-                 (propertize
-                  (format-time-string
-                   "  %-d/%-m %H:%M " (current-time))
-                  'face 'shadow)) 
-               'default-directory
-               '(:eval (propertize (format-mode-line
-                                    mode-line-buffer-identification)
-                                   'face 'success))
+               '(:eval (propertize
+                        (if (and (boundp 'evil-state)
+                              (eq evil-state 'normal) )
+                          " V " ;; VIM
+                          (if (and (boundp 'evil-state)
+                                  (eq evil-state 'insert) )
+                          " I " ;; Insert
+                          " E ") ) ;; Emacs
+                      'face 'cursor) )
                '(:eval (if current-input-method
-                           (propertize "⌨ " 'face 'warning)
-                         ""))
-               ))
+                          (propertize "FR" 'face 'italic)
+                        (propertize "EN" 'face 'italic) ) )
+               '(:eval
+                   (propertize
+                   (format-time-string
+                   "  %-d/%-m %H:%M " (current-time) )
+                   'face 'shadow) ) 
+               ;;'default-directory
+               '(:eval (propertize (format-mode-line
+                                   mode-line-buffer-identification)
+                                   'face 'success) )
+               '(:eval (propertize " %l:%c " 'face 'shadow))
+               ) )
 
 ;; Define a function to only active setting when buffer is active
 (defun mode-line-window-selected-p ()
-  "Return non-nil if we're updating the mode line for the selected window.
-                This function is meant to be called in `:eval' mode line
-                constructs to allow altering the look of the mode line depending
-                on whether the mode line belongs to the currently selected window
-                or not."
-  (let ((window (selected-window)))
+    (let ((window (selected-window)))
     (or (eq window (old-selected-window))
         (and (minibuffer-window-active-p (minibuffer-window))
-             (with-selected-window (minibuffer-window)
-               (eq window (minibuffer-selected-window)))))))
+                (with-selected-window (minibuffer-window)
+                (eq window (minibuffer-selected-window)))))))
 
 ;; Install MELPA package
 (require 'package)
@@ -330,6 +338,12 @@ manual."
 (evil-define-key 'normal 'global (kbd "<leader>ss") 'swiper)
 (evil-define-key 'normal 'global (kbd "<leader>l") 'org-insert-link)
 
+(use-package pdf-tools
+  :ensure t
+  :defer t
+  :config
+  (pdf-tools-install) )
+
 ;; ido to easy find the names of files, docs, when searching
 (setq indo-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -343,8 +357,7 @@ manual."
 (setq default-directory "~/")
 
 ;; to display line number
-(global-display-line-numbers-mode)
-;;(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+;; (global-display-line-numbers-mode)
 
 ;; Org mode stuff
 (use-package org-bullets
@@ -367,20 +380,3 @@ manual."
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
-;;==== AUTOMATICALLY ADD BY EMACS ======
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("c7a926ad0e1ca4272c90fce2e1ffa7760494083356f6bb6d72481b879afce1f2" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
- '(package-selected-packages '(which-key try use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
