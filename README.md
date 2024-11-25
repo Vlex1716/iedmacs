@@ -82,3 +82,4 @@ Prochains ajouts prévus:
 - gptel pour utiliser Chat-GPT directement dans l'IDEmacs
 - mu4 pour lire les mails de l'ied dans l'IEDmacs
 - ajout du modèle latex TexIED8 de amartos
+- ajout du package `which-key` pour afficher un menu

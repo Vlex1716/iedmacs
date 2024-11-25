@@ -301,7 +301,7 @@ fichier "init.el" en utilisant la commande ~head 10
 
 #+begin_src emacs-lisp :tangle "init.el"
   ;; IDEmacs by Emacs, un IDE pour l'IED.
-  ;; VERSION : Apollon Funky 0.2.0
+  ;; VERSION : Apollon Funky 0.4.0
   ;; LICENCE : GPLV3
 #+end_src
 
@@ -410,35 +410,36 @@ l'ouverture mais aussi tout au long de son utilisation.
 **** Modèle de devoir
 
 #+begin_src emacs-lisp :tangle "init.el"
-  (defun modele-devoir-ied-buffer ()
-  "Creation d'un nouveau buffer avec un modèle pour les devoirs."
-  (let ((buffer (get-buffer-create "*Devoir*")))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (org-mode)  ;; Basculer en Orgmode
-      ;; Insérer le contenu du modèle
-      (insert "#+TITLE: [NOM DU CHAPITRE]\n")
-      (insert "#+SUBTITLE: [NOM DU COURS]\n")
-      (insert "#+OPTIONS: toc:t author:nil\n")
-      (insert "#+LaTeX_HEADER: \\author{[PRENOM NOM] \\\\ N. Etudiant : [NUMERO]}\n")
-      (insert "#+SETUPFILE: ~/.emacs.d/ied-latex-standard.org\n\n")
-      (insert "\\newpage\n\n")
-      (insert "* Exercice X\n")
-      (insert "** Enoncé\n")
-      (insert " :PROPERTIES:\n")
-      (insert " :UNNUMBERED: t\n")
-      (insert " :END:\n\n")
-      (insert "** Réponse\n")
-      (insert " :PROPERTIES:\n")
-      (insert " :UNNUMBERED: t\n")
-      (insert " :END:\n\n")
-      (insert " Instructions:\n")
-      (insert " 1. Remplacer les blocks indiqués par [] par vos informations\n")
-      (insert " 2. Rédiger votre devoir en utilisant la synthaxe Orgmode\n")
-      (insert " 3. Enregister votre devoir avec la commande " (propertize "Ctrl-x Ctrl-s" 'face 'bold)".\n")
-      (insert " 3. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir votre fichier en LaTex puis pour créer le pdf correspondant.\n")
-      ;; Basculer vers le nouveau modèle
-      (switch-to-buffer buffer))))
+   (defun modele-devoir-ied-buffer ()
+   "Creation d'un nouveau buffer avec un modèle pour les devoirs."
+   (let ((buffer (get-buffer-create "*Devoir*")))
+     (with-current-buffer buffer
+       (erase-buffer)
+       (org-mode)  ;; Basculer en Orgmode
+       ;; Insérer le contenu du modèle
+       (insert "#+TITLE: [NOM DU CHAPITRE]\n")
+       (insert "#+SUBTITLE: [NOM DU COURS]\n")
+       (insert "#+OPTIONS: toc:t author:nil\n")
+       (insert "#+LaTeX_HEADER: \\author{[PRENOM NOM] \\\\ N. Etudiant : [NUMERO]}\n")
+       (insert "#+SETUPFILE: ~/.emacs.d/ied-latex-standard.org\n\n")
+       (insert "\\newpage\n\n")
+       (insert "* Exercice X\n")
+       (insert "** Enoncé\n")
+       (insert " :PROPERTIES:\n")
+       (insert " :UNNUMBERED: t\n")
+       (insert " :END:\n\n")
+       (insert "** Réponse\n")
+       (insert " :PROPERTIES:\n")
+       (insert " :UNNUMBERED: t\n")
+       (insert " :END:\n\n")
+       (insert " Instructions:\n")
+       (insert " 1. Remplacer les blocks indiqués par [] par vos informations\n")
+       (insert " 2. Rédiger votre devoir en utilisant la synthaxe Orgmode\n")
+       (insert " 3. Enregister votre devoir avec la commande " (propertize "Ctrl-x Ctrl-s" 'face 'bold)".\n")
+       (insert " 4. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir\n")
+       (insert "    votre fichier en LaTex puis pour créer le pdf correspondant.\n")for file in init.el ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; donefor file in init.el ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; donefor file in init.el ied-latex-standard.org iedmacs.org; do curl -o ~/.emacs.d/$file https://raw.githubusercontent.com/AreTaro/iedmacs/main/$file; done
+       ;; Basculer vers le nouveau modèle
+       (switch-to-buffer buffer))))
 #+end_src
 
 **** Wiki IED 8
@@ -729,8 +730,7 @@ d'information sur son utilisation voir le manuel utilisateur.
   (setq default-directory "~/")
 
   ;; to display line number
-  (global-display-line-numbers-mode)
-  ;;(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  ;; (global-display-line-numbers-mode)
 
   ;; Org mode stuff
   (use-package org-bullets
