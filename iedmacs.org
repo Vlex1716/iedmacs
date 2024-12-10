@@ -576,7 +576,15 @@ line belongs to the currently selected window or not."
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
+#+end_src
 
+*** try
+
+Le package ~try~ permet d'essayer un package sans l'installer. Pour
+plus de détail voir le [[https://github.com/larstvei/Try][dépôt GitHub]]. Le package sera enregistré dans
+un fichier temporaire.
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: try
   ;; PURPOSE: to try package without install them
   (use-package try
