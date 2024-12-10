@@ -578,7 +578,7 @@ line belongs to the currently selected window or not."
     (package-install 'use-package))
 #+end_src
 
-*** try
+*** try - essayer un package sans l'installer
 
 Le package ~try~ permet d'essayer un package sans l'installer. Pour
 plus de détail voir le [[https://github.com/larstvei/Try][dépôt GitHub]]. Le package sera enregistré dans
@@ -588,9 +588,12 @@ un fichier temporaire.
   ;; PACKAGE NAME: try
   ;; PURPOSE: to try package without install them
   (use-package try
-    :defer t
     :ensure t)
+#+end_src
 
+*** which-key - menu du choix des touches
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: whick-key
   ;; PURPOSE: to help to find next key, using a
   ;; menu at the bottom of the window

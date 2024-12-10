@@ -234,7 +234,6 @@
 ;; PACKAGE NAME: try
 ;; PURPOSE: to try package without install them
 (use-package try
-  :defer t
   :ensure t)
 
 ;; PACKAGE NAME: whick-key
