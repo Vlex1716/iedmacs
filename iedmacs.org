@@ -168,7 +168,8 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 ** Guide de référence
 Description détaillée de chaque fonctionnalité du système,
 utilisation avancée et cas d'usage spécifiques.
-*** La barre de commande
+*** Explication de la barre de commande
+
 La bar de commande est décrite dans le fichier /init.el/ avec
 ~mode-line~. Pour plus de détail voir la section correspondante dans
 la documentation système.
@@ -203,7 +204,8 @@ voulu :
                     'face 'warning) )
 #+end_src
    
-*** Lire les PDF
+*** Lire un document PDF
+
 C'est le paquet ~pdf-tool~ qui est utilisé. Ce paquet permet de
 visualiser et annoter un document PDF directement dans l'IEDmacs. Il
 est aussi très utile lors de l'export de devoir, car la commande ~C-v
@@ -225,7 +227,7 @@ attentes.
 Pour plus d'informations pour l'instant consulté le dépôt Github du
 paquet en anglais : [[https://github.com/vedang/pdf-tools/tree/30b50544e55b8dbf683c2d932d5c33ac73323a16?tab=readme-ov-file#view-and-navigate-pdfs][git repository]].
   
-*** Le thème
+*** Les Thèmes
 Il existe beaucoup de thèmes et chacun choisit ou modifie généralement
 le sien selon ses préférences. Pour l'IEDmacs c'est le thème crée par
 "Prot" (voir "Les Oracles"). Il a été choisi pour son confort de
@@ -240,6 +242,18 @@ Voici quelques commandes utile pour le thème:
 
 Pour plus de faciliter vous pouver créer des raccourcis vers ces
 fonctions.
+
+*** Faire une recherche
+
+Pour faire une recherche, c'est le paquet "swiper" est utilisé :
+- Utiliser la commande ~Ctrl-s~ ouvrir Swiper. Une fenêtre apparaîtra
+  dans la barre de commande.
+- Taper le mot recherché, puis naviguer dans la liste de choix avec
+  la ~Ctrl-n~ pour descendre et ~Ctrl-p~ pour monter.
+- Une prévisualisation de la recherche et de l'emplacement concerné
+  sera visible dans le buffer.
+- Appuyer sur Entrée pour selectionner. Cela fermera la fenêtre et
+  déplacera le curseur à l'endroit choisi.
 
 ** Notes de version
    Informations sur les changements importants.
