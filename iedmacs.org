@@ -637,7 +637,18 @@ selon ses préférences. Pour l'IEDmacs c'est le thème crée par "Prot"
   ;; PACKAGE NAME: ace-window
   ;; PURPOSE: select a window more easily
   (global-set-key (kbd "M-o") 'ace-window)
+#+end_src
 
+*** Swiper - Prévisualisation de la recherche
+
+Swiper facilite la recherche dans un document. Swiper utilise deux
+packages appelés ~Ivy~ et ~Counsel~ qui permettent une saisie
+"générique", c'est-à-dire que quelques lettres permettent de trouver
+l'équivalent dans le texte ou un liste de fichier.
+
+Pour plus d'information, consulter le dépôt [[https://github.com/abo-abo/swiper/tree/8133016ab1b37da233e6daaab471e40abf0f7ba9][GitHub]].
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: swiper
   ;; PURPOSE: facilitate search in a document
   (use-package counsel
