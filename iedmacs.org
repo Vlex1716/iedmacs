@@ -194,15 +194,6 @@ indications est décrite ci-dessous en partant de la gauche :
   gauche le numéro de ligne et à droite la colonne ou position du
   curseur sur la ligne.
 
-Il est possible de rajouter bien d'autre option, dont l'indiquation de
-la branche du dépôt git. Pour cela ajouter le code suivant à l'endroit
-voulu :
-
-#+begin_src emacs-lisp
-'(:eval (propertize (replace-regexp-in-string
-                    "^ Git:" "" vc-mode )
-                    'face 'warning) )
-#+end_src
    
 *** Lire un document PDF
 
@@ -521,6 +512,7 @@ chapitres.
 #+end_src
 
 *** Barre de commande
+
 Le bloc ci-dessous permet de controler l'apparance de la barre de
 commande en bas de la fenêtre.
 
@@ -557,12 +549,18 @@ commande en bas de la fenêtre.
                  ) ) 
 #+end_src
 
+Il est possible de rajouter bien d'autre option, dont l'indiquation de
+la branche du dépôt git. Pour cela ajouter le code suivant à l'endroit
+voulu :
+
+#+begin_src emacs-lisp
+'(:eval (propertize (replace-regexp-in-string
+                    "^ Git:" "" vc-mode )
+                    'face 'warning) )
+#+end_src
+
 La fonction `mode-line-window-selected-p` permet d'indiquer quel
-buffer est active lorsqu'il y a plusieurs fenêtres ouverte. "Return
-non-nil if we're updating the mode line for the selected window. This
-function is meant to be called in `:eval' mode line constructs to
-allow altering the look of the mode line depending on whether the mode
-line belongs to the currently selected window or not."
+buffer est actif lorsqu'il y a plusieurs fenêtres ouvertes.
 
 #+begin_src emacs-lisp :tangle "init.el"
   ;; Define a function to only active setting when buffer is active
