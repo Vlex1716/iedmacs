@@ -605,6 +605,9 @@ un fichier temporaire.
 
 *** which-key - menu du choix des touches
 
+Which-key permet de visualiser les raccourcis possible d'une commande
+en cours. Ce paquet sera inclue dans la version 30 de emacs.
+
 #+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: whick-key
   ;; PURPOSE: to help to find next key, using a

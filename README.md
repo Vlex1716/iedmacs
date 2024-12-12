@@ -82,5 +82,7 @@ Prochains ajouts prévus:
 - gptel pour utiliser Chat-GPT directement dans l'IDEmacs
 - mu4 pour lire les mails de l'ied dans l'IEDmacs
 - ajout du modèle latex TexIED8 de amartos
-- ajout du package `which-key` pour afficher un menu
+- ~ajout du package `which-key` pour afficher un menu (déjà inclus dans la v30)~
 - ajout du package `plantuml-mode` (cf. [GitHub](https://github.com/skuro/plantuml-mode)) pour faire des diagrammes
+- ajout de better-shell
+- ajout du paquet multiple-cursor (quand j'aurai compris comment il fonctionne)
