@@ -194,7 +194,6 @@ indications est décrite ci-dessous en partant de la gauche :
   gauche le numéro de ligne et à droite la colonne ou position du
   curseur sur la ligne.
 
-   
 *** Lire un document PDF
 
 C'est le paquet ~pdf-tool~ qui est utilisé. Ce paquet permet de
@@ -605,7 +604,7 @@ un fichier temporaire.
 
 *** which-key - menu du choix des touches
 
-Which-key permet de visualiser les raccourcis possible d'une commande
+Which-key permet de visualiser les raccourcis possibles d'une commande
 en cours. Ce paquet sera inclue dans la version 30 de emacs.
 
 #+begin_src emacs-lisp :tangle "init.el"
@@ -751,14 +750,18 @@ d'information sur son utilisation voir le manuel utilisateur.
     (pdf-tools-install) )
 #+end_src
 
-*** Autres
+*** ido
 
 #+begin_src emacs-lisp :tangle "init.el"
   ;; ido to easy find the names of files, docs, when searching
-  (setq indo-enable-flex-matching t)
+  ;;(setq indo-enable-flex-matching t) ;; unavailable
   (setq ido-everywhere t)
   (ido-mode 1)
+#+end_src
 
+*** alias
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; better visualization of buffer-list
   (defalias 'list-buffers 'ibuffer)
   ;;(defalias 'list-buffers 'ibuffer-other-window)
@@ -768,7 +771,11 @@ d'information sur son utilisation voir le manuel utilisateur.
 
   ;; to display line number
   ;; (global-display-line-numbers-mode)
+#+end_src
 
+*** Org-mode
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; Org mode stuff
   (use-package org-bullets
     :defer t
@@ -790,25 +797,6 @@ d'information sur son utilisation voir le manuel utilisateur.
                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-#+end_src
-
-#+begin_src emacs-lisp 
-     ;;==== AUTOMATICALLY ADD BY EMACS ======
-
-     (custom-set-variables
-      ;; custom-set-variables was added by Custom.
-      ;; If you edit it by hand, you could mess it up, so be careful.
-      ;; Your init file should contain only one such instance.
-      ;; If there is more than one, they won't work right.
-      '(custom-safe-themes
-        '("c7a926ad0e1ca4272c90fce2e1ffa7760494083356f6bb6d72481b879afce1f2" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
-      '(package-selected-packages '(which-key try use-package)))
-     (custom-set-faces
-      ;; custom-set-faces was added by Custom.
-      ;; If you edit it by hand, you could mess it up, so be careful.
-      ;; Your init file should contain only one such instance.
-      ;; If there is more than one, they won't work right.
-      '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
 #+end_src
 
 ** A faire
