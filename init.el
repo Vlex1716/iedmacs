@@ -17,6 +17,10 @@
 ;; Supprimer le clignotement du curseur
 (blink-cursor-mode -1)
 
+;; Supprimer la barre de défilement
+;; Elle n'est ni bien pratique ni bien jolie
+(scroll-bar-mode -1)
+
 (defun iedmacs-startup-buffer ()
   "Créez un buffer de démarrage pour IEDmacs avec un logo, une explication et des liens utiles."
   (let ((buffer (get-buffer-create "*IEDmacs*")))
