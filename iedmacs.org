@@ -338,6 +338,10 @@ l'ouverture mais aussi tout au long de son utilisation.
 
      ;; Supprimer le clignotement du curseur
      (blink-cursor-mode -1)
+
+     ;; Supprimer la barre de défilement
+     ;; Elle n'est ni bien pratique ni bien jolie
+     (scroll-bar-mode -1)
 #+end_src
 
 *** Buffers personnalisés
