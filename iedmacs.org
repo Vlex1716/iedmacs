@@ -32,8 +32,8 @@ Ce document est une tentative d'explication du code du fichier
 version d'Emacs plus facile à prendre en main afin de rendre avec un
 peu moins de difficultés les premiers devoirs (mais ça marchera aussi
 pour les suivants). Ce document reprend le concept de "[[https://fr.wikipedia.org/wiki/Programmation_lettr%C3%A9e][Progammation
-lettrée]]" ("Literate Programming" en anglais) qui consiste à intégrer les explications directement au sein
-du code.
+lettrée]]" ("Literate Programming" en anglais) qui consiste à intégrer
+les explications directement au sein du code.
 
 Emacs et Orgmode permettent de générer un fichier de code à partir
 d'un fichier ~.org~ en ne conservant que les parties de code indiquées
@@ -55,7 +55,17 @@ Ce fichier est composé de plusieurs parties comme suit:
 C'est un environnement de développement logiciel qui regroupe divers
 outils pour faciliter l'écriture, la compilation, le débogage et le
 déploiement de programmes informatiques.
-** Orgmode 
+** Orgmode
+
+Orgmode est un "mode" (mis entre guillemet car je ne sais pas encore
+bien définir ce qu'est un mode) ou un paquet permettant l'édition de
+documents à partir de texte brut.
+
+** Elpa
+
+Elpa est le dépôt par défault des paquets pour GNU emacs. Il en existe
+d'autres comme par exemple MELPA.
+
 * Documentation Utilisateur
 ** Guide d'installation
 Installation et configuration d'IEDmacs.
