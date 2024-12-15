@@ -14,6 +14,9 @@
 ;; Lancer le buffer de démarrage
 (add-hook 'emacs-startup-hook 'iedmacs-startup-buffer)
 
+;; Supprimer le clignotement du curseur
+(blink-cursor-mode -1)
+
 (defun iedmacs-startup-buffer ()
   "Créez un buffer de démarrage pour IEDmacs avec un logo, une explication et des liens utiles."
   (let ((buffer (get-buffer-create "*IEDmacs*")))
@@ -344,7 +347,7 @@ manual."
   (pdf-tools-install) )
 
 ;; ido to easy find the names of files, docs, when searching
-(setq indo-enable-flex-matching t)
+;;(setq indo-enable-flex-matching t) ;; unavailable
 (setq ido-everywhere t)
 (ido-mode 1)
 

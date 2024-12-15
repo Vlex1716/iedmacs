@@ -335,6 +335,9 @@ l'ouverture mais aussi tout au long de son utilisation.
 
      ;; Lancer le buffer de démarrage
      (add-hook 'emacs-startup-hook 'iedmacs-startup-buffer)
+
+     ;; Supprimer le clignotement du curseur
+     (blink-cursor-mode -1)
 #+end_src
 
 *** Buffers personnalisés
@@ -556,6 +559,8 @@ commande en bas de la fenêtre.
                                      'face 'success) )
                  '(:eval (propertize " %l:%c " 'face 'shadow))
                  ) ) 
+
+
 #+end_src
 
 Il est possible de rajouter bien d'autre option, dont l'indiquation de
