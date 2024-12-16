@@ -84,5 +84,7 @@ Prochains ajouts prévus:
 - ajout du modèle latex TexIED8 de amartos
 - ~ajout du package `which-key` pour afficher un menu (déjà inclus dans la v30)~
 - ajout du package `plantuml-mode` (cf. [GitHub](https://github.com/skuro/plantuml-mode)) pour faire des diagrammes
-- ajout de better-shell
+- ajout de better-shell (peut être pas)
 - ajout du paquet multiple-cursor (quand j'aurai compris comment il fonctionne)
+- amélioration du temps de chargement
+- suppression du clignement du curseur.
