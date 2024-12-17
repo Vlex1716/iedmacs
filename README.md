@@ -86,5 +86,5 @@ Prochains ajouts prévus:
 - ajout du package `plantuml-mode` (cf. [GitHub](https://github.com/skuro/plantuml-mode)) pour faire des diagrammes
 - ajout de better-shell (peut être pas)
 - ajout du paquet multiple-cursor (quand j'aurai compris comment il fonctionne)
-- amélioration du temps de chargement
-- suppression du clignement du curseur.
+- ~amélioration du temps de chargement(v5)~ 
+- ~Suppression du clignement du curseur.(v5)~

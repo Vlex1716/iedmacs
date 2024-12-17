@@ -621,7 +621,9 @@ buffer est actif lorsqu'il y a plusieurs fenêtres ouvertes.
 
 *** Les packages
 
-#+begin_src emacs-lisp :tangle "init.el"
+Code utilisé précédemment jusqu'au <2024-12-17 Tue>.
+
+#+begin_src emacs-lisp 
   ;; Install MELPA package
   (require 'package)
   (setq package-enable-at-startup nil)
@@ -635,6 +637,46 @@ buffer est actif lorsqu'il y a plusieurs fenêtres ouvertes.
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
+#+end_src
+
+Remplacé le <2024-12-17 Tue> le code d'Andres Gasson ([[https://github.com/frap/emacs-literate][GitHub]]). Cela
+améliore indiscutablement la vitesse de chargement d'Emacs à
+l'ouverture.
+
+#+begin_src emacs-lisp :tangle "init.el"
+(eval-and-compile
+  (setq load-prefer-newer t
+        package-user-dir "~/.emacs.d/elpa"
+        package--init-file-ensured t
+        package-enable-at-startup nil)
+
+  (unless (file-directory-p package-user-dir)
+    (make-directory package-user-dir t)))
+
+(eval-and-compile
+  (setq load-path (append load-path (directory-files package-user-dir t "^[^.]" t))))
+
+;;(setq use-package-always-defer t
+;;      use-package-verbose t)
+
+(eval-when-compile
+  (require 'package)
+
+  (unless (assoc-default "melpa" package-archives)
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
+  (unless (assoc-default "org" package-archives)
+    (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t))
+
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+  (unless (package-installed-p 'bind-key)
+    (package-refresh-contents)
+    (package-install 'bind-key))
+  (require 'use-package)
+  (require 'bind-key)
+  (setq use-package-always-ensure t))
 #+end_src
 
 *** try - essayer un package sans l'installer

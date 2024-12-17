@@ -224,19 +224,39 @@
                 (with-selected-window (minibuffer-window)
                 (eq window (minibuffer-selected-window)))))))
 
-;; Install MELPA package
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
-(package-refresh-contents)
+(eval-and-compile
+  (setq load-prefer-newer t
+        package-user-dir "~/.emacs.d/elpa"
+        package--init-file-ensured t
+        package-enable-at-startup nil)
 
-;; PACKAGE NAME: Use-package
-;; PURPOSE: to easily install package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+  (unless (file-directory-p package-user-dir)
+    (make-directory package-user-dir t)))
+
+(eval-and-compile
+  (setq load-path (append load-path (directory-files package-user-dir t "^[^.]" t))))
+
+;;(setq use-package-always-defer t
+;;      use-package-verbose t)
+
+(eval-when-compile
+  (require 'package)
+
+  (unless (assoc-default "melpa" package-archives)
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
+  (unless (assoc-default "org" package-archives)
+    (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t))
+
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+  (unless (package-installed-p 'bind-key)
+    (package-refresh-contents)
+    (package-install 'bind-key))
+  (require 'use-package)
+  (require 'bind-key)
+  (setq use-package-always-ensure t))
 
 ;; PACKAGE NAME: try
 ;; PURPOSE: to try package without install them
