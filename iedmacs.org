@@ -428,6 +428,35 @@ l'ouverture mais aussi tout au long de son utilisation.
 
 #+end_src
 
+Quelque chose de plutôt sympa qu'il est possible de rajouter à la page
+d'accueil, c'est la liste des derniers fichiers ouverts à
+l'ouverture. Ceci permet de retrouver rapidement les fichiers sur
+lequel on travaillait.
+
+Pour ce faire il suffit d'insérer le code suivant à peu près où vous
+voulez, mais à titre d'exemple, disons juste avant la ligne
+";;Configurer le buffer en mode read-only" dans le bloc ci-dessus.
+
+#+begin_src 
+;; Section des fichiers récents avec des liens cliquables
+(insert "\n" (propertize "Fichiers récents" 'face 'bold) "\n\n")
+(require 'recentf)
+(recentf-mode 1)
+(let ((recent-files (cl-subseq recentf-list 0 (min 5 (length recentf-list))))) ;; 5 derniers fichiers
+    (dolist (file recent-files)
+    ;; Création d'une fermeture (closure) pour capturer correctement 'file'
+    (insert-button (file-name-nondirectory file) ;; Affiche le nom du fichier
+                    'action `(lambda (_)
+                                (find-file ,file)) ;; Capture la valeur avec ',file
+                    'follow-link t
+                    'help-echo (concat "Ouvrir : " file)) ;; Info-bulle
+    ;; Afficher le chemin complet abrégé en gris clair
+    (insert "    " (propertize (abbreviate-file-name file) 'face 'shadow) "\n")))
+#+end_src
+
+La fonction est aussi accessible en utilsant la commande ~Alt-x
+recentf-open-files~.
+
 **** Modèle de devoir
 
 #+begin_src emacs-lisp :tangle "init.el"
