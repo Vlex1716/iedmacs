@@ -870,13 +870,13 @@ libre, et que ces modèles et les sociétés qui les exploitent sont à
 l'opposé de cette philosophie, je pense, même si au moins l'une
 d'entre elle en tous les cas, se repose largement sur les logiciels
 libres pour son développement, mais en profite pour collecter et
-utiliser massivement nos données, ce pour lequel Richard Stallman,
-l'un des créateurs d'Emacs se bat avec ferveur depuis de nombreuses
+utiliser massivement nos données, ce pourquoi [[eww:https://en.wikipedia.org/wiki/Richard_Stallman][Richard Stallman]], l'un
+des auteurs de GNU Emacs se bat avec ferveur depuis de nombreuses
 années.
 
-Pour ce donner un brin de bonne conscience et d'éthique bien que
-personne ne soit vraiment dupe, l'activation de ce paquet ne sera donc
-pas automatique, et vous devrez l'activer vous même en toute
+Pour ce donner un brin de bonne conscience et d'éthique qui ne
+laissera personne vraiment dupe, l'activation de ce paquet ne sera
+donc pas automatique, et vous devrez l'activer vous même en toute
 connaissance de cause, concernant la collecte et l'utilisation de vos
 données, ainsi que de l'empreinte carbone désastreuse de ces modèles.
 
