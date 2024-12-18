@@ -862,6 +862,52 @@ d'information sur son utilisation voir le manuel utilisateur.
   ;; (global-display-line-numbers-mode)
 #+end_src
 
+*** gptel
+
+Ajouter des LLM comme Chatgpt ou Gemini à Emacs à quelque chose d'un
+peu obscène, dans le sens où la philosophie d'Emacs est d'être 100%
+libre, et que ces modèles et les sociétés qui les exploitent sont à
+l'opposé de cette philosophie, je pense, même si au moins l'une
+d'entre elle en tous les cas, se repose largement sur les logiciels
+libres pour son développement, mais en profite pour collecter et
+utiliser massivement nos données, ce pour lequel Richard Stallman,
+l'un des créateurs d'Emacs se bat avec ferveur depuis de nombreuses
+années.
+
+Pour ce donner un brin de bonne conscience et d'éthique bien que
+personne ne soit vraiment dupe, l'activation de ce paquet ne sera donc
+pas automatique, et vous devrez l'activer vous même en toute
+connaissance de cause, concernant la collecte et l'utilisation de vos
+données, ainsi que de l'empreinte carbone désastreuse de ces modèles.
+
+#+begin_src emacs-lisp
+ #+begin_src emacs-lisp :tangle "~/.emacs.d/init.el"
+  (use-package gptel
+    :ensure t
+    :config
+    (load "/home/aretaro/.emacs.d/idemacs-modules/idemacs-gptel.el") )
+
+  ;; required to display gptel-menu
+  (setq package-install-upgrade-built-in t)
+  (progn (unload-feature 'seq t) (require 'seq))
+#+end_src
+
+
+Pour le bloc suivant il est recommander de créer un module particulier
+pour vos clés API, afin d'éviter de les partager si vous souhaitez
+mettre votre fichier ~init.el~ sur GitHub par exemple.
+
+Pour enchevêtrer le bloc ci-dessous, utilser un lien du type :
+~:tangle "~/.emacs.d/iedmacs-modules/iedmacs-gptel.el" :mkdirp yes~ à
+placer après ~#+begin_src emacs-lisp~ sur la même ligne.
+
+#+begin_src emacs-lisp 
+(setq gptel-api-key "<API_KEY>")
+(gptel-make-gemini "Gemini" :key "<API_KEY>" :stream t)
+#+end_src
+
+Pour plus d'information, voir le dépôt [[https://github.com/karthink/gptel?tab=readme-ov-file#usage][GitHub]].
+
 *** Org-mode
 
 #+begin_src emacs-lisp :tangle "init.el"
