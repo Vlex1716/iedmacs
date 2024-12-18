@@ -835,7 +835,6 @@ d'information sur son utilisation voir le manuel utilisateur.
 #+begin_src emacs-lisp :tangle "init.el"
   (use-package pdf-tools
     :ensure t
-    :defer t
     :config
     (pdf-tools-install) )
 #+end_src
@@ -890,15 +889,6 @@ d'information sur son utilisation voir le manuel utilisateur.
 #+end_src
 
 ** A faire
-*** Ajouter pdf-tools
-#+begin_src emacs-lips
-  (use-package pdf-tools
-    :ensure t
-    :config (pdf-tools-install))
-
-  (use-package org-pdfview
-    :ensure t)
-#+end_src
 
 * Recommandations
 * Sources
