@@ -64,7 +64,7 @@ documents à partir de texte brut.
 ** Elpa
 
 Elpa est le dépôt par défault des paquets pour GNU emacs. Il en existe
-d'autres comme par exemple MELPA.
+d'autres comme par exemple MELPA ou GNU.
 
 * Documentation Utilisateur
 ** Guide d'installation
