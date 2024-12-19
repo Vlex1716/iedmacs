@@ -51,6 +51,17 @@ Ce fichier est composé de plusieurs parties comme suit:
   et le maintient de ce dépôt.
   
 * Définitions
+** Buffer
+
+Pour dire simplement, dans Emacs, un buffer est une fenêtre. Il peut y
+avoir plusieurs buffers d'ouvert, et il est possible de passer de l'un
+à l'autre ou d'en afficher plusieurs à la fois.
+
+** Elpa
+
+Elpa est le dépôt par défault des paquets pour GNU emacs. Il en existe
+d'autres comme par exemple MELPA ou GNU.
+
 ** Integrate Development Environment (IDE)
 C'est un environnement de développement logiciel qui regroupe divers
 outils pour faciliter l'écriture, la compilation, le débogage et le
@@ -60,11 +71,6 @@ déploiement de programmes informatiques.
 Orgmode est un "mode" (mis entre guillemet car je ne sais pas encore
 bien définir ce qu'est un mode) ou un paquet permettant l'édition de
 documents à partir de texte brut.
-
-** Elpa
-
-Elpa est le dépôt par défault des paquets pour GNU emacs. Il en existe
-d'autres comme par exemple MELPA ou GNU.
 
 * Documentation Utilisateur
 ** Guide d'installation
@@ -254,6 +260,36 @@ Pour faire une recherche, c'est le paquet "swiper" est utilisé :
   sera visible dans le buffer.
 - Appuyer sur Entrée pour selectionner. Cela fermera la fenêtre et
   déplacera le curseur à l'endroit choisi.
+
+*** LLM
+
+Le paquet ~gptel~ fournit un moyen d'envoyer des prompts directement à
+partir d'un buffer dans Emacs. Pour activer GPTel, vous pouvez ajouter
+le bloc de code correspondant à votre fichier ~init.el~.
+
+Pour plus de détails sur le bloc à ajouter, reportez-vous à la section
+"GPTel" dans le manuel d'utilisation.
+
+**Activation de GPTel**
+
+Après l'installation du paquet, vous pouvez lancer GPTel en entrant
+~M-x gptel~.
+
+**Envoi de Prompts**
+
+Pour envoyer un prompt, utiliser ~M-x RET~ ou la commande ~M-x
+gptel-send~.
+
+**Accès au Menu GPTel**
+
+Le menu GPTel vous permet de modifier divers paramètres. Pour accéder,
+utiliser la commande ~M-x gptel-menu~
+
+Notez que toutes les commandes mentionnées ci-dessus doivent être
+saisies dans la minibuffer d'Emacs.
+
+Pour plus d'informations sur l'utilisation de GPTel, consulter la
+documentation complète du paquet. ([[eww:https://github.com/karthink/gptel][GitHub]])
 
 ** Notes de version
    Informations sur les changements importants.
