@@ -347,7 +347,7 @@ manual."
 (evil-set-leader 'normal (kbd "SPC"))
 (evil-define-key 'normal 'global (kbd "<leader>bs") 'save-buffer)
 (evil-define-key 'normal 'global (kbd "<leader>bb") 'switch-to-buffer)
-(evil-define-key 'normal 'global (kbd "<leader>ff") 'find-file)
+(evil-define-key 'normal 'global (kbd "<leader>ff") 'counsel-find-file)
 (evil-define-key 'normal 'global (kbd "<leader>ts") 'modus-themes-select) 
 (evil-define-key 'normal 'global (kbd "<leader>tt") 'my-modus-themes-toggle) 
 (evil-define-key 'normal 'global (kbd "<leader>1") 'delete-other-windows) 
