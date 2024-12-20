@@ -681,11 +681,11 @@ Remplacé le <2024-12-17 Tue> le code d'Andres Gasson ([[https://github.com/frap
 améliore indiscutablement la vitesse de chargement d'Emacs à
 l'ouverture.
 
-Le premier bloc configure les options de chargement des
-paquets Emmacs, appelé "[[eww:https://elpa.gnu.org/][Elpa]]", en spécifiant un répertoire
-personnalisé pour les paquets, et en assurant l'initialisation du
-fichier de configurations des paquets. Il vérifie également également
-si le répertoire personnalisé des paquets existe déjà, et le crée s'il
+Le premier bloc configure les options de chargement des paquets
+Emmacs, appelé "[[eww:https://elpa.gnu.org/][Elpa]]", en spécifiant un répertoire personnalisé pour
+les paquets, et en assurant l'initialisation du fichier de
+configurations des paquets. Il vérifie également également si le
+répertoire personnalisé des paquets existe déjà, et le crée s'il
 n'existe pas.
 
 #+begin_src emacs-lisp :tangle "init.el"
@@ -698,6 +698,14 @@ n'existe pas.
   (unless (file-directory-p package-user-dir)
     (make-directory package-user-dir t)))
 #+end_src
+
+En utilisant cette approche, on s'assure que les options de chargement
+des paquets Emacs sont correctement configuées dès le début de
+l'exécution d'Emacs. Cela permet de personnaliser le répertoire de
+stockage des paquets, d'assurer l'initialisation correcte des
+configurations des paquets, et de garantir que le répertoire
+personnalisé des paquets est crée si nécessaire, ce qui aide à
+organiser et gérer efficacement les dépendances des paquets Emacs.
 
 #+begin_src emacs-lisp :tangle "init.el"
 (eval-and-compile
