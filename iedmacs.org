@@ -291,6 +291,10 @@ saisies dans la minibuffer d'Emacs.
 Pour plus d'informations sur l'utilisation de GPTel, consulter la
 documentation complète du paquet. ([[eww:https://github.com/karthink/gptel][GitHub]])
 
+*** eww - Emacs Web Wowser
+
+~Ctrl-c Ctrl-o~ ouvrir un lien
+
 ** Notes de version
    Informations sur les changements importants.
 *** nom des versions
