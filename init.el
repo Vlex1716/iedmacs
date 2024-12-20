@@ -224,6 +224,7 @@
                 (with-selected-window (minibuffer-window)
                 (eq window (minibuffer-selected-window)))))))
 
+;; Configuration des options de chargement des paquets Elpa
 (eval-and-compile
   (setq load-prefer-newer t
         package-user-dir "~/.emacs.d/elpa"

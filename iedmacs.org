@@ -682,13 +682,14 @@ améliore indiscutablement la vitesse de chargement d'Emacs à
 l'ouverture.
 
 Le premier bloc configure les options de chargement des paquets
-Emmacs, appelé "[[eww:https://elpa.gnu.org/][Elpa]]", en spécifiant un répertoire personnalisé pour
+Emacs, appelé "[[eww:https://elpa.gnu.org/][Elpa]]", en spécifiant un répertoire personnalisé pour
 les paquets, et en assurant l'initialisation du fichier de
 configurations des paquets. Il vérifie également également si le
 répertoire personnalisé des paquets existe déjà, et le crée s'il
 n'existe pas.
 
 #+begin_src emacs-lisp :tangle "init.el"
+;; Configuration des options de chargement des paquets Elpa
 (eval-and-compile
   (setq load-prefer-newer t
         package-user-dir "~/.emacs.d/elpa"
