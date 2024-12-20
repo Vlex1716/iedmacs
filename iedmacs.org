@@ -319,9 +319,13 @@ voir venir, et encore de longues années devant pour l'IEDmacs.
 20. Benzaiten Globo
 
 **Apollon Funky**
-- *0.0.0* Première version, Novembre 2024
+- *0.0.0* Première version Apollon Funky, Novembre 2024
 - *0.3.0*: which-key menu rendu visible
 - *0.4.0*: pdf-tools, barre de commande modifiée
+
+**Hera Cyber**
+- *1.0.0*: optimisation du démarrage, gptel, Fichier récent (prev. fin
+  déc. 2024)
    
 ** Carte de référence rapide
    Aide-mémoire des commandes et raccourcis clavier les plus utilisés.
@@ -381,7 +385,6 @@ l'ouverture mais aussi tout au long de son utilisation.
 #+end_src
 
 *** Buffers personnalisés
-
 **** Startup Buffer
 
 #+begin_src emacs-lisp :tangle "init.el"
@@ -461,7 +464,6 @@ l'ouverture mais aussi tout au long de son utilisation.
         (setq buffer-read-only t))
       ;; Afficher le buffer 
       (switch-to-buffer buffer)))
-
 #+end_src
 
 Quelque chose de plutôt sympa qu'il est possible de rajouter à la page
@@ -679,6 +681,13 @@ Remplacé le <2024-12-17 Tue> le code d'Andres Gasson ([[https://github.com/frap
 améliore indiscutablement la vitesse de chargement d'Emacs à
 l'ouverture.
 
+Le premier bloc configure les options de chargement des
+paquets Emmacs, appelé "[[eww:https://elpa.gnu.org/][Elpa]]", en spécifiant un répertoire
+personnalisé pour les paquets, et en assurant l'initialisation du
+fichier de configurations des paquets. Il vérifie également également
+si le répertoire personnalisé des paquets existe déjà, et le crée s'il
+n'existe pas.
+
 #+begin_src emacs-lisp :tangle "init.el"
 (eval-and-compile
   (setq load-prefer-newer t
@@ -688,7 +697,9 @@ l'ouverture.
 
   (unless (file-directory-p package-user-dir)
     (make-directory package-user-dir t)))
+#+end_src
 
+#+begin_src emacs-lisp :tangle "init.el"
 (eval-and-compile
   (setq load-path (append load-path (directory-files package-user-dir t "^[^.]" t))))
 
