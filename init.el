@@ -224,6 +224,15 @@
                 (with-selected-window (minibuffer-window)
                 (eq window (minibuffer-selected-window)))))))
 
+;;- (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+(setq backup-directory-alist '(("." . ".~")) ;;+
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
+
 ;; Configuration des options de chargement des paquets Elpa
 (eval-and-compile
   (setq load-prefer-newer t
