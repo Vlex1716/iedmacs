@@ -661,6 +661,23 @@ buffer est actif lorsqu'il y a plusieurs fenêtres ouvertes.
                   (eq window (minibuffer-selected-window)))))))
 #+end_src
 
+*** Backup
+
+Solution trouvée sur [[https://stackoverflow.com/questions/2680389/how-to-remove-all-files-ending-with-made-by-emacs][Stackoverflow]], et modifié avec une proposition
+alternative du manuel d'Emacs, chapitre [[eww:https://www.gnu.org/software/emacs/manual/html_node/emacs/Backup.html][Backup]]. 
+
+#+begin_src emacs-lisp :tangle "init.el"
+;;- (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+(setq backup-directory-alist '(("." . ".~")) ;;+
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
+#+end_src
+
+
 *** Les packages
 
 Code utilisé précédemment jusqu'au <2024-12-17 Tue>.
@@ -739,7 +756,7 @@ organiser et gérer efficacement les dépendances des paquets Emacs.
   (setq use-package-always-ensure t))
 #+end_src
 
-*** try - essayer un package sans l'installer
+*** Try - essayer un package sans l'installer
 
 Le package ~try~ permet d'essayer un package sans l'installer. Pour
 plus de détail voir le [[https://github.com/larstvei/Try][dépôt GitHub]]. Le package sera enregistré dans
