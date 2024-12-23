@@ -1,7 +1,7 @@
 _(Ce sont des informations sommaires. Pour plus d'information et de
 détails voir le fichier `iedmacs.org`)_
 
-![IEDmacs Page d'Accueil](images/iedmacs_apollon_funky.png)
+![IEDmacs Page d'Accueil](images/iedmacs_apollon_funky4.png)
 
 # Aide pour Utiliser Emacs et Rendre les Devoirs de l'IED
 
@@ -9,7 +9,7 @@ Pour une assistance à la prise en main d'Emacs et pour rendre les devoirs de l'
 
 - `init.el` : Fichier de configuration pour IEDmacs, à placer dans le répertoire `~/.emacs.d`.
 - `ied-latex-standard.org` : Fichier de configuration pour l'export en latex et PDF.
-- `modele_devoir.org` : Exemple de fichier pour les devoirs
+- `iedmacs.org` : Le manuel d'IEDmacs.
 
 ## Installation
 
@@ -78,7 +78,13 @@ Créer un fork du dépôt et modifier sur la branche développement avec
 la fonction que vous souhaitez ajouter ou modifier.
 
 Prochains ajouts prévus:
-- pdf-tools pour lire et annoter les documents pdf
+- ~pdf-tools pour lire et annoter les documents pdf~
 - gptel pour utiliser Chat-GPT directement dans l'IDEmacs
 - mu4 pour lire les mails de l'ied dans l'IEDmacs
 - ajout du modèle latex TexIED8 de amartos
+- ~ajout du package `which-key` pour afficher un menu (déjà inclus dans la v30)~
+- ajout du package `plantuml-mode` (cf. [GitHub](https://github.com/skuro/plantuml-mode)) pour faire des diagrammes
+- ajout de better-shell (peut être pas)
+- ajout du paquet multiple-cursor (quand j'aurai compris comment il fonctionne)
+- ~amélioration du temps de chargement(v5)~ 
+- ~Suppression du clignement du curseur.(v5)~

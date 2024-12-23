@@ -32,8 +32,8 @@ Ce document est une tentative d'explication du code du fichier
 version d'Emacs plus facile à prendre en main afin de rendre avec un
 peu moins de difficultés les premiers devoirs (mais ça marchera aussi
 pour les suivants). Ce document reprend le concept de "[[https://fr.wikipedia.org/wiki/Programmation_lettr%C3%A9e][Progammation
-lettrée]]" ("Literate Programming" en anglais) qui consiste à intégrer les explications directement au sein
-du code.
+lettrée]]" ("Literate Programming" en anglais) qui consiste à intégrer
+les explications directement au sein du code.
 
 Emacs et Orgmode permettent de générer un fichier de code à partir
 d'un fichier ~.org~ en ne conservant que les parties de code indiquées
@@ -50,12 +50,28 @@ Ce fichier est composé de plusieurs parties comme suit:
 - Recommandations: Informations et bonnes pratiques pour la rédaction
   et le maintient de ce dépôt.
   
-* Definitions
+* Définitions
+** Buffer
+
+Pour dire simplement, dans Emacs, un buffer est une fenêtre. Il peut y
+avoir plusieurs buffers d'ouvert, et il est possible de passer de l'un
+à l'autre ou d'en afficher plusieurs à la fois.
+
+** Elpa
+
+Elpa est le dépôt par défault des paquets pour GNU emacs. Il en existe
+d'autres comme par exemple MELPA ou GNU.
+
 ** Integrate Development Environment (IDE)
 C'est un environnement de développement logiciel qui regroupe divers
 outils pour faciliter l'écriture, la compilation, le débogage et le
 déploiement de programmes informatiques.
-** Orgmode 
+** Orgmode
+
+Orgmode est un "mode" (mis entre guillemet car je ne sais pas encore
+bien définir ce qu'est un mode) ou un paquet permettant l'édition de
+documents à partir de texte brut.
+
 * Documentation Utilisateur
 ** Guide d'installation
 Installation et configuration d'IEDmacs.
@@ -166,11 +182,124 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
    document PDF seront crée automatiquement.
   
 ** Guide de référence
-   Description détaillée de chaque fonctionnalité du système,
-   utilisation avancée et cas d'usage spécifiques.
+Description détaillée de chaque fonctionnalité du système,
+utilisation avancée et cas d'usage spécifiques.
+*** Explication de la barre de commande
+
+La bar de commande est décrite dans le fichier /init.el/ avec
+~mode-line~. Pour plus de détail voir la section correspondante dans
+la documentation système.
+
+La signification de chacune des
+indications est décrite ci-dessous en partant de la gauche :
+- La première lettre indique le mode d'édition "E" pour /emacs/, "V"
+  pour /vim/ et "I" pour le mode d'insertion de Vim.
+- Les deux lettres suivantes correspondent au mode d'écriture
+  (~input-mode~) avec "FR" pour le clavier français et "EN" pour le
+  clavier anglais. C'est le clavier anglais qui est ouvert par
+  défaut. Le clavier français est nécessaire pour écrire avec les
+  accents mais vraiment tout pourri lorsqu'il faut écrire des chiffres
+  ou des symboles. Désolé pour cela.
+- Ensuite la date et l'heure sont affichés. Il est possible d'ajouter
+  une seconde horloge en recopiant la partie de code correspondante et
+  en ajoutant la zone comme suit ~"%H:%M " (current-time)
+  "Europe/Berlin"~
+- Le nom du buffer ouvert qui correspond aussi au nom du
+  fichier ouvert est indiqué en caractère gras coloré.
+- Et enfin les deux derniers chiffres séparer par ":" représente à
+  gauche le numéro de ligne et à droite la colonne ou position du
+  curseur sur la ligne.
+
+*** Lire un document PDF
+
+C'est le paquet ~pdf-tool~ qui est utilisé. Ce paquet permet de
+visualiser et annoter un document PDF directement dans l'IEDmacs. Il
+est aussi très utile lors de l'export de devoir, car la commande ~C-v
+C-e l o~ permet d'ouvrir le document directement dans l'IEDmacs après
+son export, et ainsi de vérifier ou non sa conformité avec ses
+attentes.
+
+- ~+~ ou ~-~ pour le zoom avant et arrière
+- ~H~ pour ajuster en hauteur
+- ~W~ pour ajuster en largeur
+- ~P~ pour ajuter à la page
+- ~n~ page suivante
+- ~p~ page précédente
+- ~Ctrl-n~ pour descendre dans la page
+- ~Ctrl-p~ pour monter dans la page
+- ~o~ pour afficher la table de matière
+- ~Alt-g g~ pour sauter à une page indiquée
+
+Pour plus d'informations pour l'instant consulté le dépôt Github du
+paquet en anglais : [[https://github.com/vedang/pdf-tools/tree/30b50544e55b8dbf683c2d932d5c33ac73323a16?tab=readme-ov-file#view-and-navigate-pdfs][git repository]].
+  
+*** Les Thèmes
+Il existe beaucoup de thèmes et chacun choisit ou modifie généralement
+le sien selon ses préférences. Pour l'IEDmacs c'est le thème crée par
+"Prot" (voir "Les Oracles"). Il a été choisi pour son confort de
+lecture, aussi bien en mode sombre et clair.
+
+Voici quelques commandes utile pour le thème:
+- ~Alt-x load-theme~ pour choisir un autre thème
+- ~Alt-x modus-theme-select~ pour choisir un autre thème parmis le
+  thème "modus" de Prot.
+- ~Alt-x my-modus-themes-select~ pour passer du mode sombre au mode
+  clair.
+
+Pour plus de faciliter vous pouver créer des raccourcis vers ces
+fonctions.
+
+*** Faire une recherche
+
+Pour faire une recherche, c'est le paquet "swiper" est utilisé :
+- Utiliser la commande ~Ctrl-s~ ouvrir Swiper. Une fenêtre apparaîtra
+  dans la barre de commande.
+- Taper le mot recherché, puis naviguer dans la liste de choix avec
+  la ~Ctrl-n~ pour descendre et ~Ctrl-p~ pour monter.
+- Une prévisualisation de la recherche et de l'emplacement concerné
+  sera visible dans le buffer.
+- Appuyer sur Entrée pour selectionner. Cela fermera la fenêtre et
+  déplacera le curseur à l'endroit choisi.
+
+*** LLM
+
+Le paquet ~gptel~ fournit un moyen d'envoyer des prompts directement à
+partir d'un buffer dans Emacs. Pour activer GPTel, vous pouvez ajouter
+le bloc de code correspondant à votre fichier ~init.el~.
+
+Pour plus de détails sur le bloc à ajouter, reportez-vous à la section
+"GPTel" dans le manuel d'utilisation.
+
+**Activation de GPTel**
+
+Après l'installation du paquet, vous pouvez lancer GPTel en entrant
+~M-x gptel~.
+
+**Envoi de Prompts**
+
+Pour envoyer un prompt, utiliser ~M-x RET~ ou la commande ~M-x
+gptel-send~.
+
+**Accès au Menu GPTel**
+
+Le menu GPTel vous permet de modifier divers paramètres. Pour accéder,
+utiliser la commande ~M-x gptel-menu~
+
+Notez que toutes les commandes mentionnées ci-dessus doivent être
+saisies dans la minibuffer d'Emacs.
+
+Pour plus d'informations sur l'utilisation de GPTel, consulter la
+documentation complète du paquet. ([[eww:https://github.com/karthink/gptel][GitHub]])
+
+*** eww - Emacs Web Wowser
+
+~Ctrl-c Ctrl-o~ ouvrir un lien
+
 ** Notes de version
    Informations sur les changements importants.
 *** nom des versions
+Voici les noms suggérés pour les prochaines versions. Il y a de quoi
+voir venir, et encore de longues années devant pour l'IEDmacs.
 
 1. Apollon Funky
 2. Héra Cyber
@@ -192,6 +321,15 @@ Pour la liste complète, aller voir sur la [[https://www.gnu.org/software/emacs/
 18. Shiva Néon
 19. Hestia Techno
 20. Benzaiten Globo
+
+**Apollon Funky**
+- *0.0.0* Première version Apollon Funky, Novembre 2024
+- *0.3.0*: which-key menu rendu visible
+- *0.4.0*: pdf-tools, barre de commande modifiée
+
+**Hera Cyber**
+- *1.0.0*: optimisation du démarrage, gptel, Fichier récent (prev. fin
+  déc. 2024)
    
 ** Carte de référence rapide
    Aide-mémoire des commandes et raccourcis clavier les plus utilisés.
@@ -221,7 +359,7 @@ fichier "init.el" en utilisant la commande ~head 10
 
 #+begin_src emacs-lisp :tangle "init.el"
   ;; IDEmacs by Emacs, un IDE pour l'IED.
-  ;; VERSION : Apollon Funky 0.3.0
+  ;; VERSION : Apollon Funky 0.4.0
   ;; LICENCE : GPLV3
 #+end_src
 
@@ -241,10 +379,16 @@ l'ouverture mais aussi tout au long de son utilisation.
 
      ;; Lancer le buffer de démarrage
      (add-hook 'emacs-startup-hook 'iedmacs-startup-buffer)
+
+     ;; Supprimer le clignotement du curseur
+     (blink-cursor-mode -1)
+
+     ;; Supprimer la barre de défilement
+     ;; Elle n'est ni bien pratique ni bien jolie
+     (scroll-bar-mode -1)
 #+end_src
 
 *** Buffers personnalisés
-
 **** Startup Buffer
 
 #+begin_src emacs-lisp :tangle "init.el"
@@ -315,7 +459,7 @@ l'ouverture mais aussi tout au long de son utilisation.
         (insert "\n\n")
 
         ;; Mot de la fin
-        (insert "Pour plus d'information sur la configuration de l'IEDmacs, vous pouvez vous référer au fichier: ")
+        (insert "Pour plus d'information sur l'utilisation et la configuration de l'IEDmacs, vous pouvez vous référer au fichier: ")
         (insert-text-button "iedmacs.org\n"
                     'action (lambda (_) (find-file "~/.emacs.d/iedmacs.org"))
                     'follow-link t) 
@@ -324,8 +468,36 @@ l'ouverture mais aussi tout au long de son utilisation.
         (setq buffer-read-only t))
       ;; Afficher le buffer 
       (switch-to-buffer buffer)))
-
 #+end_src
+
+Quelque chose de plutôt sympa qu'il est possible de rajouter à la page
+d'accueil, c'est la liste des derniers fichiers ouverts à
+l'ouverture. Ceci permet de retrouver rapidement les fichiers sur
+lequel on travaillait.
+
+Pour ce faire il suffit d'insérer le code suivant à peu près où vous
+voulez, mais à titre d'exemple, disons juste avant la ligne
+";;Configurer le buffer en mode read-only" dans le bloc ci-dessus.
+
+#+begin_src 
+;; Section des fichiers récents avec des liens cliquables
+(insert "\n" (propertize "Fichiers récents" 'face 'bold) "\n\n")
+(require 'recentf)
+(recentf-mode 1)
+(let ((recent-files (cl-subseq recentf-list 0 (min 5 (length recentf-list))))) ;; 5 derniers fichiers
+    (dolist (file recent-files)
+    ;; Création d'une fermeture (closure) pour capturer correctement 'file'
+    (insert-button (file-name-nondirectory file) ;; Affiche le nom du fichier
+                    'action `(lambda (_)
+                                (find-file ,file)) ;; Capture la valeur avec ',file
+                    'follow-link t
+                    'help-echo (concat "Ouvrir : " file)) ;; Info-bulle
+    ;; Afficher le chemin complet abrégé en gris clair
+    (insert "    " (propertize (abbreviate-file-name file) 'face 'shadow) "\n")))
+#+end_src
+
+La fonction est aussi accessible en utilsant la commande ~Alt-x
+recentf-open-files~.
 
 **** Modèle de devoir
 
@@ -356,7 +528,8 @@ l'ouverture mais aussi tout au long de son utilisation.
       (insert " 1. Remplacer les blocks indiqués par [] par vos informations\n")
       (insert " 2. Rédiger votre devoir en utilisant la synthaxe Orgmode\n")
       (insert " 3. Enregister votre devoir avec la commande " (propertize "Ctrl-x Ctrl-s" 'face 'bold)".\n")
-      (insert " 4. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir votre fichier en LaTex puis pour créer le pdf correspondant.\n")
+      (insert " 4. Une fois terminé, utilisez la commande " (propertize "Ctrl-c Ctrl-e l p" 'face 'bold)" pour convertir\n")
+      (insert "    votre fichier en LaTex puis pour créer le pdf correspondant.\n")
       ;; Basculer vers le nouveau modèle
       (switch-to-buffer buffer))))
 #+end_src
@@ -425,44 +598,91 @@ chapitres.
       (switch-to-buffer buffer)))
 #+end_src
 
-*** Command bar
+*** Barre de commande
+
+Le bloc ci-dessous permet de controler l'apparance de la barre de
+commande en bas de la fenêtre.
 
 #+begin_src emacs-lisp :tangle "init.el"
-     (setq display-time-day-and-date t) ;; Display the day and date
-     (display-time-mode 1) ;; Enable time display in mode line
+  (display-time-mode 1)
+  (setq display-time-day-and-date t)
+  (setq column-number-mode t)
+  (setq column-line-mode t)
 
-     (setq-default mode-line-format
-                   (list
-                    '(:eval
-                      (propertize
-                       (format-time-string
-                        "  %-d/%-m %H:%M " (current-time))
-                       'face 'shadow)) 
-                    'default-directory
-                    '(:eval (propertize (format-mode-line
-                                         mode-line-buffer-identification)
-                                        'face 'success))
-                    '(:eval (if current-input-method
-                                (propertize "⌨ " 'face 'warning)
-                              ""))
-                    ))
+  (setq-default mode-line-format
+                (list
+                 '(:eval (propertize
+                          (if (and (boundp 'evil-state)
+                                (eq evil-state 'normal) )
+                            " V " ;; VIM
+                            (if (and (boundp 'evil-state)
+                                    (eq evil-state 'insert) )
+                            " I " ;; Insert
+                            " E ") ) ;; Emacs
+                        'face 'cursor) )
+                 '(:eval (if current-input-method
+                            (propertize "FR" 'face 'italic)
+                          (propertize "EN" 'face 'italic) ) )
+                 '(:eval
+                     (propertize
+                     (format-time-string
+                     "  %-d/%-m %H:%M " (current-time) )
+                     'face 'shadow) ) 
+                 ;;'default-directory
+                 '(:eval (propertize (format-mode-line
+                                     mode-line-buffer-identification)
+                                     'face 'success) )
+                 '(:eval (propertize " %l:%c " 'face 'shadow))
+                 ) ) 
 
-     ;; Define a function to only active setting when buffer is active
-     (defun mode-line-window-selected-p ()
-       "Return non-nil if we're updating the mode line for the selected window.
-                     This function is meant to be called in `:eval' mode line
-                     constructs to allow altering the look of the mode line depending
-                     on whether the mode line belongs to the currently selected window
-                     or not."
-       (let ((window (selected-window)))
-         (or (eq window (old-selected-window))
-             (and (minibuffer-window-active-p (minibuffer-window))
-                  (with-selected-window (minibuffer-window)
-                    (eq window (minibuffer-selected-window)))))))
 
 #+end_src
 
+Il est possible de rajouter bien d'autre option, dont l'indiquation de
+la branche du dépôt git. Pour cela ajouter le code suivant à l'endroit
+voulu :
+
+#+begin_src emacs-lisp
+'(:eval (propertize (replace-regexp-in-string
+                    "^ Git:" "" vc-mode )
+                    'face 'warning) )
+#+end_src
+
+La fonction `mode-line-window-selected-p` permet d'indiquer quel
+buffer est actif lorsqu'il y a plusieurs fenêtres ouvertes.
+
 #+begin_src emacs-lisp :tangle "init.el"
+  ;; Define a function to only active setting when buffer is active
+  (defun mode-line-window-selected-p ()
+      (let ((window (selected-window)))
+      (or (eq window (old-selected-window))
+          (and (minibuffer-window-active-p (minibuffer-window))
+                  (with-selected-window (minibuffer-window)
+                  (eq window (minibuffer-selected-window)))))))
+#+end_src
+
+*** Backup
+
+Solution trouvée sur [[https://stackoverflow.com/questions/2680389/how-to-remove-all-files-ending-with-made-by-emacs][Stackoverflow]], et modifié avec une proposition
+alternative du manuel d'Emacs, chapitre [[eww:https://www.gnu.org/software/emacs/manual/html_node/emacs/Backup.html][Backup]]. 
+
+#+begin_src emacs-lisp :tangle "init.el"
+;;- (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+(setq backup-directory-alist '(("." . ".~")) ;;+
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
+#+end_src
+
+
+*** Les packages
+
+Code utilisé précédemment jusqu'au <2024-12-17 Tue>.
+
+#+begin_src emacs-lisp 
   ;; Install MELPA package
   (require 'package)
   (setq package-enable-at-startup nil)
@@ -476,13 +696,85 @@ chapitres.
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
+#+end_src
 
+Remplacé le <2024-12-17 Tue> le code d'Andres Gasson ([[https://github.com/frap/emacs-literate][GitHub]]). Cela
+améliore indiscutablement la vitesse de chargement d'Emacs à
+l'ouverture.
+
+Le premier bloc configure les options de chargement des paquets
+Emacs, appelé "[[eww:https://elpa.gnu.org/][Elpa]]", en spécifiant un répertoire personnalisé pour
+les paquets, et en assurant l'initialisation du fichier de
+configurations des paquets. Il vérifie également également si le
+répertoire personnalisé des paquets existe déjà, et le crée s'il
+n'existe pas.
+
+#+begin_src emacs-lisp :tangle "init.el"
+;; Configuration des options de chargement des paquets Elpa
+(eval-and-compile
+  (setq load-prefer-newer t
+        package-user-dir "~/.emacs.d/elpa"
+        package--init-file-ensured t
+        package-enable-at-startup nil)
+
+  (unless (file-directory-p package-user-dir)
+    (make-directory package-user-dir t)))
+#+end_src
+
+En utilisant cette approche, on s'assure que les options de chargement
+des paquets Emacs sont correctement configuées dès le début de
+l'exécution d'Emacs. Cela permet de personnaliser le répertoire de
+stockage des paquets, d'assurer l'initialisation correcte des
+configurations des paquets, et de garantir que le répertoire
+personnalisé des paquets est crée si nécessaire, ce qui aide à
+organiser et gérer efficacement les dépendances des paquets Emacs.
+
+#+begin_src emacs-lisp :tangle "init.el"
+(eval-and-compile
+  (setq load-path (append load-path (directory-files package-user-dir t "^[^.]" t))))
+
+;;(setq use-package-always-defer t
+;;      use-package-verbose t)
+
+(eval-when-compile
+  (require 'package)
+
+  (unless (assoc-default "melpa" package-archives)
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
+  (unless (assoc-default "org" package-archives)
+    (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t))
+
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+  (unless (package-installed-p 'bind-key)
+    (package-refresh-contents)
+    (package-install 'bind-key))
+  (require 'use-package)
+  (require 'bind-key)
+  (setq use-package-always-ensure t))
+#+end_src
+
+*** Try - essayer un package sans l'installer
+
+Le package ~try~ permet d'essayer un package sans l'installer. Pour
+plus de détail voir le [[https://github.com/larstvei/Try][dépôt GitHub]]. Le package sera enregistré dans
+un fichier temporaire.
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: try
   ;; PURPOSE: to try package without install them
   (use-package try
-    :defer t
     :ensure t)
+#+end_src
 
+*** which-key - menu du choix des touches
+
+Which-key permet de visualiser les raccourcis possibles d'une commande
+en cours. Ce paquet sera inclue dans la version 30 de emacs.
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: whick-key
   ;; PURPOSE: to help to find next key, using a
   ;; menu at the bottom of the window
@@ -491,7 +783,10 @@ chapitres.
     :config (which-key-mode))
 #+end_src
 
-*** Theme
+*** Le thème
+Il existe beaucoup de thèmes et chacun choisit ou modifie le sien
+selon ses préférences. Pour l'IEDmacs c'est le thème crée par "Prot"
+(voir "Les Oracles"). Il a été choisi pour son confort.
 
 #+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: modus-themes
@@ -523,7 +818,18 @@ chapitres.
   ;; PACKAGE NAME: ace-window
   ;; PURPOSE: select a window more easily
   (global-set-key (kbd "M-o") 'ace-window)
+#+end_src
 
+*** Swiper - Prévisualisation de la recherche
+
+Swiper facilite la recherche dans un document. Swiper utilise deux
+packages appelés ~Ivy~ et ~Counsel~ qui permettent une saisie
+"générique", c'est-à-dire que quelques lettres permettent de trouver
+l'équivalent dans le texte ou un liste de fichier.
+
+Pour plus d'information, consulter le dépôt [[https://github.com/abo-abo/swiper/tree/8133016ab1b37da233e6daaab471e40abf0f7ba9][GitHub]].
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; PACKAGE NAME: swiper
   ;; PURPOSE: facilitate search in a document
   (use-package counsel
@@ -578,7 +884,7 @@ chapitres.
   (evil-set-leader 'normal (kbd "SPC"))
   (evil-define-key 'normal 'global (kbd "<leader>bs") 'save-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bb") 'switch-to-buffer)
-  (evil-define-key 'normal 'global (kbd "<leader>ff") 'find-file)
+  (evil-define-key 'normal 'global (kbd "<leader>ff") 'counsel-find-file)
   (evil-define-key 'normal 'global (kbd "<leader>ts") 'modus-themes-select) 
   (evil-define-key 'normal 'global (kbd "<leader>tt") 'my-modus-themes-toggle) 
   (evil-define-key 'normal 'global (kbd "<leader>1") 'delete-other-windows) 
@@ -597,12 +903,31 @@ chapitres.
   (evil-define-key 'normal 'global (kbd "<leader>l") 'org-insert-link)
 #+end_src
 
+*** pdf-tools
+Paquet permettant de visualiser et modifier les fichiers PDF. Utiliser
+également lors de l'export avec la commande ~C-v C-e l o~ dont le "o"
+final signifie "open", et qui ouvre le PDF fraîchement créé. Pour plus
+d'information sur son utilisation voir le manuel utilisateur.
+
+#+begin_src emacs-lisp :tangle "init.el"
+  (use-package pdf-tools
+    :ensure t
+    :config
+    (pdf-tools-install) )
+#+end_src
+
+*** ido
+
 #+begin_src emacs-lisp :tangle "init.el"
   ;; ido to easy find the names of files, docs, when searching
-  (setq indo-enable-flex-matching t)
+  ;;(setq indo-enable-flex-matching t) ;; unavailable
   (setq ido-everywhere t)
   (ido-mode 1)
+#+end_src
 
+*** alias
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; better visualization of buffer-list
   (defalias 'list-buffers 'ibuffer)
   ;;(defalias 'list-buffers 'ibuffer-other-window)
@@ -611,9 +936,58 @@ chapitres.
   (setq default-directory "~/")
 
   ;; to display line number
-  (global-display-line-numbers-mode)
-  ;;(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  ;; (global-display-line-numbers-mode)
+#+end_src
 
+*** gptel
+
+Ajouter des LLM comme Chatgpt ou Gemini à Emacs à quelque chose d'un
+peu obscène, dans le sens où la philosophie d'Emacs est d'être 100%
+libre, et que ces modèles et les sociétés qui les exploitent sont à
+l'opposé de cette philosophie, je pense, même si au moins l'une
+d'entre elle en tous les cas, se repose largement sur les logiciels
+libres pour son développement, mais en profite pour collecter et
+utiliser massivement nos données, ce pourquoi [[eww:https://en.wikipedia.org/wiki/Richard_Stallman][Richard Stallman]], l'un
+des auteurs de GNU Emacs se bat avec ferveur depuis de nombreuses
+années.
+
+Pour ce donner un brin de bonne conscience et d'éthique qui ne
+laissera personne vraiment dupe, l'activation de ce paquet ne sera
+donc pas automatique, et vous devrez l'activer vous même en toute
+connaissance de cause, concernant la collecte et l'utilisation de vos
+données, ainsi que de l'empreinte carbone désastreuse de ces modèles.
+
+#+begin_src emacs-lisp
+ #+begin_src emacs-lisp :tangle "~/.emacs.d/init.el"
+  (use-package gptel
+    :ensure t
+    :config
+    (load "/home/aretaro/.emacs.d/idemacs-modules/idemacs-gptel.el") )
+
+  ;; required to display gptel-menu
+  (setq package-install-upgrade-built-in t)
+  (progn (unload-feature 'seq t) (require 'seq))
+#+end_src
+
+
+Pour le bloc suivant il est recommander de créer un module particulier
+pour vos clés API, afin d'éviter de les partager si vous souhaitez
+mettre votre fichier ~init.el~ sur GitHub par exemple.
+
+Pour enchevêtrer le bloc ci-dessous, utilser un lien du type :
+~:tangle "~/.emacs.d/iedmacs-modules/iedmacs-gptel.el" :mkdirp yes~ à
+placer après ~#+begin_src emacs-lisp~ sur la même ligne.
+
+#+begin_src emacs-lisp 
+(setq gptel-api-key "<API_KEY>")
+(gptel-make-gemini "Gemini" :key "<API_KEY>" :stream t)
+#+end_src
+
+Pour plus d'information, voir le dépôt [[https://github.com/karthink/gptel?tab=readme-ov-file#usage][GitHub]].
+
+*** Org-mode
+
+#+begin_src emacs-lisp :tangle "init.el"
   ;; Org mode stuff
   (use-package org-bullets
     :defer t
@@ -637,35 +1011,7 @@ chapitres.
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 #+end_src
 
-#+begin_src emacs-lisp :tangle "init.el"
-     ;;==== AUTOMATICALLY ADD BY EMACS ======
-
-     (custom-set-variables
-      ;; custom-set-variables was added by Custom.
-      ;; If you edit it by hand, you could mess it up, so be careful.
-      ;; Your init file should contain only one such instance.
-      ;; If there is more than one, they won't work right.
-      '(custom-safe-themes
-        '("c7a926ad0e1ca4272c90fce2e1ffa7760494083356f6bb6d72481b879afce1f2" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
-      '(package-selected-packages '(which-key try use-package)))
-     (custom-set-faces
-      ;; custom-set-faces was added by Custom.
-      ;; If you edit it by hand, you could mess it up, so be careful.
-      ;; Your init file should contain only one such instance.
-      ;; If there is more than one, they won't work right.
-      '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
-#+end_src
-
 ** A faire
-*** Ajouter pdf-tools
-#+begin_src emacs-lips
-  (use-package pdf-tools
-    :ensure t
-    :config (pdf-tools-install))
-
-  (use-package org-pdfview
-    :ensure t)
-#+end_src
 
 * Recommandations
 * Sources
